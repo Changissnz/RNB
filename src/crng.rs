@@ -133,21 +133,23 @@ pub struct IRFDNG {
 
 pub fn build_IRFDNG(rf:Vec<RFunc>,rfs:FShift,rfd:Vec<RFunc>,rfds:FShift,
     z:i32,range:(i32,i32)) -> IRFDNG {
-    assert(z >= range.0 && z <= range.1);
+    assert!(z >= range.0 && z <= range.1);
     IRFDNG{rf:rf,rfs:rfs,rfd:rfd,rfds:rfds,i:0,j:0,k:0,z:z,range:range}
 }
 
-// CAUTION:
 pub fn mod_in_range(x:i32,r:(i32,i32)) -> i32 {
-    assert(r.0 < r.1);
+    assert!(r.0 < r.1);
     if x >= r.0 && x <= r.1 {
         return x;
     }
 
     if x > r.1 {
-        return r.0 + (x - r.1);
+        // get difference
+        let d = (x - r.1) % (r.1 - r.0);
+        return r.0 + d;
     } else {
-        return r.1 - (r.0 - x); 
+        let d = (r.0 - x) % (r.1 - r.0);
+        return r.1 - d; 
     }
 }
 
@@ -156,13 +158,14 @@ Q: the smallest integer i that must be stored?
 A: for shifts x and y, if x divides y or y divides x,
     max(x,y), o.w. i. 
 */
-impl IPRNG {
+impl IRFDNG {
 
-    pub fn next(&mut self) {
+    pub fn next(&mut self) -> i32 {
         let x = self.z;
         self.shift_rfunc();
         self.alter_rfunc();
-        self.z = mod_in_range(self.rf[self.j].apply(self.z),self.range.clone());
+        self.z = mod_in_range(self.rf[self.j].apply(self.z as f32).round() as i32,
+                    self.range.clone());
         x
     }
 
@@ -175,10 +178,30 @@ impl IPRNG {
     pub fn alter_rfunc(&mut self) {
         if self.i % self.rfds.i_activation == 0 {
             // modify rfunc
-            self.rf[self.j] = self.rf[self.j] + self.rfd[self.k];
+            self.rf[self.j] = self.rf[self.j].clone() + self.rfd[self.k].clone();
 
             // shift to next derivative
             self.k = (self.k + self.rfds.shift) % self.rfd.len();
         }
     }
+}
+
+
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test__mod_in_range() {
+        let r = (-23,51);
+        let y = -102;
+        let x = mod_in_range(y,r);
+        assert!(x == 46);
+    
+        let y2 = 200;
+        let x2 = mod_in_range(y2,r);
+        assert!(x2 == -22);
+    }
+
 }
