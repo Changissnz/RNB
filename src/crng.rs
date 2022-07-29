@@ -166,6 +166,7 @@ impl IRFDNG {
         self.alter_rfunc();
         self.z = mod_in_range(self.rf[self.j].apply(self.z as f32).round() as i32,
                     self.range.clone());
+        self.i += 1;
         x
     }
 
