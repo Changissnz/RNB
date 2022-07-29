@@ -1,2 +1,7 @@
 /target
-/src
+/src/crng.rs
+/src/q_struct.rs
+/src/rdata.rs
+/src/rnetwork.rs
+/src/rnode.rs
+/src/df.rs
