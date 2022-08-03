@@ -1,14 +1,15 @@
 use crate::df; 
 use crate::rndb;
 use std::collections::HashMap;
+use std::fmt;
 
+#[derive(Clone)]
 pub struct RNBNode {
     // identifier
     pub idn: usize,
 
     // delegator function 
     pub db: rndb::RNDB,
-    // dp: Option<df::DPath>,
     pub neighbors: Vec<usize>,
 
     // resistance value:
@@ -20,6 +21,15 @@ pub struct RNBNode {
 pub fn build_RNBNode(idn:usize,db:rndb::RNDB,neighbors:Vec<usize>,resistance:f32) -> RNBNode {
     RNBNode{idn:idn,db:db,neighbors:neighbors,resistance:resistance}
 }
+
+impl fmt::Display for RNBNode {
+
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        let mut q = &format!("node {}\nneighbors {:?}\nresistance {}",self.idn,self.neighbors,self.resistance);
+        write!(f, "{}", q)
+    }
+}
+
 
 impl RNBNode {
 

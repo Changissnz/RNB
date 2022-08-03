@@ -48,3 +48,15 @@ pub struct DelegationRecord {
     pub d2: HashMap<usize,HashMap<usize,usize>>
 }
 
+
+impl fmt::Display for DelegationRecord {
+
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        let mut s1 = format!("average contradiction\n{:?}\n",self.d1);
+        let mut s2 = format!("delegation frequency\n{:?}\n",self.d2);
+        let mut q = "".to_string();
+        q.push_str(&s1);
+        q.push_str(&s2);
+        write!(f, "{}", q)
+    }
+}

@@ -42,6 +42,7 @@ impl RNBENV {
         let da = self.rn.nodes[eni].update_sat_map(qi,qr,na,self.rn.c);
         if verbose {
             println!("delegation answer: {}",da);
+            println!("DB after delegation:\n*************\n{}\n******************\n\n",self.rn.nodes[eni].db);
         }
 
         // fetch Q ans

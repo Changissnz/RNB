@@ -30,8 +30,9 @@ pub fn RData_soln__execute_query_on_node_10() -> (Array2<f32>,Array2<usize>,Arra
     let mut ysol:Array2<usize> = Array2::zeros((11,5));
     let mut zsol:Array2<i32> = Array2::zeros((11,5));
     let d = Dim((1,0));
-    xsol[d] = 1.; 
-    ysol[d] = 50; 
+    xsol[d] = 0.; 
+    ysol[d] = 1;
+    zsol[d] = 50; 
     (xsol,ysol,zsol)
 }
 
@@ -44,7 +45,7 @@ mod tests {
         // case: n0
         let mut r = rnb_env::sample_RNBENV1();
         r.execute_query_on_node(0,0,false);
-        let mut n: &rnode::RNBNode = r.fetch_node(0);
+        let mut n = r.fetch_node(0);
         assert_eq!(100.,(*n).resistance); 
 
         let (x,y,z) = RData_soln__execute_query_on_node_00();
@@ -68,7 +69,7 @@ mod tests {
         // case: n1
         r = rnb_env::sample_RNBENV1();
         r.execute_query_on_node(1,0,false);
-        n = r.fetch_node(2);
+        n = r.fetch_node(1);
         assert_eq!(100.,(*n).resistance); 
         q = r.fetch_QStruct();
         let (x3,y3,z3) = RData_soln__execute_query_on_node_10();
