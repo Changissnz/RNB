@@ -11,10 +11,7 @@ mod rnb_env;
 mod ans;
 mod rnb_env_demo;
 
+use ndarray::{arr1,arr2,Array1,Array2,Dim,s};
+
 fn main() {
-        
-    // case: n = 0, q = 0
-    let mut rn = rnb_env::sample_RNBENV1();
-    rn.node_delegation_on_query(0,0,true);
-    rn.prompt_node_delegate_answers(0,0,true);    
 }

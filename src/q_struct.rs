@@ -27,7 +27,6 @@ pub fn build_QStruct(qs:Vec<Q>,r:usize) -> QStruct {
 impl QStruct {
 
     pub fn response_to_nodeset(&mut self,srcidn: usize, ns:HashSet<usize>,qi:usize,nodeset_ans:i32) {
-        
         // log the response into data
         self.rd.log_node_response(srcidn,ns,qi,self.qs[qi].ans_range.clone(),self.qs[qi].qa.clone(),nodeset_ans);
     }

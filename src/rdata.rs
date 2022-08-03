@@ -11,11 +11,11 @@ pub struct QData {
     // row is node
     // column is question
         // rate of contradiction
-    x: Array2<f32>,
+    pub x: Array2<f32>,
         // duplicates of question asked
-    y: Array2<usize>,
+    pub y: Array2<usize>,
         // mean answers of node
-    z: Array2<i32> 
+    pub z: Array2<i32> 
 
 }
 
@@ -32,14 +32,14 @@ impl QData {
     /*
     */ 
     pub fn average_ans_to_question(&mut self,qi:usize,ansrange:(i32,i32)) -> i32 {
-        let r1:Array1<f32> = self.x.slice(s![..,qi]).to_owned().into_iter().map(|q| q as f32).collect();
+        let r1:Array1<f32> = self.z.slice(s![..,qi]).to_owned().into_iter().map(|q| q as f32).collect();
         let r2:Array1<f32> = self.y.slice(s![..,qi]).to_owned().into_iter().map(|q| q as f32).collect();
         let a:i32 = 0; 
         let s = r2.sum();
 
         // case: no questions asked, use average of range
         if s == 0. {
-            return ((ansrange.1 - ansrange.0) as f32 / 2.).round() as i32;
+            return ((ansrange.1 + ansrange.0) as f32 / 2.).round() as i32;
         }
 
         ((r1 * r2).sum() / s).round() as i32
@@ -52,9 +52,12 @@ impl QData {
         assert!(nidns.len() > 0);
         let r = if wanted_resp.is_none() {self.average_ans_to_question(qi,ansrange.clone())} else {wanted_resp.unwrap()};
         
+        ////println!("logging node response");
+        ////println!("Q answer: {}\tnode response: {}",r,resp);
+
         // calculate contradiction
         let a = ans::invert_calculate_ans(ansrange,r,resp);
-
+        
         // distribute contradiction among all pertinent nodes
         let da = a / nidns.len() as f32;
         for n in nidns.into_iter() {
@@ -64,9 +67,9 @@ impl QData {
         let d = Dim((srcidn,qi));
         self.y[d] += 1; 
 
-        // modify mean answer of node  
-        self.z[d] = ((self.z[d] as f32 * self.y[d] as f32 + resp as f32) / 
-                    (self.y[d] + 1) as f32).round() as i32;
+        // modify mean answer of node
+        self.z[d] = ((self.z[d] as f32 * (self.y[d] - 1) as f32 + resp as f32) / 
+                    (self.y[d] as f32).round()) as i32;
         da
     }
 

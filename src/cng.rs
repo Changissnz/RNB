@@ -186,22 +186,16 @@ impl IRFDNG {
         if self.i % self.rfs.i_activation == 0 {
             let j = self.j; 
             self.j = (self.j + self.rfs.shift) % self.rf.len();
-            //println!("shifting j: {} ->{}",j,self.j);
         }
     }
 
     pub fn alter_rfunc(&mut self) {
         if self.i % self.rfds.i_activation == 0 {
-                        // shift to next derivative
+            // shift to next derivative
             self.k = (self.k + self.rfds.shift) % self.rfd.len();
-            //println!("SHIFT k: {:?}",self.rf[self.j].v);
             
             // modify rfunc
             self.rf[self.j] = self.rf[self.j].clone() + self.rfd[self.k].clone();
-            
-            //println!("\t\t{:?}",self.rf[self.j].v);
-            // shift to next derivative
-            //self.k = (self.k + self.rfds.shift) % self.rfd.len();
         }
     }
 }

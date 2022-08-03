@@ -22,7 +22,6 @@ impl RNBENV {
         // prompt node 
     }
 
-
     pub fn execute_query_on_node(&mut self,ni:usize,qi:usize,verbose:bool) {
         // have node perform delegation trial
         self.node_delegation(ni,qi,verbose);
@@ -80,13 +79,16 @@ impl RNBENV {
         // update node resistance
         let rd = (qa - na).abs() as f32;
         self.rn.nodes[eni].resistance -= rd; 
-        
+
+        if verbose {
+            println!("node {} answer: {}",ni,na); 
+        }
+
         if verbose {
             println!("resistance: {}",rd);
         }
 
         // update node resistance map
-
             // case: node delegated
         if node_del {
             return; 
@@ -202,6 +204,10 @@ impl RNBENV {
     pub fn fetch_node(&mut self,ni:usize) -> &rnode::RNBNode {
         let eni = self.rn.node_idn_to_index(ni);
         &self.rn.nodes[eni]
+    }
+
+    pub fn fetch_QStruct(&mut self) -> &mut q_struct::QStruct {
+        &mut self.q
     }
 
 }
