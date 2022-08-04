@@ -5,6 +5,7 @@ use std::ops::{Add, Sub};
 use std::collections::HashSet;
 use crate::std_rng;
 
+#[derive(Clone)]
 pub struct FShift {
     // index activation
     pub i_activation:usize,
@@ -118,7 +119,8 @@ impl Add for RFunc {
 Integer Ring Function Deterministic Number Generator. 
 
 A number generator that converges to a pattern of numbers.
-*/ 
+*/
+#[derive(Clone)]
 pub struct IRFDNG {
     // ring function
     rf: Vec<RFunc>,
@@ -337,10 +339,9 @@ pub fn std_random_FShift() -> FShift {
     FShift{i_activation:s1,shift:s2}
 }
 
-/*
-values in range [-1000,1000]
-*/
-pub fn std_random_IRFDNG() -> IRFDNG {
+/// generates a pseudo-range IRFDNG that outputs values 
+/// in the range r
+pub fn std_random_IRFDNG(r:(i32,i32)) -> IRFDNG {
 
     // each RFunc vec will have length 2 <= x <= 10
     let s1 = std_rng::random_i32_in_range((2,10));
@@ -357,9 +358,9 @@ pub fn std_random_IRFDNG() -> IRFDNG {
         v2.push(std_random_RFunc());
     }
 
-    let v = std_rng::random_i32_in_range((-1000,1000));
+    let v = std_rng::random_i32_in_range(r.clone());
     build_IRFDNG(v1,sample_FShift1(),
-        v2,sample_FShift2(),v,(-1000,1000))
+        v2,sample_FShift2(),v,r)
 }
 
 

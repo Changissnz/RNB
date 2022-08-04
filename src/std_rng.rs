@@ -2,9 +2,8 @@
 use rand::prelude::*;
 
 /*
-std functions for prng
+std random functions
 */
-
 
 pub fn random_f32_in_range(r:(f32,f32)) -> f32 {
     let q: f32 = random();

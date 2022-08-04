@@ -1,7 +1,30 @@
 use crate::df; 
 use crate::rndb;
+use crate::ans;
+use crate::f1pattern;
+use ndarray::{Array2,Dim};
+
 use std::collections::HashMap;
 use std::fmt;
+
+/*
+calculates the default F1 answer pattern
+*/ 
+pub fn default_F1_anspattern(r: &mut RNBNode,a: &mut ans::Ansbox,qrvec:Vec<(i32,i32)>) -> f1pattern::F1P {
+
+    // gather 6 answers to each question 
+    let l = qrvec.len();
+    let mut x: Array2<i32> = Array2::zeros((l,6));
+    for i in 0..l {
+        for j in 0..6 {
+            let y = (*r).indep_ans_to_q(a,j,qrvec[i].clone());
+            x[Dim((i,j))] = y;
+        }
+    }
+
+    // form the F1P
+    f1pattern::build_std_random_F1P(x)
+}
 
 #[derive(Clone)]
 pub struct RNBNode {
@@ -15,11 +38,15 @@ pub struct RNBNode {
     // resistance value:
     // when resistance falls below 0,
     // struct instance will contradict its objective
-    pub resistance:f32
+    pub resistance:f32,
+
+    // 
+    pub f1: Option<f1pattern::F1P>
 }
 
 pub fn build_RNBNode(idn:usize,db:rndb::RNDB,neighbors:Vec<usize>,resistance:f32) -> RNBNode {
-    RNBNode{idn:idn,db:db,neighbors:neighbors,resistance:resistance}
+    assert!(resistance > 0.);
+    RNBNode{idn:idn,db:db,neighbors:neighbors,resistance:resistance,f1:None}
 }
 
 impl fmt::Display for RNBNode {
@@ -33,9 +60,26 @@ impl fmt::Display for RNBNode {
 
 impl RNBNode {
 
-    /*
-    instantiates a df::DPath used for node delegation for a question
-    */ 
+    ///answers to q by one of the following:
+    /// 1. independent node answer.
+    /// 2. fix-F1 answer.
+    pub fn ans_to_q(&mut self,a: &mut ans::Ansbox,qi:usize,qr:(i32,i32)) -> i32 {
+        if self.f1.is_none() {
+            return self.indep_ans_to_q(a,qi,qr); 
+        }
+        let mut x = self.f1.clone().unwrap();
+        let y = x.next(qi);
+        self.f1 = Some(x);
+        y
+    }
+
+    /// independent answer to q
+    pub fn indep_ans_to_q(&mut self,a: &mut ans::Ansbox,qi:usize,qr:(i32,i32)) -> i32 {
+        (*a).obj_ans(qr,self.db.ans[&qi].clone(),self.db.obj[&qi].clone())
+    }
+
+    
+    /// instantiates a df::DPath used for node delegation for a question
     pub fn delegate(&mut self,qi:usize) {
         let mut dp = df::DPath{sm:HashMap::new(),na:HashMap::new(),
             head:self.idn,next_ref:Vec::new(),dscore: None};
@@ -46,9 +90,7 @@ impl RNBNode {
         self.db = db2;
     }
 
-    /*
-    fetch all neighbors that satisfy objective
-    */ 
+    /// fetch all neighbors that satisfy objective
     pub fn delegate_one(&mut self,db: &mut rndb::RNDB,qi:usize) {
         let mut dep = (*db).delegation_path.clone().unwrap();
         dep.sm.insert(self.idn,Vec::new());

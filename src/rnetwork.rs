@@ -33,6 +33,22 @@ impl RNetwork {
         assert!(false);
         1
     }
+
+    /*
+    used in the case in which node cannot resist any more
+    */ 
+    pub fn type1_fix_node(&mut self) {
+
+    }
+
+    /*
+    used in the case to prevent a node from being a delegate
+    to another node
+    */ 
+    pub fn type2_fix_node(&mut self) {
+
+    }
+
 }
 
 pub fn sample_node_idn_map1() -> HashMap<usize,Vec<usize>> {

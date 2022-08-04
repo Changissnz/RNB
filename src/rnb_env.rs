@@ -1,6 +1,7 @@
 use crate::q_struct;
 use crate::rnetwork;
 use crate::rnode;
+use crate::f1pattern;
 use std::collections::{HashMap,HashSet};
 
 pub struct RNBENV {
@@ -14,12 +15,95 @@ pub fn build_RNBENV(q:q_struct::QStruct,rn: rnetwork::RNetwork) -> RNBENV {
 
 impl RNBENV {
 
-    // transmits query from Q to a 
-    pub fn prompt_node(&mut self) {
-        // let qi = prompt Q;
-        // let ni = prompt Q;
+    /// performs summarization on nodes that can no longer
+    /// resist and on Q
+    /// return: if network is still active
+    pub fn summarize_stats(&mut self,verbose:bool) -> bool {
+        let mut stat = true; 
+        if verbose {
+            println!("Q fuel: {}",self.q.c);
+            println!("Qdb");
+            println!("{}",self.q.rd);
+            println!("----");
+        }
+        if self.q.c <= 0 {
+            stat = false; 
+        }
 
-        // prompt node 
+        let l = self.rn.nodes.len();
+        for i in 0..l {
+            if verbose {
+                println!("{}",self.rn.nodes[i]);
+                println!("\t----"); 
+            }
+            if stat {
+                stat = self.rn.nodes[i].resistance > 0.;
+            } 
+        }
+        if verbose {
+            println!("====");
+        }
+
+        stat 
+    }
+
+    /// executes one move by Q
+    pub fn execute_Q_move(&mut self,verbose:bool) {
+        let (i,i2) = self.q.one_move();
+
+        if verbose {
+            println!("executing query {} on node {}",i.1,i.0);
+        }
+
+        // fix by F2
+        self.fix_F2(i2,verbose);
+
+        // execute the query
+        self.execute_query_on_node(i.0,i.1,verbose);
+
+        // update QStruct fuel after executing query
+        self.q.c -= 1; 
+    }
+
+    /// performs an F2 fix on node, node f.0 can no be
+    /// be a delegate
+    pub fn fix_F2(&mut self,f:Option<(usize,i32)>,verbose:bool) {
+        if f.is_none() {
+            return;
+        }
+
+        let (x1,x2) = f.unwrap();
+
+        // mark node delegate status as false
+        self.q.f2_nodes.insert(x1);
+
+        if verbose {
+            println!("\tnode {} is fixed by F2",x1);
+        }
+
+        // subtract f2 score from Q.c
+        self.q.c -= x2; 
+
+        if verbose {
+            println!("\tQ fuel is: {}",self.q.c);
+        }
+    }
+
+    /// iterates through nodes and apply F1 fix
+    /// on them.
+    pub fn fix_F1(&mut self) {
+        let l = self.rn.nodes.len();
+
+        // collect the ansrange vec 
+        let qrvec:Vec<(i32,i32)> = self.q.qs.clone().into_iter().map(|x| x.ans_range).collect();
+        for i in 0..l {
+            // case: node with no resistance not fixed yet
+            let stat = self.rn.nodes[i].f1.is_none() && self.rn.nodes[i].resistance <= 0.; 
+            if stat {
+                let mut f1 = rnode::default_F1_anspattern(&mut self.rn.nodes[i],&mut self.rn.ans_box,qrvec.clone());
+                self.rn.nodes[i].f1 = Some(f1);
+            }
+        }
     }
 
     pub fn execute_query_on_node(&mut self,ni:usize,qi:usize,verbose:bool) {
@@ -33,10 +117,12 @@ impl RNBENV {
         //// calculate dscore (resistance) for delegation
 
         // fetch node ans
+        
         let qr = self.q.qs[qi].ans_range.clone();
-        let o = self.rn.nodes[eni].db.obj[&qi].clone();
-        let ka = self.rn.nodes[eni].db.ans[&qi].clone();
-        let mut na = self.rn.ans_box.obj_ans(qr.clone(),ka,o);
+        //let o = self.rn.nodes[eni].db.obj[&qi].clone();
+        //let ka = self.rn.nodes[eni].db.ans[&qi].clone();
+        //let mut na = self.rn.ans_box.obj_ans(qr.clone(),ka,o);
+        let mut na = self.rn.nodes[eni].ans_to_q(&mut self.rn.ans_box,qi,qr.clone());
 
         // fetch delegation ans 
         let da = self.rn.nodes[eni].update_sat_map(qi,qr,na,self.rn.c);
@@ -79,7 +165,7 @@ impl RNBENV {
 
         // update node resistance
         let rd = (qa - na).abs() as f32;
-        self.rn.nodes[eni].resistance -= rd; 
+        self.rn.nodes[eni].resistance = self.rn.nodes[eni].resistance - rd; 
 
         if verbose {
             println!("node {} answer: {}",ni,na); 
@@ -166,6 +252,12 @@ impl RNBENV {
             let esi = self.rn.node_idn_to_index(e0);
             q = q[1..].to_vec();
 
+            // case: node e0 is in QStruct.f2_nodes
+            if self.q.f2_nodes.contains(&e0) {
+                l = q.len();
+                continue;
+            }
+
             // get q rnange
             let qr = self.q.qs[qi].ans_range.clone();
 
@@ -178,7 +270,8 @@ impl RNBENV {
             // add node answer if node not head
             if e0 != dp.head {
                 // let node answer
-                let ans = self.rn.ans_box.obj_ans(qr,ka,o);
+                let ans = self.rn.nodes[esi].ans_to_q(&mut self.rn.ans_box,
+                    qi,qr.clone());
                 dp.na.insert(e0,ans);
 
                 if verbose {
@@ -202,9 +295,9 @@ impl RNBENV {
         self.rn.nodes[esi0].db.delegation_path = Some(dp);
     }
 
-    pub fn fetch_node(&mut self,ni:usize) -> &rnode::RNBNode {
+    pub fn fetch_node(&mut self,ni:usize) -> &mut rnode::RNBNode {
         let eni = self.rn.node_idn_to_index(ni);
-        &self.rn.nodes[eni]
+        &mut self.rn.nodes[eni]
     }
 
     pub fn fetch_QStruct(&mut self) -> &mut q_struct::QStruct {
@@ -217,4 +310,19 @@ pub fn sample_RNBENV1() -> RNBENV {
     let q = q_struct::sample_QStruct1();
     let r = rnetwork::sample_RNBNetwork1();
     build_RNBENV(q,r)
+}
+
+/// have Respondent Network Bot run until one of the following:
+/// 1. all nodes in Respondent Network are fixed by F1.
+/// 2. Q runs out of fuel. 
+pub fn run_rnb(r: &mut RNBENV) {
+    let mut stat:bool = (*r).summarize_stats(true);
+    let mut c = 5; 
+    while stat && c > 0 {
+        (*r).execute_Q_move(true);
+        stat = (*r).summarize_stats(true);
+        c -= 1;
+    }
+
+
 }

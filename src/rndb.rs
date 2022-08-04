@@ -39,28 +39,6 @@ pub fn build_RNDB(ans: HashMap<usize,Option<i32>>,obj: HashMap<usize,usize>) -> 
 impl fmt::Display for RNDB {
 
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-    /*
-    // actual answers of node
-    pub ans: HashMap<usize,Option<i32>>,
-
-    // objective for each question
-    // question id -> 0|1|2
-    pub obj: HashMap<usize,usize>,
-
-    // satisfaction rate of other nodes to self
-    // node -> (question -> satisfaction rate)
-    pub sat_other: HashMap<usize,HashMap<usize,f32>>,
-
-    // current path used for delegation
-    pub delegation_path: Option<df::DPath>,
-
-    // question -> (delegate node -> contradiction)
-    pub delegation_records: df::DelegationRecord,
-
-    // resistance feedback for direct answer 
-    // question -> resistance delta vec
-    pub rfeedback: HashMap<usize,Vec<f32>>
-    */
         let mut s1 = format!("actual answers\n{:?}\n",self.ans);
         let mut s2 = format!("-- obj\n{:?}\n",self.obj);
         let mut s3 = format!("-- sat other\n{:?}\n",self.sat_other);

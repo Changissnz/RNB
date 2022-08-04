@@ -10,6 +10,7 @@ pub fn i32_in_range(r: (i32,i32),i:i32) -> bool {
 calculates a single value for i32 
 */ 
 pub fn calculate_ans(ansrange:(i32,i32),known_ans:i32,dec_degree:f32) -> i32 {
+
     assert!(i32_in_range(ansrange,known_ans));
 
     if dec_degree == 0.0 {
@@ -62,12 +63,13 @@ pub struct Ansbox {
 
 impl Ansbox {
 
+    /// outputs a value in ansrange based on known answer and objective
     pub fn obj_ans(&mut self, ansrange:(i32,i32),known_ans:Option<i32>,obj:usize) -> i32 {
         let mut ka:i32 = 0;
         if !known_ans.is_none() {
             ka = known_ans.unwrap();
         } else {
-            ka = ((ansrange.1 - ansrange.0) as f32 / 2.0).round() as i32;
+            ka = ansrange.0 + ((ansrange.1 - ansrange.0) as f32 / 2.0).round() as i32;
         }
 
         // no deception
@@ -83,7 +85,6 @@ impl Ansbox {
         }
 
         calculate_ans(ansrange,ka,i)
-
     }
 }
 
