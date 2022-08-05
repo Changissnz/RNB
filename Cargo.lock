@@ -7,6 +7,7 @@ name = "RNB"
 version = "0.1.0"
 dependencies = [
  "ndarray",
+ "num-traits",
  "rand",
 ]
 

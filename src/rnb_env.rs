@@ -30,36 +30,40 @@ impl RNBENV {
             stat = false; 
         }
 
-        let l = self.rn.nodes.len();
+        let l = self.rn.nodes.len(); 
+        let mut stat2 = false; 
         for i in 0..l {
             if verbose {
                 println!("{}",self.rn.nodes[i]);
                 println!("\t----"); 
             }
-            if stat {
-                stat = self.rn.nodes[i].resistance > 0.;
-            } 
+            
+            stat2 = stat2 || self.rn.nodes[i].resistance > 0.;
         }
         if verbose {
             println!("====");
         }
 
-        stat 
+        stat && stat2
     }
 
     /// executes one move by Q
     pub fn execute_Q_move(&mut self,verbose:bool) {
         let (i,i2) = self.q.one_move();
+        if i.is_none() {
+            if verbose {println!("all nodes are dead");}
+            return;
+        }
 
         if verbose {
-            println!("executing query {} on node {}",i.1,i.0);
+            println!("executing query {} on node {}",i.as_ref().unwrap().1,i.as_ref().unwrap().0);
         }
 
         // fix by F2
         self.fix_F2(i2,verbose);
 
         // execute the query
-        self.execute_query_on_node(i.0,i.1,verbose);
+        self.execute_query_on_node(i.as_ref().unwrap().0,i.as_ref().unwrap().1,verbose);
 
         // update QStruct fuel after executing query
         self.q.c -= 1; 
@@ -119,9 +123,6 @@ impl RNBENV {
         // fetch node ans
         
         let qr = self.q.qs[qi].ans_range.clone();
-        //let o = self.rn.nodes[eni].db.obj[&qi].clone();
-        //let ka = self.rn.nodes[eni].db.ans[&qi].clone();
-        //let mut na = self.rn.ans_box.obj_ans(qr.clone(),ka,o);
         let mut na = self.rn.nodes[eni].ans_to_q(&mut self.rn.ans_box,qi,qr.clone());
 
         // fetch delegation ans 
@@ -181,8 +182,16 @@ impl RNBENV {
             return; 
         }
 
+        // update dead nodes in Q
+        if self.rn.nodes[eni].resistance <= 0. {
+            self.q.dead_nodes.insert(ni);
+        }
+
         if self.rn.nodes[eni].db.rfeedback.contains_key(&qi) {
             self.rn.nodes[eni].db.rfeedback.get_mut(&qi).unwrap().push(rd);
+        } else {
+            // error-check 
+            self.rn.nodes[eni].db.rfeedback.insert(qi,vec![rd]); 
         }
     }
 
@@ -317,12 +326,12 @@ pub fn sample_RNBENV1() -> RNBENV {
 /// 2. Q runs out of fuel. 
 pub fn run_rnb(r: &mut RNBENV) {
     let mut stat:bool = (*r).summarize_stats(true);
-    let mut c = 5; 
-    while stat && c > 0 {
+    let mut c = 0; 
+    while stat {
+        println!("ROUND {}",c);
         (*r).execute_Q_move(true);
         stat = (*r).summarize_stats(true);
-        c -= 1;
+        c += 1;
     }
-
-
 }
+

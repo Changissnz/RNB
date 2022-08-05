@@ -9,14 +9,14 @@ pub fn i32_in_range(r: (i32,i32),i:i32) -> bool {
 /*
 calculates a single value for i32 
 */ 
+
 pub fn calculate_ans(ansrange:(i32,i32),known_ans:i32,dec_degree:f32) -> i32 {
-
-    assert!(i32_in_range(ansrange,known_ans));
-
+    assert!(i32_in_range(ansrange,known_ans), "known {} not in {:?}",known_ans,ansrange);
     if dec_degree == 0.0 {
         return known_ans;
     }
 
+    //////////////
     let dvec = vec![known_ans - ansrange.0.clone(),ansrange.1.clone() - known_ans];
     let d = dvec.iter().max().unwrap();
     let dx = (dec_degree * *d as f32).round() as i32;
@@ -28,7 +28,7 @@ pub fn calculate_ans(ansrange:(i32,i32),known_ans:i32,dec_degree:f32) -> i32 {
     }
 
     if i32_in_range(ansrange,known_ans + dx) {
-        s.push(known_ans - dx);
+        s.push(known_ans + dx);
     }
 
     let i = std_rng::random_i32_in_range((0,s.len() as i32 -1));

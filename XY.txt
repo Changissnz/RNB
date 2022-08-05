@@ -1,0 +1,8211 @@
+Q fuel: 250
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance 100
+	----
+node 10
+neighbors [8, 9]
+resistance 100
+	----
+node 5
+neighbors [0, 6]
+resistance 100
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 100
+	----
+node 1
+neighbors [0, 7, 9]
+resistance 100
+	----
+node 7
+neighbors [1, 3, 9]
+resistance 100
+	----
+node 3
+neighbors [0, 7]
+resistance 100
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance 100
+	----
+node 4
+neighbors [0, 6]
+resistance 100
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance 100
+	----
+node 6
+neighbors [2, 4, 5]
+resistance 100
+	----
+====
+ROUND 0
+executing query 2 on node 3
+delegate travel for src 3 question 2
+delegation references: [0, 7]
+delegation references: [1, 2, 4, 5, 9]
+delegation references: [9, 6, 8, 10]
+delegation references: [10]
+delegate answers for src 3 question 2
+node 0 answer 10
+node 7 answer -49
+node 1 answer -12
+node 2 answer -50
+node 4 answer -40
+node 5 answer 20
+node 9 answer -50
+node 6 answer -43
+node 8 answer -50
+node 10 answer 10
+delegation answer: -23
+DB after delegation:
+*************
+actual answers
+{0: Some(75), 2: Some(-40), 1: Some(60), 3: Some(0), 4: Some(2)}
+-- obj
+{0: 1, 2: 1, 3: 1, 4: 1, 1: 1}
+-- sat other
+{10: {2: 0.8}, 2: {2: 0.0}, 5: {2: 0.93333334}, 7: {2: 0.013333321}, 1: {2: 0.50666666}, 9: {2: 0.0}, 6: {2: 0.093333304}, 8: {2: 0.0}, 4: {2: 0.13333333}, 0: {2: 0.8}}
+-- delegation records
+average contradiction
+{2: {9: 1.0, 4: 0.8666667, 7: 0.9866667, 0: 0.2, 8: 1.0, 1: 0.49333334, 5: 0.06666667, 6: 0.9066667, 2: 1.0, 10: 0.2}}
+delegation frequency
+{2: {1: 1, 4: 1, 8: 1, 5: 1, 10: 1, 9: 1, 0: 1, 6: 1, 2: 1, 7: 1}}
+
+-- rfeedback
+{}
+
+******************
+
+
+Q answer: 10
+node 3 will delegate: false
+node 3 answer: 25
+resistance: 15
+Q fuel: 249
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.25, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 1, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 25, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance 100
+	----
+node 10
+neighbors [8, 9]
+resistance 100
+	----
+node 5
+neighbors [0, 6]
+resistance 100
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 100
+	----
+node 1
+neighbors [0, 7, 9]
+resistance 100
+	----
+node 7
+neighbors [1, 3, 9]
+resistance 100
+	----
+node 3
+neighbors [0, 7]
+resistance 85
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance 100
+	----
+node 4
+neighbors [0, 6]
+resistance 100
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance 100
+	----
+node 6
+neighbors [2, 4, 5]
+resistance 100
+	----
+====
+ROUND 1
+executing query 4 on node 9
+delegate travel for src 9 question 4
+delegation references: [1, 2, 7, 10]
+delegation references: [0, 7, 6, 8, 3]
+delegation references: [3, 4, 5]
+delegate answers for src 9 question 4
+node 1 answer 5
+node 2 answer 0
+node 7 answer 9
+node 10 answer 0
+node 0 answer 6
+node 6 answer 9
+node 8 answer 0
+node 3 answer 10
+node 4 answer 2
+node 5 answer 3
+delegation answer: 4
+DB after delegation:
+*************
+actual answers
+{0: Some(50), 2: Some(10), 1: Some(40), 3: Some(-25), 4: Some(6)}
+-- obj
+{3: 0, 0: 1, 2: 1, 4: 0, 1: 1}
+-- sat other
+{7: {4: 0.7}, 6: {4: 0.7}, 2: {4: 0.39999998}, 10: {4: 0.39999998}, 8: {4: 0.39999998}, 1: {4: 0.9}, 5: {4: 0.7}, 0: {4: 1.0}, 3: {4: 0.6}, 4: {4: 0.6}}
+-- delegation records
+average contradiction
+{4: {8: 0.6, 2: 0.6, 6: 0.3, 10: 0.6, 4: 0.4, 0: 0.0, 3: 0.4, 1: 0.1, 7: 0.3, 5: 0.3}}
+delegation frequency
+{4: {4: 1, 10: 1, 1: 1, 0: 1, 7: 1, 5: 1, 8: 1, 2: 1, 3: 1, 6: 1}}
+
+-- rfeedback
+{}
+
+******************
+
+
+Q answer: 6
+node 9 will delegate: false
+node 9 answer: 6
+resistance: 0
+Q fuel: 248
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.25, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 1, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 1],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 25, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 6],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance 100
+	----
+node 10
+neighbors [8, 9]
+resistance 100
+	----
+node 5
+neighbors [0, 6]
+resistance 100
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 100
+	----
+node 1
+neighbors [0, 7, 9]
+resistance 100
+	----
+node 7
+neighbors [1, 3, 9]
+resistance 100
+	----
+node 3
+neighbors [0, 7]
+resistance 85
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance 100
+	----
+node 4
+neighbors [0, 6]
+resistance 100
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance 100
+	----
+node 6
+neighbors [2, 4, 5]
+resistance 100
+	----
+====
+ROUND 2
+executing query 4 on node 6
+delegate travel for src 6 question 4
+delegation references: [2, 4, 5]
+delegation references: [0, 8, 9]
+delegation references: [1, 3, 10, 7]
+delegation references: [7]
+delegate answers for src 6 question 4
+node 2 answer 0
+node 4 answer 2
+node 5 answer 3
+node 0 answer 6
+node 8 answer 0
+node 9 answer 6
+node 1 answer 5
+node 3 answer 10
+node 10 answer 0
+node 7 answer 9
+delegation answer: 4
+DB after delegation:
+*************
+actual answers
+{2: Some(10), 3: Some(-25), 4: Some(6), 1: Some(40), 0: Some(50)}
+-- obj
+{0: 2, 1: 2, 2: 2, 4: 2, 3: 2}
+-- sat other
+{1: {4: 0.7}, 5: {4: 0.9}, 2: {4: 0.8}, 4: {4: 1.0}, 0: {4: 0.6}, 9: {4: 0.6}, 3: {4: 0.19999999}, 10: {4: 0.8}, 7: {4: 0.3}, 8: {4: 0.8}}
+-- delegation records
+average contradiction
+{4: {1: 0.3, 5: 0.1, 7: 0.7, 9: 0.4, 2: 0.2, 8: 0.2, 10: 0.2, 3: 0.8, 0: 0.4, 4: 0.0}}
+delegation frequency
+{4: {1: 1, 0: 1, 2: 1, 5: 1, 7: 1, 9: 1, 4: 1, 8: 1, 10: 1, 3: 1}}
+
+-- rfeedback
+{}
+
+******************
+
+
+Q answer: 6
+node 6 will delegate: false
+node 6 answer: 2
+resistance: 4
+Q fuel: 247
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.25, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.6666667],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 1, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 1],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 1],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 25, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 2],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 6],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance 100
+	----
+node 10
+neighbors [8, 9]
+resistance 100
+	----
+node 5
+neighbors [0, 6]
+resistance 100
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 100
+	----
+node 1
+neighbors [0, 7, 9]
+resistance 100
+	----
+node 7
+neighbors [1, 3, 9]
+resistance 100
+	----
+node 3
+neighbors [0, 7]
+resistance 85
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance 100
+	----
+node 4
+neighbors [0, 6]
+resistance 100
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance 100
+	----
+node 6
+neighbors [2, 4, 5]
+resistance 96
+	----
+====
+ROUND 3
+executing query 3 on node 9
+delegate travel for src 9 question 3
+delegation references: [1, 2, 7, 10]
+delegation references: [0, 7, 6, 8, 3]
+delegation references: [3, 4, 5]
+delegate answers for src 9 question 3
+node 1 answer -50
+node 2 answer -100
+node 7 answer -83
+node 10 answer -100
+node 0 answer -25
+node 6 answer -73
+node 8 answer -100
+node 3 answer -100
+node 4 answer 0
+node 5 answer -100
+delegation answer: -66
+DB after delegation:
+*************
+actual answers
+{0: Some(50), 2: Some(10), 1: Some(40), 3: Some(-25), 4: Some(6)}
+-- obj
+{3: 0, 0: 1, 2: 1, 4: 0, 1: 1}
+-- sat other
+{7: {4: 1.0, 3: 0.42000002}, 6: {4: 1.0, 3: 0.52}, 2: {4: 1.0, 3: 0.25}, 10: {4: 1.0, 3: 0.25}, 8: {3: 0.25, 4: 1.0}, 1: {4: 1.0, 3: 0.75}, 5: {4: 1.0, 3: 0.25}, 0: {4: 1.0, 3: 1.0}, 3: {3: 0.25, 4: 1.0}, 4: {4: 1.0, 3: 0.75}}
+-- delegation records
+average contradiction
+{3: {3: 0.75, 8: 0.75, 0: 0.0, 6: 0.48, 5: 0.75, 2: 0.75, 10: 0.75, 7: 0.58, 4: 0.25, 1: 0.25}}
+delegation frequency
+{3: {6: 1, 5: 1, 1: 1, 0: 1, 3: 1, 7: 1, 2: 1, 8: 1, 10: 1, 4: 1}}
+
+-- rfeedback
+{4: [0.0]}
+
+******************
+
+
+Q answer: -25
+node 9 will delegate: false
+node 9 answer: -25
+resistance: 0
+Q fuel: 246
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.25, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.6666667],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 1, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 1],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 1, 1],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 25, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 2],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, -25, 6],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance 100
+	----
+node 10
+neighbors [8, 9]
+resistance 100
+	----
+node 5
+neighbors [0, 6]
+resistance 100
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 100
+	----
+node 1
+neighbors [0, 7, 9]
+resistance 100
+	----
+node 7
+neighbors [1, 3, 9]
+resistance 100
+	----
+node 3
+neighbors [0, 7]
+resistance 85
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance 100
+	----
+node 4
+neighbors [0, 6]
+resistance 100
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance 100
+	----
+node 6
+neighbors [2, 4, 5]
+resistance 96
+	----
+====
+ROUND 4
+executing query 0 on node 0
+delegate travel for src 0 question 0
+delegation references: [1, 2, 3, 4, 5]
+delegation references: [7, 9, 6, 8]
+delegation references: [9, 10]
+delegation references: [10]
+delegate answers for src 0 question 0
+node 1 answer 50
+node 2 answer 0
+node 3 answer 0
+node 4 answer 75
+node 5 answer 25
+node 7 answer 92
+node 9 answer 100
+node 6 answer 14
+node 8 answer 0
+node 10 answer 50
+delegation answer: 37
+DB after delegation:
+*************
+actual answers
+{0: Some(50), 1: Some(40), 3: Some(-25), 2: Some(10), 4: Some(6)}
+-- obj
+{3: 0, 4: 0, 0: 0, 2: 0, 1: 0}
+-- sat other
+{3: {0: 0.5}, 5: {0: 0.75}, 8: {0: 0.5}, 1: {0: 1.0}, 7: {0: 0.58000004}, 2: {0: 0.5}, 6: {0: 0.64}, 4: {0: 0.75}, 10: {0: 1.0}, 9: {0: 0.5}}
+-- delegation records
+average contradiction
+{0: {10: 0.0, 9: 0.5, 1: 0.0, 3: 0.5, 5: 0.25, 8: 0.5, 7: 0.42, 4: 0.25, 6: 0.36, 2: 0.5}}
+delegation frequency
+{0: {2: 1, 7: 1, 4: 1, 3: 1, 6: 1, 9: 1, 5: 1, 8: 1, 1: 1, 10: 1}}
+
+-- rfeedback
+{}
+
+******************
+
+
+Q answer: 50
+node 0 will delegate: false
+node 0 answer: 50
+resistance: 0
+Q fuel: 245
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.25, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.6666667],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[1, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 1, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 1],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 1, 1],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[50, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 25, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 2],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, -25, 6],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance 100
+	----
+node 10
+neighbors [8, 9]
+resistance 100
+	----
+node 5
+neighbors [0, 6]
+resistance 100
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 100
+	----
+node 1
+neighbors [0, 7, 9]
+resistance 100
+	----
+node 7
+neighbors [1, 3, 9]
+resistance 100
+	----
+node 3
+neighbors [0, 7]
+resistance 85
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance 100
+	----
+node 4
+neighbors [0, 6]
+resistance 100
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance 100
+	----
+node 6
+neighbors [2, 4, 5]
+resistance 96
+	----
+====
+ROUND 5
+executing query 3 on node 3
+delegate travel for src 3 question 3
+delegation references: [0, 7]
+delegation references: [1, 2, 4, 5, 9]
+delegation references: [9, 6, 8, 10]
+delegation references: [10]
+delegate answers for src 3 question 3
+node 0 answer -25
+node 7 answer -58
+node 1 answer -50
+node 2 answer -100
+node 4 answer 0
+node 5 answer -100
+node 9 answer -25
+node 6 answer -95
+node 8 answer -100
+node 10 answer -100
+delegation answer: -59
+DB after delegation:
+*************
+actual answers
+{0: Some(75), 2: Some(-40), 1: Some(60), 3: Some(0), 4: Some(2)}
+-- obj
+{0: 1, 2: 1, 3: 1, 4: 1, 1: 1}
+-- sat other
+{10: {2: 1.0, 3: 1.0}, 2: {3: 1.0, 2: 1.0}, 5: {2: 1.0, 3: 1.0}, 7: {2: 1.0, 3: 0.58000004}, 1: {2: 1.0, 3: 0.5}, 9: {3: 0.25, 2: 1.0}, 6: {2: 1.0, 3: 0.95}, 8: {3: 1.0, 2: 1.0}, 4: {2: 1.0, 3: 0.0}, 0: {3: 0.25, 2: 1.0}}
+-- delegation records
+average contradiction
+{3: {9: 0.75, 5: 0.0, 0: 0.75, 2: 0.0, 8: 0.0, 1: 0.5, 6: 0.05, 10: 0.0, 4: 1.0, 7: 0.42}}
+delegation frequency
+{3: {5: 1, 9: 1, 10: 1, 8: 1, 0: 1, 6: 1, 4: 1, 2: 1, 7: 1, 1: 1}}
+
+-- rfeedback
+{2: [15.0]}
+
+******************
+
+
+Q answer: -25
+node 3 will delegate: false
+node 3 answer: -100
+resistance: 75
+Q fuel: 244
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.25, 1.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.6666667],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[1, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 1, 1, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 1],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 1, 1],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[50, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 25, -100, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 2],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, -25, 6],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance 100
+	----
+node 10
+neighbors [8, 9]
+resistance 100
+	----
+node 5
+neighbors [0, 6]
+resistance 100
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 100
+	----
+node 1
+neighbors [0, 7, 9]
+resistance 100
+	----
+node 7
+neighbors [1, 3, 9]
+resistance 100
+	----
+node 3
+neighbors [0, 7]
+resistance 10
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance 100
+	----
+node 4
+neighbors [0, 6]
+resistance 100
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance 100
+	----
+node 6
+neighbors [2, 4, 5]
+resistance 96
+	----
+====
+ROUND 6
+executing query 1 on node 9
+delegate travel for src 9 question 1
+delegation references: [1, 2, 7, 10]
+delegation references: [0, 7, 6, 8, 3]
+delegation references: [3, 4, 5]
+delegate answers for src 9 question 1
+node 1 answer 0
+node 2 answer 80
+node 7 answer 73
+node 10 answer 40
+node 0 answer 40
+node 6 answer -56
+node 8 answer 80
+node 3 answer -80
+node 4 answer 60
+node 5 answer 70
+delegation answer: 28
+DB after delegation:
+*************
+actual answers
+{0: Some(50), 2: Some(10), 1: Some(40), 3: Some(-25), 4: Some(6)}
+-- obj
+{3: 0, 0: 1, 2: 1, 4: 0, 1: 1}
+-- sat other
+{7: {4: 1.0, 3: 1.0, 1: 0.043749988}, 6: {4: 1.0, 3: 1.0, 1: 0.85}, 2: {4: 1.0, 1: 0.0, 3: 1.0}, 10: {4: 1.0, 3: 1.0, 1: 0.25}, 8: {1: 0.0, 3: 1.0, 4: 1.0}, 1: {4: 1.0, 3: 1.0, 1: 0.5}, 5: {4: 1.0, 3: 1.0, 1: 0.0625}, 0: {4: 1.0, 3: 1.0, 1: 0.25}, 3: {3: 1.0, 1: 1.0, 4: 1.0}, 4: {1: 0.125, 4: 1.0, 3: 1.0}}
+-- delegation records
+average contradiction
+{1: {1: 0.5, 0: 0.75, 3: 0.0, 5: 0.9375, 2: 1.0, 6: 0.15, 10: 0.75, 8: 1.0, 4: 0.875, 7: 0.95625}}
+delegation frequency
+{1: {1: 1, 10: 1, 6: 1, 4: 1, 2: 1, 0: 1, 8: 1, 3: 1, 7: 1, 5: 1}}
+
+-- rfeedback
+{3: [0.0], 4: [0.0]}
+
+******************
+
+
+Q answer: 0
+node 9 will delegate: false
+node 9 answer: -80
+resistance: 80
+Q fuel: 243
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.25, 1.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.6666667],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 1.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[1, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 1, 1, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 1],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 1, 0, 1, 1],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[50, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 25, -100, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 2],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, -80, 0, -25, 6],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance 100
+	----
+node 10
+neighbors [8, 9]
+resistance 100
+	----
+node 5
+neighbors [0, 6]
+resistance 100
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 100
+	----
+node 1
+neighbors [0, 7, 9]
+resistance 100
+	----
+node 7
+neighbors [1, 3, 9]
+resistance 100
+	----
+node 3
+neighbors [0, 7]
+resistance 10
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance 100
+	----
+node 4
+neighbors [0, 6]
+resistance 100
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance 20
+	----
+node 6
+neighbors [2, 4, 5]
+resistance 96
+	----
+====
+ROUND 7
+executing query 3 on node 5
+delegate travel for src 5 question 3
+delegation references: [0, 6]
+delegation references: [1, 2, 3, 4]
+delegation references: [7, 9, 8]
+delegation references: [9, 10]
+delegation references: [10]
+delegate answers for src 5 question 3
+node 0 answer -25
+node 6 answer -81
+node 1 answer -50
+node 2 answer -100
+node 3 answer -100
+node 4 answer 0
+node 7 answer -52
+node 9 answer -25
+node 8 answer -100
+node 10 answer -100
+delegation answer: -58
+DB after delegation:
+*************
+actual answers
+{4: Some(3), 2: Some(20), 3: Some(-100), 0: Some(25), 1: Some(70)}
+-- obj
+{1: 0, 2: 0, 0: 0, 3: 0, 4: 0}
+-- sat other
+{2: {3: 1.0}, 0: {3: 0.25}, 3: {3: 1.0}, 9: {3: 0.25}, 6: {3: 0.81}, 10: {3: 1.0}, 1: {3: 0.5}, 4: {3: 0.0}, 7: {3: 0.52}, 8: {3: 1.0}}
+-- delegation records
+average contradiction
+{3: {8: 0.0, 9: 0.75, 4: 1.0, 1: 0.5, 10: 0.0, 6: 0.19, 2: 0.0, 7: 0.48, 0: 0.75, 3: 0.0}}
+delegation frequency
+{3: {0: 1, 8: 1, 2: 1, 3: 1, 9: 1, 4: 1, 10: 1, 1: 1, 6: 1, 7: 1}}
+
+-- rfeedback
+{}
+
+******************
+
+
+Q answer: -25
+node 5 will delegate: false
+node 5 answer: -100
+resistance: 75
+Q fuel: 242
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.25, 1.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 1.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.6666667],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 1.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[1, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 1, 1, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 1, 0],
+ [0, 0, 0, 0, 1],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 1, 0, 1, 1],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[50, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 25, -100, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, -100, 0],
+ [0, 0, 0, 0, 2],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, -80, 0, -25, 6],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance 100
+	----
+node 10
+neighbors [8, 9]
+resistance 100
+	----
+node 5
+neighbors [0, 6]
+resistance 25
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 100
+	----
+node 1
+neighbors [0, 7, 9]
+resistance 100
+	----
+node 7
+neighbors [1, 3, 9]
+resistance 100
+	----
+node 3
+neighbors [0, 7]
+resistance 10
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance 100
+	----
+node 4
+neighbors [0, 6]
+resistance 100
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance 20
+	----
+node 6
+neighbors [2, 4, 5]
+resistance 96
+	----
+====
+ROUND 8
+executing query 1 on node 3
+delegate travel for src 3 question 1
+delegation references: [0, 7]
+delegation references: [1, 2, 4, 5, 9]
+delegation references: [9, 6, 8, 10]
+delegation references: [10]
+delegate answers for src 3 question 1
+node 0 answer 40
+node 7 answer 79
+node 1 answer 0
+node 2 answer 80
+node 4 answer 60
+node 5 answer 70
+node 9 answer -80
+node 6 answer -54
+node 8 answer 80
+node 10 answer 40
+delegation answer: 29
+DB after delegation:
+*************
+actual answers
+{0: Some(75), 2: Some(-40), 1: Some(60), 3: Some(0), 4: Some(2)}
+-- obj
+{0: 1, 2: 1, 3: 1, 4: 1, 1: 1}
+-- sat other
+{10: {1: 0.25, 2: 1.0, 3: 1.0}, 2: {3: 1.0, 1: 0.0, 2: 1.0}, 5: {2: 1.0, 3: 1.0, 1: 0.0625}, 7: {2: 1.0, 3: 1.0, 1: 0.006250024}, 1: {1: 0.5, 2: 1.0, 3: 1.0}, 9: {1: 1.0, 3: 1.0, 2: 1.0}, 6: {2: 1.0, 3: 1.0, 1: 0.8375}, 8: {3: 1.0, 1: 0.0, 2: 1.0}, 4: {2: 1.0, 1: 0.125, 3: 1.0}, 0: {3: 1.0, 1: 0.25, 2: 1.0}}
+-- delegation records
+average contradiction
+{1: {2: 1.0, 6: 0.1625, 5: 0.9375, 7: 0.99375, 8: 1.0, 1: 0.5, 0: 0.75, 10: 0.75, 9: 0.0, 4: 0.875}}
+delegation frequency
+{1: {6: 1, 9: 1, 10: 1, 7: 1, 2: 1, 5: 1, 1: 1, 4: 1, 8: 1, 0: 1}}
+
+-- rfeedback
+{2: [15.0], 3: [75.0]}
+
+******************
+
+
+Q answer: -80
+node 3 will delegate: false
+node 3 answer: -80
+resistance: 0
+Q fuel: 241
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.25, 1.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 1.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.6666667],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 1.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[1, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 1, 1, 1, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 1, 0],
+ [0, 0, 0, 0, 1],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 1, 0, 1, 1],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[50, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, -80, 25, -100, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, -100, 0],
+ [0, 0, 0, 0, 2],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, -80, 0, -25, 6],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance 100
+	----
+node 10
+neighbors [8, 9]
+resistance 100
+	----
+node 5
+neighbors [0, 6]
+resistance 25
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 100
+	----
+node 1
+neighbors [0, 7, 9]
+resistance 100
+	----
+node 7
+neighbors [1, 3, 9]
+resistance 100
+	----
+node 3
+neighbors [0, 7]
+resistance 10
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance 100
+	----
+node 4
+neighbors [0, 6]
+resistance 100
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance 20
+	----
+node 6
+neighbors [2, 4, 5]
+resistance 96
+	----
+====
+ROUND 9
+executing query 2 on node 8
+delegate travel for src 8 question 2
+delegation references: [2, 10]
+delegation references: [0, 6, 9]
+delegation references: [1, 3, 4, 5, 7]
+delegation references: [7]
+delegate answers for src 8 question 2
+node 2 answer -50
+node 10 answer 10
+node 0 answer 10
+node 6 answer -21
+node 9 answer -50
+node 1 answer -12
+node 3 answer 25
+node 4 answer -40
+node 5 answer 20
+node 7 answer -27
+delegation answer: -12
+DB after delegation:
+*************
+actual answers
+{4: Some(6), 1: Some(-25), 0: Some(95), 2: Some(10), 3: Some(0)}
+-- obj
+{4: 1, 2: 1, 3: 1, 0: 1, 1: 1}
+-- sat other
+{10: {2: 0.19999999}, 1: {2: 0.49333334}, 7: {2: 0.6933333}, 2: {2: 1.0}, 6: {2: 0.61333334}, 9: {2: 1.0}, 0: {2: 0.19999999}, 3: {2: 0.0}, 4: {2: 0.8666667}, 5: {2: 0.06666666}}
+-- delegation records
+average contradiction
+{2: {9: 0.0, 3: 1.0, 4: 0.13333334, 5: 0.93333334, 0: 0.8, 2: 0.0, 1: 0.50666666, 7: 0.30666667, 10: 0.8, 6: 0.38666666}}
+delegation frequency
+{2: {7: 1, 4: 1, 2: 1, 1: 1, 0: 1, 10: 1, 3: 1, 9: 1, 6: 1, 5: 1}}
+
+-- rfeedback
+{}
+
+******************
+
+
+Q answer: 10
+node 8 will delegate: false
+node 8 answer: -50
+resistance: 60
+Q fuel: 240
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.25, 1.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 1.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.6666667],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 1.0, 0.0, 0.0],
+ [0.0, 1.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[1, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 1, 1, 1, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 1, 0],
+ [0, 0, 0, 0, 1],
+ [0, 0, 0, 0, 0],
+ [0, 0, 1, 0, 0],
+ [0, 1, 0, 1, 1],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[50, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, -80, 25, -100, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, -100, 0],
+ [0, 0, 0, 0, 2],
+ [0, 0, 0, 0, 0],
+ [0, 0, -50, 0, 0],
+ [0, -80, 0, -25, 6],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance 40
+	----
+node 10
+neighbors [8, 9]
+resistance 100
+	----
+node 5
+neighbors [0, 6]
+resistance 25
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 100
+	----
+node 1
+neighbors [0, 7, 9]
+resistance 100
+	----
+node 7
+neighbors [1, 3, 9]
+resistance 100
+	----
+node 3
+neighbors [0, 7]
+resistance 10
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance 100
+	----
+node 4
+neighbors [0, 6]
+resistance 100
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance 20
+	----
+node 6
+neighbors [2, 4, 5]
+resistance 96
+	----
+====
+ROUND 10
+executing query 2 on node 4
+delegate travel for src 4 question 2
+delegation references: [0, 6]
+delegation references: [1, 2, 3, 5]
+delegation references: [7, 9, 8]
+delegation references: [9, 10]
+delegation references: [10]
+delegate answers for src 4 question 2
+node 0 answer 10
+node 6 answer -22
+node 1 answer -12
+node 2 answer -50
+node 3 answer 25
+node 5 answer 20
+node 7 answer -42
+node 9 answer -50
+node 8 answer -50
+node 10 answer 10
+delegation answer: -15
+DB after delegation:
+*************
+actual answers
+{0: Some(75), 4: Some(2), 2: Some(-40), 1: Some(60), 3: Some(0)}
+-- obj
+{0: 0, 3: 0, 1: 0, 2: 0, 4: 0}
+-- sat other
+{2: {2: 0.8666667}, 3: {2: 0.13333333}, 6: {2: 0.76}, 7: {2: 0.97333336}, 0: {2: 0.3333333}, 5: {2: 0.19999999}, 10: {2: 0.3333333}, 8: {2: 0.8666667}, 9: {2: 0.8666667}, 1: {2: 0.62666667}}
+-- delegation records
+average contradiction
+{2: {8: 0.13333334, 3: 0.8666667, 0: 0.6666667, 10: 0.6666667, 6: 0.24, 7: 0.026666667, 2: 0.13333334, 5: 0.8, 1: 0.37333333, 9: 0.13333334}}
+delegation frequency
+{2: {5: 1, 10: 1, 6: 1, 1: 1, 2: 1, 3: 1, 8: 1, 0: 1, 9: 1, 7: 1}}
+
+-- rfeedback
+{}
+
+******************
+
+
+Q answer: 10
+node 4 will delegate: false
+node 4 answer: -40
+resistance: 50
+Q fuel: 239
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.25, 1.0, 0.0],
+ [0.0, 0.0, 0.8333333, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 1.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.6666667],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 1.0, 0.0, 0.0],
+ [0.0, 1.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[1, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 1, 1, 1, 0],
+ [0, 0, 1, 0, 0],
+ [0, 0, 0, 1, 0],
+ [0, 0, 0, 0, 1],
+ [0, 0, 0, 0, 0],
+ [0, 0, 1, 0, 0],
+ [0, 1, 0, 1, 1],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[50, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, -80, 25, -100, 0],
+ [0, 0, -40, 0, 0],
+ [0, 0, 0, -100, 0],
+ [0, 0, 0, 0, 2],
+ [0, 0, 0, 0, 0],
+ [0, 0, -50, 0, 0],
+ [0, -80, 0, -25, 6],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance 40
+	----
+node 10
+neighbors [8, 9]
+resistance 100
+	----
+node 5
+neighbors [0, 6]
+resistance 25
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 100
+	----
+node 1
+neighbors [0, 7, 9]
+resistance 100
+	----
+node 7
+neighbors [1, 3, 9]
+resistance 100
+	----
+node 3
+neighbors [0, 7]
+resistance 10
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance 100
+	----
+node 4
+neighbors [0, 6]
+resistance 50
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance 20
+	----
+node 6
+neighbors [2, 4, 5]
+resistance 96
+	----
+====
+ROUND 11
+executing query 0 on node 8
+delegate travel for src 8 question 0
+delegation references: [2, 10]
+delegation references: [0, 6, 9]
+delegation references: [1, 3, 4, 5, 7]
+delegation references: [7]
+delegate answers for src 8 question 0
+node 2 answer 0
+node 10 answer 50
+node 0 answer 50
+node 6 answer 4
+node 9 answer 100
+node 1 answer 50
+node 3 answer 0
+node 4 answer 75
+node 5 answer 25
+node 7 answer 84
+delegation answer: 40
+DB after delegation:
+*************
+actual answers
+{4: Some(6), 1: Some(-25), 0: Some(95), 2: Some(10), 3: Some(0)}
+-- obj
+{4: 1, 2: 1, 3: 1, 0: 1, 1: 1}
+-- sat other
+{10: {2: 1.0, 0: 0.5}, 1: {2: 1.0, 0: 0.5}, 7: {0: 0.16000003, 2: 1.0}, 2: {2: 1.0, 0: 1.0}, 6: {2: 1.0, 0: 0.96}, 9: {0: 0.0, 2: 1.0}, 0: {2: 1.0, 0: 0.5}, 3: {2: 1.0, 0: 1.0}, 4: {2: 1.0, 0: 0.25}, 5: {0: 0.75, 2: 1.0}}
+-- delegation records
+average contradiction
+{0: {9: 1.0, 7: 0.84, 6: 0.04, 4: 0.75, 0: 0.5, 3: 0.0, 1: 0.5, 10: 0.5, 2: 0.0, 5: 0.25}}
+delegation frequency
+{0: {9: 1, 7: 1, 1: 1, 2: 1, 5: 1, 6: 1, 3: 1, 10: 1, 0: 1, 4: 1}}
+
+-- rfeedback
+{2: [60.0]}
+
+******************
+
+
+Q answer: 50
+node 8 will delegate: false
+node 8 answer: 0
+resistance: 50
+Q fuel: 238
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.25, 1.0, 0.0],
+ [0.0, 0.0, 0.8333333, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 1.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.6666667],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [1.0, 0.0, 1.0, 0.0, 0.0],
+ [0.0, 1.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[1, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 1, 1, 1, 0],
+ [0, 0, 1, 0, 0],
+ [0, 0, 0, 1, 0],
+ [0, 0, 0, 0, 1],
+ [0, 0, 0, 0, 0],
+ [1, 0, 1, 0, 0],
+ [0, 1, 0, 1, 1],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[50, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, -80, 25, -100, 0],
+ [0, 0, -40, 0, 0],
+ [0, 0, 0, -100, 0],
+ [0, 0, 0, 0, 2],
+ [0, 0, 0, 0, 0],
+ [0, 0, -50, 0, 0],
+ [0, -80, 0, -25, 6],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance -10
+	----
+node 10
+neighbors [8, 9]
+resistance 100
+	----
+node 5
+neighbors [0, 6]
+resistance 25
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 100
+	----
+node 1
+neighbors [0, 7, 9]
+resistance 100
+	----
+node 7
+neighbors [1, 3, 9]
+resistance 100
+	----
+node 3
+neighbors [0, 7]
+resistance 10
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance 100
+	----
+node 4
+neighbors [0, 6]
+resistance 50
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance 20
+	----
+node 6
+neighbors [2, 4, 5]
+resistance 96
+	----
+====
+ROUND 12
+executing query 2 on node 5
+delegate travel for src 5 question 2
+delegation references: [0, 6]
+delegation references: [1, 2, 3, 4]
+delegation references: [7, 9, 8]
+delegation references: [9, 10]
+delegation references: [10]
+delegate answers for src 5 question 2
+node 0 answer 10
+node 6 answer -46
+node 1 answer -12
+node 2 answer -50
+node 3 answer 25
+node 4 answer -40
+node 7 answer -46
+node 9 answer -50
+node 8 answer -50
+node 10 answer 10
+delegation answer: -23
+DB after delegation:
+*************
+actual answers
+{4: Some(3), 2: Some(20), 3: Some(-100), 0: Some(25), 1: Some(70)}
+-- obj
+{1: 0, 2: 0, 0: 0, 3: 0, 4: 0}
+-- sat other
+{2: {3: 1.0, 2: 0.06666666}, 0: {2: 0.8666667, 3: 1.0}, 3: {2: 0.93333334, 3: 1.0}, 9: {2: 0.06666666, 3: 1.0}, 6: {3: 1.0, 2: 0.120000005}, 10: {2: 0.8666667, 3: 1.0}, 1: {2: 0.5733333, 3: 1.0}, 4: {2: 0.19999999, 3: 1.0}, 7: {2: 0.120000005, 3: 1.0}, 8: {3: 1.0, 2: 0.06666666}}
+-- delegation records
+average contradiction
+{2: {6: 0.88, 1: 0.42666668, 4: 0.8, 2: 0.93333334, 3: 0.06666667, 8: 0.93333334, 0: 0.13333334, 7: 0.88, 9: 0.93333334, 10: 0.13333334}}
+delegation frequency
+{2: {9: 1, 0: 1, 7: 1, 10: 1, 6: 1, 1: 1, 2: 1, 4: 1, 8: 1, 3: 1}}
+
+-- rfeedback
+{3: [75.0]}
+
+******************
+
+
+Q answer: 10
+node 5 will delegate: false
+node 5 answer: 20
+resistance: 10
+Q fuel: 237
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.25, 1.0, 0.0],
+ [0.0, 0.0, 0.8333333, 0.0, 0.0],
+ [0.0, 0.0, 0.16666667, 1.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.6666667],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [1.0, 0.0, 1.0, 0.0, 0.0],
+ [0.0, 1.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[1, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 1, 1, 1, 0],
+ [0, 0, 1, 0, 0],
+ [0, 0, 1, 1, 0],
+ [0, 0, 0, 0, 1],
+ [0, 0, 0, 0, 0],
+ [1, 0, 1, 0, 0],
+ [0, 1, 0, 1, 1],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[50, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, -80, 25, -100, 0],
+ [0, 0, -40, 0, 0],
+ [0, 0, 20, -100, 0],
+ [0, 0, 0, 0, 2],
+ [0, 0, 0, 0, 0],
+ [0, 0, -50, 0, 0],
+ [0, -80, 0, -25, 6],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance -10
+	----
+node 10
+neighbors [8, 9]
+resistance 100
+	----
+node 5
+neighbors [0, 6]
+resistance 15
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 100
+	----
+node 1
+neighbors [0, 7, 9]
+resistance 100
+	----
+node 7
+neighbors [1, 3, 9]
+resistance 100
+	----
+node 3
+neighbors [0, 7]
+resistance 10
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance 100
+	----
+node 4
+neighbors [0, 6]
+resistance 50
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance 20
+	----
+node 6
+neighbors [2, 4, 5]
+resistance 96
+	----
+====
+ROUND 13
+executing query 2 on node 7
+delegate travel for src 7 question 2
+delegation references: [1, 3, 9]
+delegation references: [0, 9, 2, 10]
+delegation references: [2, 4, 5, 10, 6, 8]
+delegation references: [6, 8]
+delegate answers for src 7 question 2
+node 1 answer -12
+node 3 answer 25
+node 9 answer -50
+node 0 answer 10
+node 2 answer -50
+node 10 answer 10
+node 4 answer -40
+node 5 answer 20
+node 6 answer -45
+node 8 answer -50
+delegation answer: -17
+DB after delegation:
+*************
+actual answers
+{1: Some(-20), 0: Some(50), 4: Some(6), 3: Some(0), 2: Some(10)}
+-- obj
+{3: 2, 1: 2, 0: 2, 2: 2, 4: 2}
+-- sat other
+{1: {2: 0.5866667}, 0: {2: 0.29333335}, 9: {2: 0.90666664}, 2: {2: 0.90666664}, 3: {2: 0.093333304}, 5: {2: 0.16000003}, 8: {2: 0.90666664}, 10: {2: 0.29333335}, 4: {2: 0.96}, 6: {2: 0.97333336}}
+-- delegation records
+average contradiction
+{2: {10: 0.70666665, 9: 0.093333334, 8: 0.093333334, 5: 0.84, 1: 0.41333333, 4: 0.04, 6: 0.026666667, 3: 0.9066667, 2: 0.093333334, 0: 0.70666665}}
+delegation frequency
+{2: {0: 1, 3: 1, 6: 1, 5: 1, 10: 1, 2: 1, 8: 1, 9: 1, 4: 1, 1: 1}}
+
+-- rfeedback
+{}
+
+******************
+
+
+Q answer: 10
+node 7 will delegate: false
+node 7 answer: -43
+resistance: 53
+Q fuel: 236
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.25, 1.0, 0.0],
+ [0.0, 0.0, 0.8333333, 0.0, 0.0],
+ [0.0, 0.0, 0.16666667, 1.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.6666667],
+ [0.0, 0.0, 0.8833333, 0.0, 0.0],
+ [1.0, 0.0, 1.0, 0.0, 0.0],
+ [0.0, 1.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[1, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 1, 1, 1, 0],
+ [0, 0, 1, 0, 0],
+ [0, 0, 1, 1, 0],
+ [0, 0, 0, 0, 1],
+ [0, 0, 1, 0, 0],
+ [1, 0, 1, 0, 0],
+ [0, 1, 0, 1, 1],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[50, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, -80, 25, -100, 0],
+ [0, 0, -40, 0, 0],
+ [0, 0, 20, -100, 0],
+ [0, 0, 0, 0, 2],
+ [0, 0, -43, 0, 0],
+ [0, 0, -50, 0, 0],
+ [0, -80, 0, -25, 6],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance -10
+	----
+node 10
+neighbors [8, 9]
+resistance 100
+	----
+node 5
+neighbors [0, 6]
+resistance 15
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 100
+	----
+node 1
+neighbors [0, 7, 9]
+resistance 100
+	----
+node 7
+neighbors [1, 3, 9]
+resistance 47
+	----
+node 3
+neighbors [0, 7]
+resistance 10
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance 100
+	----
+node 4
+neighbors [0, 6]
+resistance 50
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance 20
+	----
+node 6
+neighbors [2, 4, 5]
+resistance 96
+	----
+====
+ROUND 14
+executing query 1 on node 4
+delegate travel for src 4 question 1
+delegation references: [0, 6]
+delegation references: [1, 2, 3, 5]
+delegation references: [7, 9, 8]
+delegation references: [9, 10]
+delegation references: [10]
+delegate answers for src 4 question 1
+node 0 answer 40
+node 6 answer -74
+node 1 answer 0
+node 2 answer 80
+node 3 answer -80
+node 5 answer 70
+node 7 answer 39
+node 9 answer -80
+node 8 answer 80
+node 10 answer 40
+delegation answer: 10
+DB after delegation:
+*************
+actual answers
+{0: Some(75), 4: Some(2), 2: Some(-40), 1: Some(60), 3: Some(0)}
+-- obj
+{0: 0, 3: 0, 1: 0, 2: 0, 4: 0}
+-- sat other
+{2: {1: 0.875, 2: 1.0}, 3: {2: 1.0, 1: 0.125}, 6: {1: 0.16250002, 2: 1.0}, 7: {2: 1.0, 1: 0.86875}, 0: {2: 1.0, 1: 0.875}, 5: {1: 0.9375, 2: 1.0}, 10: {1: 0.875, 2: 1.0}, 8: {1: 0.875, 2: 1.0}, 9: {2: 1.0, 1: 0.125}, 1: {1: 0.625, 2: 1.0}}
+-- delegation records
+average contradiction
+{1: {1: 0.375, 5: 0.0625, 6: 0.8375, 10: 0.125, 2: 0.125, 7: 0.13125, 3: 0.875, 9: 0.875, 8: 0.125, 0: 0.125}}
+delegation frequency
+{1: {7: 1, 3: 1, 8: 1, 10: 1, 0: 1, 2: 1, 6: 1, 9: 1, 1: 1, 5: 1}}
+
+-- rfeedback
+{2: [50.0]}
+
+******************
+
+
+Q answer: -80
+node 4 will delegate: false
+node 4 answer: 60
+resistance: 140
+Q fuel: 235
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.25, 1.0, 0.0],
+ [0.0, 0.875, 0.8333333, 0.0, 0.0],
+ [0.0, 0.0, 0.16666667, 1.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.6666667],
+ [0.0, 0.0, 0.8833333, 0.0, 0.0],
+ [1.0, 0.0, 1.0, 0.0, 0.0],
+ [0.0, 1.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[1, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 1, 1, 1, 0],
+ [0, 1, 1, 0, 0],
+ [0, 0, 1, 1, 0],
+ [0, 0, 0, 0, 1],
+ [0, 0, 1, 0, 0],
+ [1, 0, 1, 0, 0],
+ [0, 1, 0, 1, 1],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[50, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, -80, 25, -100, 0],
+ [0, 60, -40, 0, 0],
+ [0, 0, 20, -100, 0],
+ [0, 0, 0, 0, 2],
+ [0, 0, -43, 0, 0],
+ [0, 0, -50, 0, 0],
+ [0, -80, 0, -25, 6],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance -10
+	----
+node 10
+neighbors [8, 9]
+resistance 100
+	----
+node 5
+neighbors [0, 6]
+resistance 15
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 100
+	----
+node 1
+neighbors [0, 7, 9]
+resistance 100
+	----
+node 7
+neighbors [1, 3, 9]
+resistance 47
+	----
+node 3
+neighbors [0, 7]
+resistance 10
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance 100
+	----
+node 4
+neighbors [0, 6]
+resistance -90
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance 20
+	----
+node 6
+neighbors [2, 4, 5]
+resistance 96
+	----
+====
+ROUND 15
+executing query 3 on node 6
+delegate travel for src 6 question 3
+delegation references: [2, 4, 5]
+delegation references: [0, 8, 9]
+delegation references: [1, 3, 10, 7]
+delegation references: [7]
+delegate answers for src 6 question 3
+node 2 answer -100
+node 4 answer 0
+node 5 answer -100
+node 0 answer -25
+node 8 answer -100
+node 9 answer -25
+node 1 answer -50
+node 3 answer -100
+node 10 answer -100
+node 7 answer -53
+delegation answer: -59
+DB after delegation:
+*************
+actual answers
+{2: Some(10), 3: Some(-25), 4: Some(6), 1: Some(40), 0: Some(50)}
+-- obj
+{0: 2, 1: 2, 2: 2, 4: 2, 3: 2}
+-- sat other
+{1: {4: 1.0, 3: 0.77}, 5: {4: 1.0, 3: 0.73}, 2: {3: 0.73, 4: 1.0}, 4: {4: 1.0, 3: 0.26999998}, 0: {3: 0.52, 4: 1.0}, 9: {4: 1.0, 3: 0.52}, 3: {3: 0.73, 4: 1.0}, 10: {4: 1.0, 3: 0.73}, 7: {4: 1.0, 3: 0.8}, 8: {4: 1.0, 3: 0.73}}
+-- delegation records
+average contradiction
+{3: {1: 0.23, 3: 0.27, 0: 0.48, 4: 0.73, 8: 0.27, 9: 0.48, 7: 0.2, 5: 0.27, 2: 0.27, 10: 0.27}}
+delegation frequency
+{3: {7: 1, 2: 1, 5: 1, 10: 1, 1: 1, 3: 1, 4: 1, 8: 1, 9: 1, 0: 1}}
+
+-- rfeedback
+{4: [4.0]}
+
+******************
+
+
+Q answer: -25
+node 6 will delegate: false
+node 6 answer: -73
+resistance: 48
+Q fuel: 234
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.25, 1.0, 0.0],
+ [0.0, 0.875, 0.8333333, 0.0, 0.0],
+ [0.0, 0.0, 0.16666667, 1.0, 0.0],
+ [0.0, 0.0, 0.0, 0.64, 0.6666667],
+ [0.0, 0.0, 0.8833333, 0.0, 0.0],
+ [1.0, 0.0, 1.0, 0.0, 0.0],
+ [0.0, 1.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[1, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 1, 1, 1, 0],
+ [0, 1, 1, 0, 0],
+ [0, 0, 1, 1, 0],
+ [0, 0, 0, 1, 1],
+ [0, 0, 1, 0, 0],
+ [1, 0, 1, 0, 0],
+ [0, 1, 0, 1, 1],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[50, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, -80, 25, -100, 0],
+ [0, 60, -40, 0, 0],
+ [0, 0, 20, -100, 0],
+ [0, 0, 0, -73, 2],
+ [0, 0, -43, 0, 0],
+ [0, 0, -50, 0, 0],
+ [0, -80, 0, -25, 6],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance -10
+	----
+node 10
+neighbors [8, 9]
+resistance 100
+	----
+node 5
+neighbors [0, 6]
+resistance 15
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 100
+	----
+node 1
+neighbors [0, 7, 9]
+resistance 100
+	----
+node 7
+neighbors [1, 3, 9]
+resistance 47
+	----
+node 3
+neighbors [0, 7]
+resistance 10
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance 100
+	----
+node 4
+neighbors [0, 6]
+resistance -90
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance 20
+	----
+node 6
+neighbors [2, 4, 5]
+resistance 48
+	----
+====
+ROUND 16
+executing query 3 on node 1
+delegate travel for src 1 question 3
+delegation references: [0, 7, 9]
+delegation references: [2, 3, 4, 5, 9, 10]
+delegation references: [6, 8, 10]
+delegate answers for src 1 question 3
+node 0 answer -25
+node 7 answer -86
+node 9 answer -25
+node 2 answer -100
+node 3 answer -100
+node 4 answer 0
+node 5 answer -100
+node 10 answer -100
+node 6 answer -65
+node 8 answer -100
+delegation answer: -64
+DB after delegation:
+*************
+actual answers
+{4: None, 1: None, 2: None, 0: None, 3: None}
+-- obj
+{1: 0, 3: 0, 4: 0, 0: 0, 2: 0}
+-- sat other
+{3: {3: 0.5}, 9: {3: 0.75}, 0: {3: 0.75}, 10: {3: 0.5}, 4: {3: 0.5}, 5: {3: 0.5}, 6: {3: 0.85}, 7: {3: 0.64}, 2: {3: 0.5}, 8: {3: 0.5}}
+-- delegation records
+average contradiction
+{3: {7: 0.36, 4: 0.5, 2: 0.5, 3: 0.5, 8: 0.5, 9: 0.25, 0: 0.25, 6: 0.15, 10: 0.5, 5: 0.5}}
+delegation frequency
+{3: {2: 1, 3: 1, 8: 1, 7: 1, 10: 1, 5: 1, 0: 1, 9: 1, 4: 1, 6: 1}}
+
+-- rfeedback
+{}
+
+******************
+
+
+Q answer: -25
+node 1 will delegate: false
+node 1 answer: -50
+resistance: 25
+Q fuel: 233
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.33333334, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.25, 1.0, 0.0],
+ [0.0, 0.875, 0.8333333, 0.0, 0.0],
+ [0.0, 0.0, 0.16666667, 1.0, 0.0],
+ [0.0, 0.0, 0.0, 0.64, 0.6666667],
+ [0.0, 0.0, 0.8833333, 0.0, 0.0],
+ [1.0, 0.0, 1.0, 0.0, 0.0],
+ [0.0, 1.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[1, 0, 0, 0, 0],
+ [0, 0, 0, 1, 0],
+ [0, 0, 0, 0, 0],
+ [0, 1, 1, 1, 0],
+ [0, 1, 1, 0, 0],
+ [0, 0, 1, 1, 0],
+ [0, 0, 0, 1, 1],
+ [0, 0, 1, 0, 0],
+ [1, 0, 1, 0, 0],
+ [0, 1, 0, 1, 1],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[50, 0, 0, 0, 0],
+ [0, 0, 0, -50, 0],
+ [0, 0, 0, 0, 0],
+ [0, -80, 25, -100, 0],
+ [0, 60, -40, 0, 0],
+ [0, 0, 20, -100, 0],
+ [0, 0, 0, -73, 2],
+ [0, 0, -43, 0, 0],
+ [0, 0, -50, 0, 0],
+ [0, -80, 0, -25, 6],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance -10
+	----
+node 10
+neighbors [8, 9]
+resistance 100
+	----
+node 5
+neighbors [0, 6]
+resistance 15
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 100
+	----
+node 1
+neighbors [0, 7, 9]
+resistance 75
+	----
+node 7
+neighbors [1, 3, 9]
+resistance 47
+	----
+node 3
+neighbors [0, 7]
+resistance 10
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance 100
+	----
+node 4
+neighbors [0, 6]
+resistance -90
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance 20
+	----
+node 6
+neighbors [2, 4, 5]
+resistance 48
+	----
+====
+ROUND 17
+executing query 1 on node 1
+delegate travel for src 1 question 1
+delegation references: [0, 7, 9]
+delegation references: [2, 3, 4, 5, 9, 10]
+delegation references: [6, 8, 10]
+delegate answers for src 1 question 1
+node 0 answer 40
+node 7 answer 69
+node 9 answer -80
+node 2 answer 80
+node 3 answer -80
+node 4 answer 60
+node 5 answer 70
+node 10 answer 40
+node 6 answer -43
+node 8 answer 80
+delegation answer: 21
+DB after delegation:
+*************
+actual answers
+{4: None, 1: None, 2: None, 0: None, 3: None}
+-- obj
+{1: 0, 3: 0, 4: 0, 0: 0, 2: 0}
+-- sat other
+{3: {3: 1.0, 1: 0.5}, 9: {3: 1.0, 1: 0.5}, 0: {1: 0.75, 3: 1.0}, 10: {3: 1.0, 1: 0.75}, 4: {1: 0.625, 3: 1.0}, 5: {3: 1.0, 1: 0.5625}, 6: {1: 0.73125, 3: 1.0}, 7: {1: 0.56875, 3: 1.0}, 2: {3: 1.0, 1: 0.5}, 8: {3: 1.0, 1: 0.5}}
+-- delegation records
+average contradiction
+{1: {10: 0.25, 8: 0.5, 0: 0.25, 6: 0.26875, 9: 0.5, 5: 0.4375, 2: 0.5, 7: 0.43125, 3: 0.5, 4: 0.375}}
+delegation frequency
+{1: {7: 1, 3: 1, 8: 1, 5: 1, 2: 1, 4: 1, 0: 1, 6: 1, 9: 1, 10: 1}}
+
+-- rfeedback
+{3: [25.0]}
+
+******************
+
+
+Q answer: -33
+node 1 will delegate: false
+node 1 answer: 0
+resistance: 33
+Q fuel: 232
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.2920354, 0.0, 0.33333334, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.25, 1.0, 0.0],
+ [0.0, 0.875, 0.8333333, 0.0, 0.0],
+ [0.0, 0.0, 0.16666667, 1.0, 0.0],
+ [0.0, 0.0, 0.0, 0.64, 0.6666667],
+ [0.0, 0.0, 0.8833333, 0.0, 0.0],
+ [1.0, 0.0, 1.0, 0.0, 0.0],
+ [0.0, 1.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[1, 0, 0, 0, 0],
+ [0, 1, 0, 1, 0],
+ [0, 0, 0, 0, 0],
+ [0, 1, 1, 1, 0],
+ [0, 1, 1, 0, 0],
+ [0, 0, 1, 1, 0],
+ [0, 0, 0, 1, 1],
+ [0, 0, 1, 0, 0],
+ [1, 0, 1, 0, 0],
+ [0, 1, 0, 1, 1],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[50, 0, 0, 0, 0],
+ [0, 0, 0, -50, 0],
+ [0, 0, 0, 0, 0],
+ [0, -80, 25, -100, 0],
+ [0, 60, -40, 0, 0],
+ [0, 0, 20, -100, 0],
+ [0, 0, 0, -73, 2],
+ [0, 0, -43, 0, 0],
+ [0, 0, -50, 0, 0],
+ [0, -80, 0, -25, 6],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance -10
+	----
+node 10
+neighbors [8, 9]
+resistance 100
+	----
+node 5
+neighbors [0, 6]
+resistance 15
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 100
+	----
+node 1
+neighbors [0, 7, 9]
+resistance 42
+	----
+node 7
+neighbors [1, 3, 9]
+resistance 47
+	----
+node 3
+neighbors [0, 7]
+resistance 10
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance 100
+	----
+node 4
+neighbors [0, 6]
+resistance -90
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance 20
+	----
+node 6
+neighbors [2, 4, 5]
+resistance 48
+	----
+====
+ROUND 18
+executing query 1 on node 5
+delegate travel for src 5 question 1
+delegation references: [0, 6]
+delegation references: [1, 2, 3, 4]
+delegation references: [7, 9, 8]
+delegation references: [9, 10]
+delegation references: [10]
+delegate answers for src 5 question 1
+node 0 answer 40
+node 6 answer -62
+node 1 answer 0
+node 2 answer 80
+node 3 answer -80
+node 4 answer 60
+node 7 answer 45
+node 9 answer -80
+node 8 answer 80
+node 10 answer 40
+delegation answer: 11
+DB after delegation:
+*************
+actual answers
+{4: Some(3), 2: Some(20), 3: Some(-100), 0: Some(25), 1: Some(70)}
+-- obj
+{1: 0, 2: 0, 0: 0, 3: 0, 4: 0}
+-- sat other
+{2: {3: 1.0, 2: 1.0, 1: 0.9375}, 0: {2: 1.0, 3: 1.0, 1: 0.8125}, 3: {1: 0.0625, 2: 1.0, 3: 1.0}, 9: {2: 1.0, 1: 0.0625, 3: 1.0}, 6: {3: 1.0, 2: 1.0, 1: 0.17500001}, 10: {1: 0.8125, 2: 1.0, 3: 1.0}, 1: {2: 1.0, 1: 0.5625, 3: 1.0}, 4: {2: 1.0, 3: 1.0, 1: 0.9375}, 7: {1: 0.84375, 2: 1.0, 3: 1.0}, 8: {3: 1.0, 2: 1.0, 1: 0.9375}}
+-- delegation records
+average contradiction
+{1: {1: 0.4375, 6: 0.825, 0: 0.1875, 3: 0.9375, 2: 0.0625, 8: 0.0625, 4: 0.0625, 7: 0.15625, 10: 0.1875, 9: 0.9375}}
+delegation frequency
+{1: {4: 1, 2: 1, 8: 1, 0: 1, 3: 1, 6: 1, 9: 1, 10: 1, 1: 1, 7: 1}}
+
+-- rfeedback
+{2: [10.0], 3: [75.0]}
+
+******************
+
+
+Q answer: -25
+node 5 will delegate: false
+node 5 answer: 70
+resistance: 95
+Q fuel: 231
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.2920354, 0.0, 0.33333334, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.25, 1.0, 0.0],
+ [0.0, 0.875, 0.8333333, 0.0, 0.0],
+ [0.0, 0.9047619, 0.16666667, 1.0, 0.0],
+ [0.0, 0.0, 0.0, 0.64, 0.6666667],
+ [0.0, 0.0, 0.8833333, 0.0, 0.0],
+ [1.0, 0.0, 1.0, 0.0, 0.0],
+ [0.0, 1.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[1, 0, 0, 0, 0],
+ [0, 1, 0, 1, 0],
+ [0, 0, 0, 0, 0],
+ [0, 1, 1, 1, 0],
+ [0, 1, 1, 0, 0],
+ [0, 1, 1, 1, 0],
+ [0, 0, 0, 1, 1],
+ [0, 0, 1, 0, 0],
+ [1, 0, 1, 0, 0],
+ [0, 1, 0, 1, 1],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[50, 0, 0, 0, 0],
+ [0, 0, 0, -50, 0],
+ [0, 0, 0, 0, 0],
+ [0, -80, 25, -100, 0],
+ [0, 60, -40, 0, 0],
+ [0, 70, 20, -100, 0],
+ [0, 0, 0, -73, 2],
+ [0, 0, -43, 0, 0],
+ [0, 0, -50, 0, 0],
+ [0, -80, 0, -25, 6],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance -10
+	----
+node 10
+neighbors [8, 9]
+resistance 100
+	----
+node 5
+neighbors [0, 6]
+resistance -80
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 100
+	----
+node 1
+neighbors [0, 7, 9]
+resistance 42
+	----
+node 7
+neighbors [1, 3, 9]
+resistance 47
+	----
+node 3
+neighbors [0, 7]
+resistance 10
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance 100
+	----
+node 4
+neighbors [0, 6]
+resistance -90
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance 20
+	----
+node 6
+neighbors [2, 4, 5]
+resistance 48
+	----
+====
+ROUND 19
+executing query 4 on node 2
+delegate travel for src 2 question 4
+delegation references: [0, 6, 8, 9]
+delegation references: [1, 3, 4, 5, 10, 7]
+delegation references: [7]
+delegate answers for src 2 question 4
+node 0 answer 6
+node 6 answer 0
+node 8 answer 0
+node 9 answer 6
+node 1 answer 5
+node 3 answer 10
+node 4 answer 2
+node 5 answer 3
+node 10 answer 0
+node 7 answer 2
+delegation answer: 3
+DB after delegation:
+*************
+actual answers
+{1: Some(-40), 2: Some(10), 0: Some(50), 3: Some(-25), 4: Some(6)}
+-- obj
+{1: 1, 2: 1, 3: 1, 4: 1, 0: 1}
+-- sat other
+{4: {4: 0.8}, 8: {4: 1.0}, 0: {4: 0.39999998}, 6: {4: 1.0}, 9: {4: 0.39999998}, 1: {4: 0.5}, 3: {4: 0.0}, 10: {4: 1.0}, 5: {4: 0.7}, 7: {4: 0.8}}
+-- delegation records
+average contradiction
+{4: {5: 0.3, 9: 0.6, 6: 0.0, 4: 0.2, 8: 0.0, 1: 0.5, 0: 0.6, 3: 1.0, 7: 0.2, 10: 0.0}}
+delegation frequency
+{4: {1: 1, 7: 1, 4: 1, 0: 1, 6: 1, 5: 1, 9: 1, 8: 1, 3: 1, 10: 1}}
+
+-- rfeedback
+{}
+
+******************
+
+
+Q answer: 6
+node 2 will delegate: false
+node 2 answer: 0
+resistance: 6
+Q fuel: 230
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.2920354, 0.0, 0.33333334, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 1.0],
+ [0.0, 0.0, 0.25, 1.0, 0.0],
+ [0.0, 0.875, 0.8333333, 0.0, 0.0],
+ [0.0, 0.9047619, 0.16666667, 1.0, 0.0],
+ [0.0, 0.0, 0.0, 0.64, 0.6666667],
+ [0.0, 0.0, 0.8833333, 0.0, 0.0],
+ [1.0, 0.0, 1.0, 0.0, 0.0],
+ [0.0, 1.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[1, 0, 0, 0, 0],
+ [0, 1, 0, 1, 0],
+ [0, 0, 0, 0, 1],
+ [0, 1, 1, 1, 0],
+ [0, 1, 1, 0, 0],
+ [0, 1, 1, 1, 0],
+ [0, 0, 0, 1, 1],
+ [0, 0, 1, 0, 0],
+ [1, 0, 1, 0, 0],
+ [0, 1, 0, 1, 1],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[50, 0, 0, 0, 0],
+ [0, 0, 0, -50, 0],
+ [0, 0, 0, 0, 0],
+ [0, -80, 25, -100, 0],
+ [0, 60, -40, 0, 0],
+ [0, 70, 20, -100, 0],
+ [0, 0, 0, -73, 2],
+ [0, 0, -43, 0, 0],
+ [0, 0, -50, 0, 0],
+ [0, -80, 0, -25, 6],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance -10
+	----
+node 10
+neighbors [8, 9]
+resistance 100
+	----
+node 5
+neighbors [0, 6]
+resistance -80
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 100
+	----
+node 1
+neighbors [0, 7, 9]
+resistance 42
+	----
+node 7
+neighbors [1, 3, 9]
+resistance 47
+	----
+node 3
+neighbors [0, 7]
+resistance 10
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance 94
+	----
+node 4
+neighbors [0, 6]
+resistance -90
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance 20
+	----
+node 6
+neighbors [2, 4, 5]
+resistance 48
+	----
+====
+ROUND 20
+executing query 3 on node 7
+delegate travel for src 7 question 3
+delegation references: [1, 3, 9]
+delegation references: [0, 9, 2, 10]
+delegation references: [2, 4, 5, 10, 6, 8]
+delegation references: [6, 8]
+delegate answers for src 7 question 3
+node 1 answer -50
+node 3 answer -100
+node 9 answer -25
+node 0 answer -25
+node 2 answer -100
+node 10 answer -100
+node 4 answer 0
+node 5 answer -100
+node 6 answer -66
+node 8 answer -100
+delegation answer: -61
+DB after delegation:
+*************
+actual answers
+{1: Some(-20), 0: Some(50), 4: Some(6), 3: Some(0), 2: Some(10)}
+-- obj
+{3: 2, 1: 2, 0: 2, 2: 2, 4: 2}
+-- sat other
+{1: {3: 0.89, 2: 1.0}, 0: {3: 0.64, 2: 1.0}, 9: {2: 1.0, 3: 0.64}, 2: {2: 1.0, 3: 0.61}, 3: {3: 0.61, 2: 1.0}, 5: {3: 0.61, 2: 1.0}, 8: {2: 1.0, 3: 0.61}, 10: {2: 1.0, 3: 0.61}, 4: {3: 0.39, 2: 1.0}, 6: {2: 1.0, 3: 0.95}}
+-- delegation records
+average contradiction
+{3: {8: 0.39, 2: 0.39, 0: 0.36, 10: 0.39, 9: 0.36, 6: 0.05, 1: 0.11, 4: 0.61, 5: 0.39, 3: 0.39}}
+delegation frequency
+{3: {8: 1, 3: 1, 9: 1, 4: 1, 1: 1, 0: 1, 2: 1, 10: 1, 6: 1, 5: 1}}
+
+-- rfeedback
+{2: [53.0]}
+
+******************
+
+
+Q answer: -25
+node 7 will delegate: false
+node 7 answer: -61
+resistance: 36
+Q fuel: 229
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.2920354, 0.0, 0.33333334, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 1.0],
+ [0.0, 0.0, 0.25, 1.0, 0.0],
+ [0.0, 0.875, 0.8333333, 0.0, 0.0],
+ [0.0, 0.9047619, 0.16666667, 1.0, 0.0],
+ [0.0, 0.0, 0.0, 0.64, 0.6666667],
+ [0.0, 0.0, 0.8833333, 0.48, 0.0],
+ [1.0, 0.0, 1.0, 0.0, 0.0],
+ [0.0, 1.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 0.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[1, 0, 0, 0, 0],
+ [0, 1, 0, 1, 0],
+ [0, 0, 0, 0, 1],
+ [0, 1, 1, 1, 0],
+ [0, 1, 1, 0, 0],
+ [0, 1, 1, 1, 0],
+ [0, 0, 0, 1, 1],
+ [0, 0, 1, 1, 0],
+ [1, 0, 1, 0, 0],
+ [0, 1, 0, 1, 1],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[50, 0, 0, 0, 0],
+ [0, 0, 0, -50, 0],
+ [0, 0, 0, 0, 0],
+ [0, -80, 25, -100, 0],
+ [0, 60, -40, 0, 0],
+ [0, 70, 20, -100, 0],
+ [0, 0, 0, -73, 2],
+ [0, 0, -43, -61, 0],
+ [0, 0, -50, 0, 0],
+ [0, -80, 0, -25, 6],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance -10
+	----
+node 10
+neighbors [8, 9]
+resistance 100
+	----
+node 5
+neighbors [0, 6]
+resistance -80
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 100
+	----
+node 1
+neighbors [0, 7, 9]
+resistance 42
+	----
+node 7
+neighbors [1, 3, 9]
+resistance 11
+	----
+node 3
+neighbors [0, 7]
+resistance 10
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance 94
+	----
+node 4
+neighbors [0, 6]
+resistance -90
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance 20
+	----
+node 6
+neighbors [2, 4, 5]
+resistance 48
+	----
+====
+ROUND 21
+executing query 3 on node 10
+delegate travel for src 10 question 3
+delegation references: [8, 9]
+delegation references: [2, 1, 7]
+delegation references: [0, 6, 7, 3]
+delegation references: [3, 4, 5]
+delegate answers for src 10 question 3
+node 8 answer -100
+node 9 answer -25
+node 2 answer -100
+node 1 answer -50
+node 7 answer -98
+node 0 answer -25
+node 6 answer -77
+node 3 answer -100
+node 4 answer 0
+node 5 answer -100
+delegation answer: -61
+DB after delegation:
+*************
+actual answers
+{2: Some(10), 4: Some(6), 0: Some(50), 3: Some(-25), 1: Some(40)}
+-- obj
+{0: 0, 2: 0, 3: 1, 1: 0, 4: 1}
+-- sat other
+{5: {3: 1.0}, 3: {3: 1.0}, 8: {3: 1.0}, 7: {3: 0.98}, 9: {3: 0.25}, 6: {3: 0.77}, 2: {3: 1.0}, 4: {3: 0.0}, 0: {3: 0.25}, 1: {3: 0.5}}
+-- delegation records
+average contradiction
+{3: {9: 0.75, 2: 0.0, 4: 1.0, 7: 0.02, 6: 0.23, 0: 0.75, 3: 0.0, 1: 0.5, 8: 0.0, 5: 0.0}}
+delegation frequency
+{3: {5: 1, 8: 1, 4: 1, 9: 1, 2: 1, 3: 1, 7: 1, 1: 1, 0: 1, 6: 1}}
+
+-- rfeedback
+{}
+
+******************
+
+
+Q answer: -25
+node 10 will delegate: false
+node 10 answer: -100
+resistance: 75
+Q fuel: 228
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.2920354, 0.0, 0.33333334, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 1.0],
+ [0.0, 0.0, 0.25, 1.0, 0.0],
+ [0.0, 0.875, 0.8333333, 0.0, 0.0],
+ [0.0, 0.9047619, 0.16666667, 1.0, 0.0],
+ [0.0, 0.0, 0.0, 0.64, 0.6666667],
+ [0.0, 0.0, 0.8833333, 0.48, 0.0],
+ [1.0, 0.0, 1.0, 0.0, 0.0],
+ [0.0, 1.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 1.0, 0.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[1, 0, 0, 0, 0],
+ [0, 1, 0, 1, 0],
+ [0, 0, 0, 0, 1],
+ [0, 1, 1, 1, 0],
+ [0, 1, 1, 0, 0],
+ [0, 1, 1, 1, 0],
+ [0, 0, 0, 1, 1],
+ [0, 0, 1, 1, 0],
+ [1, 0, 1, 0, 0],
+ [0, 1, 0, 1, 1],
+ [0, 0, 0, 1, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[50, 0, 0, 0, 0],
+ [0, 0, 0, -50, 0],
+ [0, 0, 0, 0, 0],
+ [0, -80, 25, -100, 0],
+ [0, 60, -40, 0, 0],
+ [0, 70, 20, -100, 0],
+ [0, 0, 0, -73, 2],
+ [0, 0, -43, -61, 0],
+ [0, 0, -50, 0, 0],
+ [0, -80, 0, -25, 6],
+ [0, 0, 0, -100, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance -10
+	----
+node 10
+neighbors [8, 9]
+resistance 25
+	----
+node 5
+neighbors [0, 6]
+resistance -80
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 100
+	----
+node 1
+neighbors [0, 7, 9]
+resistance 42
+	----
+node 7
+neighbors [1, 3, 9]
+resistance 11
+	----
+node 3
+neighbors [0, 7]
+resistance 10
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance 94
+	----
+node 4
+neighbors [0, 6]
+resistance -90
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance 20
+	----
+node 6
+neighbors [2, 4, 5]
+resistance 48
+	----
+====
+ROUND 22
+executing query 3 on node 0
+delegate travel for src 0 question 3
+delegation references: [1, 2, 3, 4, 5]
+delegation references: [7, 9, 6, 8]
+delegation references: [9, 10]
+delegation references: [10]
+delegate answers for src 0 question 3
+node 1 answer -50
+node 2 answer -100
+node 3 answer -100
+node 4 answer 0
+node 5 answer -100
+node 7 answer -57
+node 9 answer -25
+node 6 answer -65
+node 8 answer -100
+node 10 answer -100
+delegation answer: -63
+DB after delegation:
+*************
+actual answers
+{0: Some(50), 1: Some(40), 3: Some(-25), 2: Some(10), 4: Some(6)}
+-- obj
+{3: 0, 4: 0, 0: 0, 2: 0, 1: 0}
+-- sat other
+{3: {3: 0.25, 0: 1.0}, 5: {0: 1.0, 3: 0.25}, 8: {0: 1.0, 3: 0.25}, 1: {0: 1.0, 3: 0.75}, 7: {0: 1.0, 3: 0.68}, 2: {0: 1.0, 3: 0.25}, 6: {0: 1.0, 3: 0.6}, 4: {0: 1.0, 3: 0.75}, 10: {0: 1.0, 3: 0.25}, 9: {0: 1.0, 3: 1.0}}
+-- delegation records
+average contradiction
+{3: {5: 0.75, 4: 0.25, 9: 0.0, 6: 0.4, 3: 0.75, 7: 0.32, 1: 0.25, 8: 0.75, 10: 0.75, 2: 0.75}}
+delegation frequency
+{3: {10: 1, 2: 1, 4: 1, 3: 1, 1: 1, 8: 1, 9: 1, 6: 1, 7: 1, 5: 1}}
+
+-- rfeedback
+{0: [0.0]}
+
+******************
+
+
+Q answer: -25
+node 0 will delegate: false
+node 0 answer: -25
+resistance: 0
+Q fuel: 227
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.2920354, 0.0, 0.33333334, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 1.0],
+ [0.0, 0.0, 0.25, 1.0, 0.0],
+ [0.0, 0.875, 0.8333333, 0.0, 0.0],
+ [0.0, 0.9047619, 0.16666667, 1.0, 0.0],
+ [0.0, 0.0, 0.0, 0.64, 0.6666667],
+ [0.0, 0.0, 0.8833333, 0.48, 0.0],
+ [1.0, 0.0, 1.0, 0.0, 0.0],
+ [0.0, 1.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 1.0, 0.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[1, 0, 0, 1, 0],
+ [0, 1, 0, 1, 0],
+ [0, 0, 0, 0, 1],
+ [0, 1, 1, 1, 0],
+ [0, 1, 1, 0, 0],
+ [0, 1, 1, 1, 0],
+ [0, 0, 0, 1, 1],
+ [0, 0, 1, 1, 0],
+ [1, 0, 1, 0, 0],
+ [0, 1, 0, 1, 1],
+ [0, 0, 0, 1, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[50, 0, 0, -25, 0],
+ [0, 0, 0, -50, 0],
+ [0, 0, 0, 0, 0],
+ [0, -80, 25, -100, 0],
+ [0, 60, -40, 0, 0],
+ [0, 70, 20, -100, 0],
+ [0, 0, 0, -73, 2],
+ [0, 0, -43, -61, 0],
+ [0, 0, -50, 0, 0],
+ [0, -80, 0, -25, 6],
+ [0, 0, 0, -100, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance -10
+	----
+node 10
+neighbors [8, 9]
+resistance 25
+	----
+node 5
+neighbors [0, 6]
+resistance -80
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 100
+	----
+node 1
+neighbors [0, 7, 9]
+resistance 42
+	----
+node 7
+neighbors [1, 3, 9]
+resistance 11
+	----
+node 3
+neighbors [0, 7]
+resistance 10
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance 94
+	----
+node 4
+neighbors [0, 6]
+resistance -90
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance 20
+	----
+node 6
+neighbors [2, 4, 5]
+resistance 48
+	----
+====
+ROUND 23
+executing query 3 on node 8
+delegate travel for src 8 question 3
+delegation references: [2, 10]
+delegation references: [0, 6, 9]
+delegation references: [1, 3, 4, 5, 7]
+delegation references: [7]
+delegate answers for src 8 question 3
+node 2 answer -100
+node 10 answer -100
+node 0 answer -25
+node 6 answer -87
+node 9 answer -25
+node 1 answer -50
+node 3 answer -100
+node 4 answer 0
+node 5 answer -100
+node 7 answer -94
+delegation answer: -62
+DB after delegation:
+*************
+actual answers
+{4: Some(6), 1: Some(-25), 0: Some(95), 2: Some(10), 3: Some(0)}
+-- obj
+{4: 1, 2: 1, 3: 1, 0: 1, 1: 1}
+-- sat other
+{10: {2: 1.0, 0: 1.0, 3: 1.0}, 1: {2: 1.0, 0: 1.0, 3: 0.5}, 7: {0: 1.0, 2: 1.0, 3: 0.94}, 2: {2: 1.0, 0: 1.0, 3: 1.0}, 6: {3: 0.87, 2: 1.0, 0: 1.0}, 9: {0: 1.0, 3: 0.25, 2: 1.0}, 0: {3: 0.25, 2: 1.0, 0: 1.0}, 3: {3: 1.0, 2: 1.0, 0: 1.0}, 4: {2: 1.0, 0: 1.0, 3: 0.0}, 5: {3: 1.0, 0: 1.0, 2: 1.0}}
+-- delegation records
+average contradiction
+{3: {6: 0.13, 0: 0.75, 5: 0.0, 3: 0.0, 10: 0.0, 7: 0.06, 2: 0.0, 9: 0.75, 1: 0.5, 4: 1.0}}
+delegation frequency
+{3: {5: 1, 3: 1, 1: 1, 0: 1, 7: 1, 6: 1, 9: 1, 10: 1, 4: 1, 2: 1}}
+
+-- rfeedback
+{0: [50.0], 2: [60.0]}
+
+******************
+
+
+Q answer: -25
+node 8 will delegate: false
+node 8 answer: -100
+resistance: 75
+Q fuel: 226
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.2920354, 0.0, 0.33333334, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 1.0],
+ [0.0, 0.0, 0.25, 1.0, 0.0],
+ [0.0, 0.875, 0.8333333, 0.0, 0.0],
+ [0.0, 0.9047619, 0.16666667, 1.0, 0.0],
+ [0.0, 0.0, 0.0, 0.64, 0.6666667],
+ [0.0, 0.0, 0.8833333, 0.48, 0.0],
+ [1.0, 0.0, 1.0, 1.0, 0.0],
+ [0.0, 1.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 1.0, 0.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[1, 0, 0, 1, 0],
+ [0, 1, 0, 1, 0],
+ [0, 0, 0, 0, 1],
+ [0, 1, 1, 1, 0],
+ [0, 1, 1, 0, 0],
+ [0, 1, 1, 1, 0],
+ [0, 0, 0, 1, 1],
+ [0, 0, 1, 1, 0],
+ [1, 0, 1, 1, 0],
+ [0, 1, 0, 1, 1],
+ [0, 0, 0, 1, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[50, 0, 0, -25, 0],
+ [0, 0, 0, -50, 0],
+ [0, 0, 0, 0, 0],
+ [0, -80, 25, -100, 0],
+ [0, 60, -40, 0, 0],
+ [0, 70, 20, -100, 0],
+ [0, 0, 0, -73, 2],
+ [0, 0, -43, -61, 0],
+ [0, 0, -50, -100, 0],
+ [0, -80, 0, -25, 6],
+ [0, 0, 0, -100, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance -85
+	----
+node 10
+neighbors [8, 9]
+resistance 25
+	----
+node 5
+neighbors [0, 6]
+resistance -80
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 100
+	----
+node 1
+neighbors [0, 7, 9]
+resistance 42
+	----
+node 7
+neighbors [1, 3, 9]
+resistance 11
+	----
+node 3
+neighbors [0, 7]
+resistance 10
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance 94
+	----
+node 4
+neighbors [0, 6]
+resistance -90
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance 20
+	----
+node 6
+neighbors [2, 4, 5]
+resistance 48
+	----
+====
+ROUND 24
+executing query 3 on node 4
+delegate travel for src 4 question 3
+delegation references: [0, 6]
+delegation references: [1, 2, 3, 5]
+delegation references: [7, 9, 8]
+delegation references: [9, 10]
+delegation references: [10]
+delegate answers for src 4 question 3
+node 0 answer -25
+node 6 answer -100
+node 1 answer -50
+node 2 answer -100
+node 3 answer -100
+node 5 answer -100
+node 7 answer -67
+node 9 answer -25
+node 8 answer -100
+node 10 answer -100
+delegation answer: -70
+DB after delegation:
+*************
+actual answers
+{0: Some(75), 4: Some(2), 2: Some(-40), 1: Some(60), 3: Some(0)}
+-- obj
+{0: 0, 3: 0, 1: 0, 2: 0, 4: 0}
+-- sat other
+{2: {1: 1.0, 2: 1.0, 3: 0.0}, 3: {2: 1.0, 1: 1.0, 3: 0.0}, 6: {1: 1.0, 3: 0.0, 2: 1.0}, 7: {3: 0.32999998, 2: 1.0, 1: 1.0}, 0: {2: 1.0, 1: 1.0, 3: 0.75}, 5: {3: 0.0, 1: 1.0, 2: 1.0}, 10: {3: 0.0, 1: 1.0, 2: 1.0}, 8: {3: 0.0, 1: 1.0, 2: 1.0}, 9: {3: 0.75, 2: 1.0, 1: 1.0}, 1: {3: 0.5, 1: 1.0, 2: 1.0}}
+-- delegation records
+average contradiction
+{3: {3: 1.0, 7: 0.67, 1: 0.5, 6: 1.0, 2: 1.0, 10: 1.0, 0: 0.25, 8: 1.0, 5: 1.0, 9: 0.25}}
+delegation frequency
+{3: {5: 1, 9: 1, 10: 1, 3: 1, 2: 1, 6: 1, 7: 1, 0: 1, 8: 1, 1: 1}}
+
+-- rfeedback
+{2: [50.0], 1: [140.0]}
+
+******************
+
+
+Q answer: -25
+node 4 will delegate: false
+node 4 answer: 0
+resistance: 25
+Q fuel: 225
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.2920354, 0.0, 0.33333334, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 1.0],
+ [0.0, 0.0, 0.25, 1.0, 0.0],
+ [0.0, 0.875, 0.8333333, 0.33333334, 0.0],
+ [0.0, 0.9047619, 0.16666667, 1.0, 0.0],
+ [0.0, 0.0, 0.0, 0.64, 0.6666667],
+ [0.0, 0.0, 0.8833333, 0.48, 0.0],
+ [1.0, 0.0, 1.0, 1.0, 0.0],
+ [0.0, 1.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 1.0, 0.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[1, 0, 0, 1, 0],
+ [0, 1, 0, 1, 0],
+ [0, 0, 0, 0, 1],
+ [0, 1, 1, 1, 0],
+ [0, 1, 1, 1, 0],
+ [0, 1, 1, 1, 0],
+ [0, 0, 0, 1, 1],
+ [0, 0, 1, 1, 0],
+ [1, 0, 1, 1, 0],
+ [0, 1, 0, 1, 1],
+ [0, 0, 0, 1, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[50, 0, 0, -25, 0],
+ [0, 0, 0, -50, 0],
+ [0, 0, 0, 0, 0],
+ [0, -80, 25, -100, 0],
+ [0, 60, -40, 0, 0],
+ [0, 70, 20, -100, 0],
+ [0, 0, 0, -73, 2],
+ [0, 0, -43, -61, 0],
+ [0, 0, -50, -100, 0],
+ [0, -80, 0, -25, 6],
+ [0, 0, 0, -100, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance -85
+	----
+node 10
+neighbors [8, 9]
+resistance 25
+	----
+node 5
+neighbors [0, 6]
+resistance -80
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 100
+	----
+node 1
+neighbors [0, 7, 9]
+resistance 42
+	----
+node 7
+neighbors [1, 3, 9]
+resistance 11
+	----
+node 3
+neighbors [0, 7]
+resistance 10
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance 94
+	----
+node 4
+neighbors [0, 6]
+resistance -115
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance 20
+	----
+node 6
+neighbors [2, 4, 5]
+resistance 48
+	----
+====
+ROUND 25
+executing query 2 on node 10
+delegate travel for src 10 question 2
+delegation references: [8, 9]
+delegation references: [2, 1, 7]
+delegation references: [0, 6, 7, 3]
+delegation references: [3, 4, 5]
+delegate answers for src 10 question 2
+node 8 answer -50
+node 9 answer -50
+node 2 answer -50
+node 1 answer -12
+node 7 answer -24
+node 0 answer 10
+node 6 answer -49
+node 3 answer 25
+node 4 answer -40
+node 5 answer 20
+delegation answer: -20
+DB after delegation:
+*************
+actual answers
+{2: Some(10), 4: Some(6), 0: Some(50), 3: Some(-25), 1: Some(40)}
+-- obj
+{0: 0, 2: 0, 3: 1, 1: 0, 4: 1}
+-- sat other
+{5: {2: 0.8666667, 3: 1.0}, 3: {2: 0.8, 3: 1.0}, 8: {3: 1.0, 2: 0.19999999}, 7: {3: 1.0, 2: 0.5466666}, 9: {3: 1.0, 2: 0.19999999}, 6: {3: 1.0, 2: 0.21333331}, 2: {3: 1.0, 2: 0.19999999}, 4: {2: 0.3333333, 3: 1.0}, 0: {3: 1.0, 2: 1.0}, 1: {3: 1.0, 2: 0.7066667}}
+-- delegation records
+average contradiction
+{2: {2: 0.8, 5: 0.13333334, 1: 0.29333332, 3: 0.2, 9: 0.8, 4: 0.6666667, 0: 0.0, 6: 0.7866667, 7: 0.45333335, 8: 0.8}}
+delegation frequency
+{2: {3: 1, 5: 1, 9: 1, 6: 1, 0: 1, 1: 1, 7: 1, 8: 1, 2: 1, 4: 1}}
+
+-- rfeedback
+{3: [75.0]}
+
+******************
+
+
+Q answer: 10
+node 10 will delegate: false
+node 10 answer: 10
+resistance: 0
+Q fuel: 224
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.2920354, 0.0, 0.33333334, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 1.0],
+ [0.0, 0.0, 0.25, 1.0, 0.0],
+ [0.0, 0.875, 0.8333333, 0.33333334, 0.0],
+ [0.0, 0.9047619, 0.16666667, 1.0, 0.0],
+ [0.0, 0.0, 0.0, 0.64, 0.6666667],
+ [0.0, 0.0, 0.8833333, 0.48, 0.0],
+ [1.0, 0.0, 1.0, 1.0, 0.0],
+ [0.0, 1.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 1.0, 0.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[1, 0, 0, 1, 0],
+ [0, 1, 0, 1, 0],
+ [0, 0, 0, 0, 1],
+ [0, 1, 1, 1, 0],
+ [0, 1, 1, 1, 0],
+ [0, 1, 1, 1, 0],
+ [0, 0, 0, 1, 1],
+ [0, 0, 1, 1, 0],
+ [1, 0, 1, 1, 0],
+ [0, 1, 0, 1, 1],
+ [0, 0, 1, 1, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[50, 0, 0, -25, 0],
+ [0, 0, 0, -50, 0],
+ [0, 0, 0, 0, 0],
+ [0, -80, 25, -100, 0],
+ [0, 60, -40, 0, 0],
+ [0, 70, 20, -100, 0],
+ [0, 0, 0, -73, 2],
+ [0, 0, -43, -61, 0],
+ [0, 0, -50, -100, 0],
+ [0, -80, 0, -25, 6],
+ [0, 0, 10, -100, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance -85
+	----
+node 10
+neighbors [8, 9]
+resistance 25
+	----
+node 5
+neighbors [0, 6]
+resistance -80
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 100
+	----
+node 1
+neighbors [0, 7, 9]
+resistance 42
+	----
+node 7
+neighbors [1, 3, 9]
+resistance 11
+	----
+node 3
+neighbors [0, 7]
+resistance 10
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance 94
+	----
+node 4
+neighbors [0, 6]
+resistance -115
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance 20
+	----
+node 6
+neighbors [2, 4, 5]
+resistance 48
+	----
+====
+ROUND 26
+executing query 1 on node 8
+delegate travel for src 8 question 1
+delegation references: [2, 10]
+delegation references: [0, 6, 9]
+delegation references: [1, 3, 4, 5, 7]
+delegation references: [7]
+delegate answers for src 8 question 1
+node 2 answer 80
+node 10 answer 40
+node 0 answer 40
+node 6 answer -34
+node 9 answer -80
+node 1 answer 0
+node 3 answer -80
+node 4 answer 60
+node 5 answer 70
+node 7 answer 61
+delegation answer: 14
+DB after delegation:
+*************
+actual answers
+{4: Some(6), 1: Some(-25), 0: Some(95), 2: Some(10), 3: Some(0)}
+-- obj
+{4: 1, 2: 1, 3: 1, 0: 1, 1: 1}
+-- sat other
+{10: {0: 1.0, 1: 0.75, 2: 1.0, 3: 1.0}, 1: {2: 1.0, 1: 0.5, 0: 1.0, 3: 1.0}, 7: {0: 1.0, 2: 1.0, 3: 1.0, 1: 0.88125}, 2: {2: 1.0, 3: 1.0, 1: 1.0, 0: 1.0}, 6: {3: 1.0, 0: 1.0, 1: 0.28750002, 2: 1.0}, 9: {0: 1.0, 1: 0.0, 3: 1.0, 2: 1.0}, 0: {2: 1.0, 3: 1.0, 0: 1.0, 1: 0.75}, 3: {1: 0.0, 2: 1.0, 3: 1.0, 0: 1.0}, 4: {1: 0.875, 3: 1.0, 2: 1.0, 0: 1.0}, 5: {2: 1.0, 3: 1.0, 1: 0.9375, 0: 1.0}}
+-- delegation records
+average contradiction
+{1: {0: 0.25, 4: 0.125, 1: 0.5, 10: 0.25, 6: 0.7125, 3: 1.0, 9: 1.0, 5: 0.0625, 7: 0.11875, 2: 0.0}}
+delegation frequency
+{1: {3: 1, 4: 1, 0: 1, 7: 1, 9: 1, 1: 1, 6: 1, 5: 1, 10: 1, 2: 1}}
+
+-- rfeedback
+{0: [50.0], 2: [60.0], 3: [75.0]}
+
+******************
+
+
+Q answer: -6
+node 8 will delegate: false
+node 8 answer: 80
+resistance: 86
+Q fuel: 223
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.2920354, 0.0, 0.33333334, 0.0],
+ [0.0, 0.0, 0.0, 0.0, 1.0],
+ [0.0, 0.0, 0.25, 1.0, 0.0],
+ [0.0, 0.875, 0.8333333, 0.33333334, 0.0],
+ [0.0, 0.9047619, 0.16666667, 1.0, 0.0],
+ [0.0, 0.0, 0.0, 0.64, 0.6666667],
+ [0.0, 0.0, 0.8833333, 0.48, 0.0],
+ [1.0, 1.0, 1.0, 1.0, 0.0],
+ [0.0, 1.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 1.0, 0.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[1, 0, 0, 1, 0],
+ [0, 1, 0, 1, 0],
+ [0, 0, 0, 0, 1],
+ [0, 1, 1, 1, 0],
+ [0, 1, 1, 1, 0],
+ [0, 1, 1, 1, 0],
+ [0, 0, 0, 1, 1],
+ [0, 0, 1, 1, 0],
+ [1, 1, 1, 1, 0],
+ [0, 1, 0, 1, 1],
+ [0, 0, 1, 1, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[50, 0, 0, -25, 0],
+ [0, 0, 0, -50, 0],
+ [0, 0, 0, 0, 0],
+ [0, -80, 25, -100, 0],
+ [0, 60, -40, 0, 0],
+ [0, 70, 20, -100, 0],
+ [0, 0, 0, -73, 2],
+ [0, 0, -43, -61, 0],
+ [0, 80, -50, -100, 0],
+ [0, -80, 0, -25, 6],
+ [0, 0, 10, -100, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance -171
+	----
+node 10
+neighbors [8, 9]
+resistance 25
+	----
+node 5
+neighbors [0, 6]
+resistance -80
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 100
+	----
+node 1
+neighbors [0, 7, 9]
+resistance 42
+	----
+node 7
+neighbors [1, 3, 9]
+resistance 11
+	----
+node 3
+neighbors [0, 7]
+resistance 10
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance 94
+	----
+node 4
+neighbors [0, 6]
+resistance -115
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance 20
+	----
+node 6
+neighbors [2, 4, 5]
+resistance 48
+	----
+====
+ROUND 27
+executing query 2 on node 2
+delegate travel for src 2 question 2
+delegation references: [0, 6, 8, 9]
+delegation references: [1, 3, 4, 5, 10, 7]
+delegation references: [7]
+delegate answers for src 2 question 2
+node 0 answer 10
+node 6 answer -38
+node 8 answer -50
+node 9 answer -50
+node 1 answer -12
+node 3 answer 25
+node 4 answer -40
+node 5 answer 20
+node 10 answer 10
+node 7 answer -37
+delegation answer: -15
+DB after delegation:
+*************
+actual answers
+{1: Some(-40), 2: Some(10), 0: Some(50), 3: Some(-25), 4: Some(6)}
+-- obj
+{1: 1, 2: 1, 3: 1, 4: 1, 0: 1}
+-- sat other
+{4: {2: 0.8666667, 4: 1.0}, 8: {2: 1.0, 4: 1.0}, 0: {2: 0.19999999, 4: 1.0}, 6: {2: 0.84000003, 4: 1.0}, 9: {2: 1.0, 4: 1.0}, 1: {4: 1.0, 2: 0.49333334}, 3: {4: 1.0, 2: 0.0}, 10: {4: 1.0, 2: 0.19999999}, 5: {2: 0.06666666, 4: 1.0}, 7: {2: 0.82666665, 4: 1.0}}
+-- delegation records
+average contradiction
+{2: {4: 0.13333334, 9: 0.0, 5: 0.93333334, 1: 0.50666666, 0: 0.8, 6: 0.16, 7: 0.17333333, 8: 0.0, 3: 1.0, 10: 0.8}}
+delegation frequency
+{2: {6: 1, 3: 1, 10: 1, 7: 1, 8: 1, 0: 1, 4: 1, 5: 1, 1: 1, 9: 1}}
+
+-- rfeedback
+{4: [6.0]}
+
+******************
+
+
+Q answer: 10
+node 2 will delegate: false
+node 2 answer: -50
+resistance: 60
+Q fuel: 222
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.2920354, 0.0, 0.33333334, 0.0],
+ [0.0, 0.0, 1.0, 0.0, 1.0],
+ [0.0, 0.0, 0.25, 1.0, 0.0],
+ [0.0, 0.875, 0.8333333, 0.33333334, 0.0],
+ [0.0, 0.9047619, 0.16666667, 1.0, 0.0],
+ [0.0, 0.0, 0.0, 0.64, 0.6666667],
+ [0.0, 0.0, 0.8833333, 0.48, 0.0],
+ [1.0, 1.0, 1.0, 1.0, 0.0],
+ [0.0, 1.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 1.0, 0.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[1, 0, 0, 1, 0],
+ [0, 1, 0, 1, 0],
+ [0, 0, 1, 0, 1],
+ [0, 1, 1, 1, 0],
+ [0, 1, 1, 1, 0],
+ [0, 1, 1, 1, 0],
+ [0, 0, 0, 1, 1],
+ [0, 0, 1, 1, 0],
+ [1, 1, 1, 1, 0],
+ [0, 1, 0, 1, 1],
+ [0, 0, 1, 1, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[50, 0, 0, -25, 0],
+ [0, 0, 0, -50, 0],
+ [0, 0, -50, 0, 0],
+ [0, -80, 25, -100, 0],
+ [0, 60, -40, 0, 0],
+ [0, 70, 20, -100, 0],
+ [0, 0, 0, -73, 2],
+ [0, 0, -43, -61, 0],
+ [0, 80, -50, -100, 0],
+ [0, -80, 0, -25, 6],
+ [0, 0, 10, -100, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance -171
+	----
+node 10
+neighbors [8, 9]
+resistance 25
+	----
+node 5
+neighbors [0, 6]
+resistance -80
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 100
+	----
+node 1
+neighbors [0, 7, 9]
+resistance 42
+	----
+node 7
+neighbors [1, 3, 9]
+resistance 11
+	----
+node 3
+neighbors [0, 7]
+resistance 10
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance 34
+	----
+node 4
+neighbors [0, 6]
+resistance -115
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance 20
+	----
+node 6
+neighbors [2, 4, 5]
+resistance 48
+	----
+====
+ROUND 28
+executing query 2 on node 1
+delegate travel for src 1 question 2
+delegation references: [0, 7, 9]
+delegation references: [2, 3, 4, 5, 9, 10]
+delegation references: [6, 8, 10]
+delegate answers for src 1 question 2
+node 0 answer 10
+node 7 answer -21
+node 9 answer -50
+node 2 answer -50
+node 3 answer 25
+node 4 answer -40
+node 5 answer 20
+node 10 answer 10
+node 6 answer -38
+node 8 answer -50
+delegation answer: -17
+DB after delegation:
+*************
+actual answers
+{4: None, 1: None, 2: None, 0: None, 3: None}
+-- obj
+{1: 0, 3: 0, 4: 0, 0: 0, 2: 0}
+-- sat other
+{3: {2: 0.50666666, 3: 1.0, 1: 1.0}, 9: {2: 0.49333334, 3: 1.0, 1: 1.0}, 0: {1: 1.0, 3: 1.0, 2: 0.7066667}, 10: {3: 1.0, 1: 1.0, 2: 0.7066667}, 4: {1: 1.0, 3: 1.0, 2: 0.62666667}, 5: {3: 1.0, 1: 1.0, 2: 0.5733333}, 6: {1: 1.0, 3: 1.0, 2: 0.6533333}, 7: {1: 1.0, 3: 1.0, 2: 0.88}, 2: {3: 1.0, 1: 1.0, 2: 0.49333334}, 8: {3: 1.0, 1: 1.0, 2: 0.49333334}}
+-- delegation records
+average contradiction
+{2: {7: 0.12, 6: 0.34666666, 3: 0.49333334, 0: 0.29333332, 10: 0.29333332, 5: 0.42666668, 9: 0.50666666, 4: 0.37333333, 2: 0.50666666, 8: 0.50666666}}
+delegation frequency
+{2: {8: 1, 6: 1, 3: 1, 4: 1, 2: 1, 10: 1, 0: 1, 9: 1, 5: 1, 7: 1}}
+
+-- rfeedback
+{3: [25.0], 1: [33.0]}
+
+******************
+
+
+Q answer: 10
+node 1 will delegate: false
+node 1 answer: -12
+resistance: 22
+Q fuel: 221
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.2920354, 0.36666667, 0.33333334, 0.0],
+ [0.0, 0.0, 1.0, 0.0, 1.0],
+ [0.0, 0.0, 0.25, 1.0, 0.0],
+ [0.0, 0.875, 0.8333333, 0.33333334, 0.0],
+ [0.0, 0.9047619, 0.16666667, 1.0, 0.0],
+ [0.0, 0.0, 0.0, 0.64, 0.6666667],
+ [0.0, 0.0, 0.8833333, 0.48, 0.0],
+ [1.0, 1.0, 1.0, 1.0, 0.0],
+ [0.0, 1.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 1.0, 0.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[1, 0, 0, 1, 0],
+ [0, 1, 1, 1, 0],
+ [0, 0, 1, 0, 1],
+ [0, 1, 1, 1, 0],
+ [0, 1, 1, 1, 0],
+ [0, 1, 1, 1, 0],
+ [0, 0, 0, 1, 1],
+ [0, 0, 1, 1, 0],
+ [1, 1, 1, 1, 0],
+ [0, 1, 0, 1, 1],
+ [0, 0, 1, 1, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[50, 0, 0, -25, 0],
+ [0, 0, -12, -50, 0],
+ [0, 0, -50, 0, 0],
+ [0, -80, 25, -100, 0],
+ [0, 60, -40, 0, 0],
+ [0, 70, 20, -100, 0],
+ [0, 0, 0, -73, 2],
+ [0, 0, -43, -61, 0],
+ [0, 80, -50, -100, 0],
+ [0, -80, 0, -25, 6],
+ [0, 0, 10, -100, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance -171
+	----
+node 10
+neighbors [8, 9]
+resistance 25
+	----
+node 5
+neighbors [0, 6]
+resistance -80
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 100
+	----
+node 1
+neighbors [0, 7, 9]
+resistance 20
+	----
+node 7
+neighbors [1, 3, 9]
+resistance 11
+	----
+node 3
+neighbors [0, 7]
+resistance 10
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance 34
+	----
+node 4
+neighbors [0, 6]
+resistance -115
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance 20
+	----
+node 6
+neighbors [2, 4, 5]
+resistance 48
+	----
+====
+ROUND 29
+executing query 1 on node 2
+delegate travel for src 2 question 1
+delegation references: [0, 6, 8, 9]
+delegation references: [1, 3, 4, 5, 10, 7]
+delegation references: [7]
+delegate answers for src 2 question 1
+node 0 answer 40
+node 6 answer -79
+node 8 answer 80
+node 9 answer -80
+node 1 answer 0
+node 3 answer -80
+node 4 answer 60
+node 5 answer 70
+node 10 answer 40
+node 7 answer 50
+delegation answer: 9
+DB after delegation:
+*************
+actual answers
+{1: Some(-40), 2: Some(10), 0: Some(50), 3: Some(-25), 4: Some(6)}
+-- obj
+{1: 1, 2: 1, 3: 1, 4: 1, 0: 1}
+-- sat other
+{4: {2: 1.0, 1: 0.875, 4: 1.0}, 8: {2: 1.0, 1: 1.0, 4: 1.0}, 0: {2: 1.0, 4: 1.0, 1: 0.75}, 6: {1: 0.006250024, 2: 1.0, 4: 1.0}, 9: {2: 1.0, 4: 1.0, 1: 0.0}, 1: {1: 0.5, 4: 1.0, 2: 1.0}, 3: {4: 1.0, 1: 0.0, 2: 1.0}, 10: {4: 1.0, 2: 1.0, 1: 0.75}, 5: {1: 0.9375, 2: 1.0, 4: 1.0}, 7: {1: 0.8125, 2: 1.0, 4: 1.0}}
+-- delegation records
+average contradiction
+{1: {5: 0.0625, 0: 0.25, 9: 1.0, 3: 1.0, 4: 0.125, 10: 0.25, 7: 0.1875, 6: 0.99375, 1: 0.5, 8: 0.0}}
+delegation frequency
+{1: {7: 1, 10: 1, 4: 1, 3: 1, 6: 1, 0: 1, 8: 1, 5: 1, 9: 1, 1: 1}}
+
+-- rfeedback
+{4: [6.0], 2: [60.0]}
+
+******************
+
+
+Q answer: 8
+node 2 will delegate: false
+node 2 answer: 80
+resistance: 72
+Q fuel: 220
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.2920354, 0.36666667, 0.33333334, 0.0],
+ [0.0, 0.8181818, 1.0, 0.0, 1.0],
+ [0.0, 0.0, 0.25, 1.0, 0.0],
+ [0.0, 0.875, 0.8333333, 0.33333334, 0.0],
+ [0.0, 0.9047619, 0.16666667, 1.0, 0.0],
+ [0.0, 0.0, 0.0, 0.64, 0.6666667],
+ [0.0, 0.0, 0.8833333, 0.48, 0.0],
+ [1.0, 1.0, 1.0, 1.0, 0.0],
+ [0.0, 1.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 1.0, 0.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[1, 0, 0, 1, 0],
+ [0, 1, 1, 1, 0],
+ [0, 1, 1, 0, 1],
+ [0, 1, 1, 1, 0],
+ [0, 1, 1, 1, 0],
+ [0, 1, 1, 1, 0],
+ [0, 0, 0, 1, 1],
+ [0, 0, 1, 1, 0],
+ [1, 1, 1, 1, 0],
+ [0, 1, 0, 1, 1],
+ [0, 0, 1, 1, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[50, 0, 0, -25, 0],
+ [0, 0, -12, -50, 0],
+ [0, 80, -50, 0, 0],
+ [0, -80, 25, -100, 0],
+ [0, 60, -40, 0, 0],
+ [0, 70, 20, -100, 0],
+ [0, 0, 0, -73, 2],
+ [0, 0, -43, -61, 0],
+ [0, 80, -50, -100, 0],
+ [0, -80, 0, -25, 6],
+ [0, 0, 10, -100, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance -171
+	----
+node 10
+neighbors [8, 9]
+resistance 25
+	----
+node 5
+neighbors [0, 6]
+resistance -80
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 100
+	----
+node 1
+neighbors [0, 7, 9]
+resistance 20
+	----
+node 7
+neighbors [1, 3, 9]
+resistance 11
+	----
+node 3
+neighbors [0, 7]
+resistance 10
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance -38
+	----
+node 4
+neighbors [0, 6]
+resistance -115
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance 20
+	----
+node 6
+neighbors [2, 4, 5]
+resistance 48
+	----
+====
+ROUND 30
+executing query 3 on node 2
+delegate travel for src 2 question 3
+delegation references: [0, 6, 8, 9]
+delegation references: [1, 3, 4, 5, 10, 7]
+delegation references: [7]
+delegate answers for src 2 question 3
+node 0 answer -25
+node 6 answer -78
+node 8 answer -100
+node 9 answer -25
+node 1 answer -50
+node 3 answer -100
+node 4 answer 0
+node 5 answer -100
+node 10 answer -100
+node 7 answer -57
+delegation answer: -58
+DB after delegation:
+*************
+actual answers
+{1: Some(-40), 2: Some(10), 0: Some(50), 3: Some(-25), 4: Some(6)}
+-- obj
+{1: 1, 2: 1, 3: 1, 4: 1, 0: 1}
+-- sat other
+{4: {3: 0.0, 2: 1.0, 1: 1.0, 4: 1.0}, 8: {2: 1.0, 1: 1.0, 4: 1.0, 3: 1.0}, 0: {2: 1.0, 4: 1.0, 1: 1.0, 3: 0.25}, 6: {4: 1.0, 2: 1.0, 3: 0.78, 1: 1.0}, 9: {1: 1.0, 4: 1.0, 2: 1.0, 3: 0.25}, 1: {3: 0.5, 4: 1.0, 1: 1.0, 2: 1.0}, 3: {1: 1.0, 4: 1.0, 3: 1.0, 2: 1.0}, 10: {2: 1.0, 3: 1.0, 4: 1.0, 1: 1.0}, 5: {4: 1.0, 3: 1.0, 2: 1.0, 1: 1.0}, 7: {4: 1.0, 1: 1.0, 2: 1.0, 3: 0.57}}
+-- delegation records
+average contradiction
+{3: {5: 0.0, 3: 0.0, 7: 0.43, 6: 0.22, 8: 0.0, 0: 0.75, 9: 0.75, 4: 1.0, 1: 0.5, 10: 0.0}}
+delegation frequency
+{3: {4: 1, 8: 1, 1: 1, 7: 1, 6: 1, 0: 1, 3: 1, 5: 1, 9: 1, 10: 1}}
+
+-- rfeedback
+{4: [6.0], 1: [72.0], 2: [60.0]}
+
+******************
+
+
+Q answer: -25
+node 2 will delegate: false
+node 2 answer: -100
+resistance: 75
+Q fuel: 219
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.2920354, 0.36666667, 0.33333334, 0.0],
+ [0.0, 0.8181818, 1.0, 1.0, 1.0],
+ [0.0, 0.0, 0.25, 1.0, 0.0],
+ [0.0, 0.875, 0.8333333, 0.33333334, 0.0],
+ [0.0, 0.9047619, 0.16666667, 1.0, 0.0],
+ [0.0, 0.0, 0.0, 0.64, 0.6666667],
+ [0.0, 0.0, 0.8833333, 0.48, 0.0],
+ [1.0, 1.0, 1.0, 1.0, 0.0],
+ [0.0, 1.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 1.0, 0.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[1, 0, 0, 1, 0],
+ [0, 1, 1, 1, 0],
+ [0, 1, 1, 1, 1],
+ [0, 1, 1, 1, 0],
+ [0, 1, 1, 1, 0],
+ [0, 1, 1, 1, 0],
+ [0, 0, 0, 1, 1],
+ [0, 0, 1, 1, 0],
+ [1, 1, 1, 1, 0],
+ [0, 1, 0, 1, 1],
+ [0, 0, 1, 1, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[50, 0, 0, -25, 0],
+ [0, 0, -12, -50, 0],
+ [0, 80, -50, -100, 0],
+ [0, -80, 25, -100, 0],
+ [0, 60, -40, 0, 0],
+ [0, 70, 20, -100, 0],
+ [0, 0, 0, -73, 2],
+ [0, 0, -43, -61, 0],
+ [0, 80, -50, -100, 0],
+ [0, -80, 0, -25, 6],
+ [0, 0, 10, -100, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance -171
+	----
+node 10
+neighbors [8, 9]
+resistance 25
+	----
+node 5
+neighbors [0, 6]
+resistance -80
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 100
+	----
+node 1
+neighbors [0, 7, 9]
+resistance 20
+	----
+node 7
+neighbors [1, 3, 9]
+resistance 11
+	----
+node 3
+neighbors [0, 7]
+resistance 10
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance -113
+	----
+node 4
+neighbors [0, 6]
+resistance -115
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance 20
+	----
+node 6
+neighbors [2, 4, 5]
+resistance 48
+	----
+====
+ROUND 31
+executing query 0 on node 10
+delegate travel for src 10 question 0
+delegation references: [8, 9]
+delegation references: [2, 1, 7]
+delegation references: [0, 6, 7, 3]
+delegation references: [3, 4, 5]
+delegate answers for src 10 question 0
+node 8 answer 0
+node 9 answer 100
+node 2 answer 100
+node 1 answer 50
+node 7 answer 4
+node 0 answer 50
+node 6 answer 83
+node 3 answer 0
+node 4 answer 75
+node 5 answer 25
+delegation answer: 44
+DB after delegation:
+*************
+actual answers
+{2: Some(10), 4: Some(6), 0: Some(50), 3: Some(-25), 1: Some(40)}
+-- obj
+{0: 0, 2: 0, 3: 1, 1: 0, 4: 1}
+-- sat other
+{5: {2: 1.0, 3: 1.0, 0: 0.75}, 3: {2: 1.0, 3: 1.0, 0: 0.5}, 8: {0: 0.5, 3: 1.0, 2: 1.0}, 7: {3: 1.0, 2: 1.0, 0: 0.53999996}, 9: {3: 1.0, 0: 0.5, 2: 1.0}, 6: {3: 1.0, 2: 1.0, 0: 0.66999996}, 2: {3: 1.0, 2: 1.0, 0: 0.5}, 4: {2: 1.0, 3: 1.0, 0: 0.75}, 0: {3: 1.0, 2: 1.0, 0: 1.0}, 1: {3: 1.0, 2: 1.0, 0: 1.0}}
+-- delegation records
+average contradiction
+{0: {4: 0.25, 3: 0.5, 8: 0.5, 0: 0.0, 9: 0.5, 6: 0.33, 2: 0.5, 7: 0.46, 1: 0.0, 5: 0.25}}
+delegation frequency
+{0: {8: 1, 6: 1, 9: 1, 7: 1, 3: 1, 1: 1, 4: 1, 0: 1, 5: 1, 2: 1}}
+
+-- rfeedback
+{3: [75.0], 2: [0.0]}
+
+******************
+
+
+Q answer: 50
+node 10 will delegate: false
+node 10 answer: 50
+resistance: 0
+Q fuel: 218
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.2920354, 0.36666667, 0.33333334, 0.0],
+ [0.0, 0.8181818, 1.0, 1.0, 1.0],
+ [0.0, 0.0, 0.25, 1.0, 0.0],
+ [0.0, 0.875, 0.8333333, 0.33333334, 0.0],
+ [0.0, 0.9047619, 0.16666667, 1.0, 0.0],
+ [0.0, 0.0, 0.0, 0.64, 0.6666667],
+ [0.0, 0.0, 0.8833333, 0.48, 0.0],
+ [1.0, 1.0, 1.0, 1.0, 0.0],
+ [0.0, 1.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 1.0, 0.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[1, 0, 0, 1, 0],
+ [0, 1, 1, 1, 0],
+ [0, 1, 1, 1, 1],
+ [0, 1, 1, 1, 0],
+ [0, 1, 1, 1, 0],
+ [0, 1, 1, 1, 0],
+ [0, 0, 0, 1, 1],
+ [0, 0, 1, 1, 0],
+ [1, 1, 1, 1, 0],
+ [0, 1, 0, 1, 1],
+ [1, 0, 1, 1, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[50, 0, 0, -25, 0],
+ [0, 0, -12, -50, 0],
+ [0, 80, -50, -100, 0],
+ [0, -80, 25, -100, 0],
+ [0, 60, -40, 0, 0],
+ [0, 70, 20, -100, 0],
+ [0, 0, 0, -73, 2],
+ [0, 0, -43, -61, 0],
+ [0, 80, -50, -100, 0],
+ [0, -80, 0, -25, 6],
+ [50, 0, 10, -100, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance -171
+	----
+node 10
+neighbors [8, 9]
+resistance 25
+	----
+node 5
+neighbors [0, 6]
+resistance -80
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 100
+	----
+node 1
+neighbors [0, 7, 9]
+resistance 20
+	----
+node 7
+neighbors [1, 3, 9]
+resistance 11
+	----
+node 3
+neighbors [0, 7]
+resistance 10
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance -113
+	----
+node 4
+neighbors [0, 6]
+resistance -115
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance 20
+	----
+node 6
+neighbors [2, 4, 5]
+resistance 48
+	----
+====
+ROUND 32
+executing query 0 on node 4
+delegate travel for src 4 question 0
+delegation references: [0, 6]
+delegation references: [1, 2, 3, 5]
+delegation references: [7, 9, 8]
+delegation references: [9, 10]
+delegation references: [10]
+delegate answers for src 4 question 0
+node 0 answer 50
+node 6 answer 6
+node 1 answer 50
+node 2 answer 0
+node 3 answer 0
+node 5 answer 25
+node 7 answer 6
+node 9 answer 0
+node 8 answer 0
+node 10 answer 50
+delegation answer: 17
+DB after delegation:
+*************
+actual answers
+{0: Some(75), 4: Some(2), 2: Some(-40), 1: Some(60), 3: Some(0)}
+-- obj
+{0: 0, 3: 0, 1: 0, 2: 0, 4: 0}
+-- sat other
+{2: {1: 1.0, 3: 1.0, 0: 0.25, 2: 1.0}, 3: {2: 1.0, 1: 1.0, 3: 1.0, 0: 0.25}, 6: {0: 0.31, 3: 1.0, 1: 1.0, 2: 1.0}, 7: {3: 1.0, 2: 1.0, 0: 0.31, 1: 1.0}, 0: {1: 1.0, 0: 0.75, 2: 1.0, 3: 1.0}, 5: {3: 1.0, 2: 1.0, 1: 1.0, 0: 0.5}, 10: {0: 0.75, 1: 1.0, 3: 1.0, 2: 1.0}, 8: {2: 1.0, 0: 0.25, 3: 1.0, 1: 1.0}, 9: {3: 1.0, 2: 1.0, 0: 0.25, 1: 1.0}, 1: {3: 1.0, 2: 1.0, 0: 0.75, 1: 1.0}}
+-- delegation records
+average contradiction
+{0: {0: 0.25, 5: 0.5, 3: 0.75, 7: 0.69, 1: 0.25, 9: 0.75, 8: 0.75, 2: 0.75, 10: 0.25, 6: 0.69}}
+delegation frequency
+{0: {10: 1, 5: 1, 7: 1, 8: 1, 3: 1, 2: 1, 1: 1, 6: 1, 9: 1, 0: 1}}
+
+-- rfeedback
+{2: [50.0], 1: [140.0], 3: [25.0]}
+
+******************
+
+
+Q answer: 50
+node 4 will delegate: false
+node 4 answer: 75
+resistance: 25
+Q fuel: 217
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.2920354, 0.36666667, 0.33333334, 0.0],
+ [0.0, 0.8181818, 1.0, 1.0, 1.0],
+ [0.0, 0.0, 0.25, 1.0, 0.0],
+ [0.5, 0.875, 0.8333333, 0.33333334, 0.0],
+ [0.0, 0.9047619, 0.16666667, 1.0, 0.0],
+ [0.0, 0.0, 0.0, 0.64, 0.6666667],
+ [0.0, 0.0, 0.8833333, 0.48, 0.0],
+ [1.0, 1.0, 1.0, 1.0, 0.0],
+ [0.0, 1.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 1.0, 0.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[1, 0, 0, 1, 0],
+ [0, 1, 1, 1, 0],
+ [0, 1, 1, 1, 1],
+ [0, 1, 1, 1, 0],
+ [1, 1, 1, 1, 0],
+ [0, 1, 1, 1, 0],
+ [0, 0, 0, 1, 1],
+ [0, 0, 1, 1, 0],
+ [1, 1, 1, 1, 0],
+ [0, 1, 0, 1, 1],
+ [1, 0, 1, 1, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[50, 0, 0, -25, 0],
+ [0, 0, -12, -50, 0],
+ [0, 80, -50, -100, 0],
+ [0, -80, 25, -100, 0],
+ [75, 60, -40, 0, 0],
+ [0, 70, 20, -100, 0],
+ [0, 0, 0, -73, 2],
+ [0, 0, -43, -61, 0],
+ [0, 80, -50, -100, 0],
+ [0, -80, 0, -25, 6],
+ [50, 0, 10, -100, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance -171
+	----
+node 10
+neighbors [8, 9]
+resistance 25
+	----
+node 5
+neighbors [0, 6]
+resistance -80
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 100
+	----
+node 1
+neighbors [0, 7, 9]
+resistance 20
+	----
+node 7
+neighbors [1, 3, 9]
+resistance 11
+	----
+node 3
+neighbors [0, 7]
+resistance 10
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance -113
+	----
+node 4
+neighbors [0, 6]
+resistance -140
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance 20
+	----
+node 6
+neighbors [2, 4, 5]
+resistance 48
+	----
+====
+ROUND 33
+executing query 1 on node 6
+delegate travel for src 6 question 1
+delegation references: [2, 4, 5]
+delegation references: [0, 8, 9]
+delegation references: [1, 3, 10, 7]
+delegation references: [7]
+delegate answers for src 6 question 1
+node 2 answer 80
+node 4 answer 60
+node 5 answer 70
+node 0 answer 40
+node 8 answer 80
+node 9 answer -80
+node 1 answer 0
+node 3 answer -80
+node 10 answer 40
+node 7 answer 46
+delegation answer: 23
+DB after delegation:
+*************
+actual answers
+{2: Some(10), 3: Some(-25), 4: Some(6), 1: Some(40), 0: Some(50)}
+-- obj
+{0: 2, 1: 2, 2: 2, 4: 2, 3: 2}
+-- sat other
+{1: {4: 1.0, 3: 1.0, 1: 0.7625}, 5: {4: 1.0, 3: 1.0, 1: 0.325}, 2: {3: 1.0, 1: 0.2625, 4: 1.0}, 4: {4: 1.0, 3: 1.0, 1: 0.3875}, 0: {3: 1.0, 4: 1.0, 1: 0.5125}, 9: {4: 1.0, 1: 0.7375, 3: 1.0}, 3: {3: 1.0, 4: 1.0, 1: 0.7375}, 10: {4: 1.0, 3: 1.0, 1: 0.5125}, 7: {4: 1.0, 3: 1.0, 1: 0.47500002}, 8: {4: 1.0, 3: 1.0, 1: 0.2625}}
+-- delegation records
+average contradiction
+{1: {7: 0.525, 3: 0.2625, 2: 0.7375, 10: 0.4875, 9: 0.2625, 0: 0.4875, 5: 0.675, 8: 0.7375, 1: 0.2375, 4: 0.6125}}
+delegation frequency
+{1: {10: 1, 2: 1, 0: 1, 3: 1, 1: 1, 7: 1, 4: 1, 5: 1, 9: 1, 8: 1}}
+
+-- rfeedback
+{3: [48.0], 4: [4.0]}
+
+******************
+
+
+Q answer: 19
+node 6 will delegate: false
+node 6 answer: -38
+resistance: 57
+Q fuel: 216
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.2920354, 0.36666667, 0.33333334, 0.0],
+ [0.0, 0.8181818, 1.0, 1.0, 1.0],
+ [0.0, 0.0, 0.25, 1.0, 0.0],
+ [0.5, 0.875, 0.8333333, 0.33333334, 0.0],
+ [0.0, 0.9047619, 0.16666667, 1.0, 0.0],
+ [0.0, 0.57575756, 0.0, 0.64, 0.6666667],
+ [0.0, 0.0, 0.8833333, 0.48, 0.0],
+ [1.0, 1.0, 1.0, 1.0, 0.0],
+ [0.0, 1.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 1.0, 0.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[1, 0, 0, 1, 0],
+ [0, 1, 1, 1, 0],
+ [0, 1, 1, 1, 1],
+ [0, 1, 1, 1, 0],
+ [1, 1, 1, 1, 0],
+ [0, 1, 1, 1, 0],
+ [0, 1, 0, 1, 1],
+ [0, 0, 1, 1, 0],
+ [1, 1, 1, 1, 0],
+ [0, 1, 0, 1, 1],
+ [1, 0, 1, 1, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[50, 0, 0, -25, 0],
+ [0, 0, -12, -50, 0],
+ [0, 80, -50, -100, 0],
+ [0, -80, 25, -100, 0],
+ [75, 60, -40, 0, 0],
+ [0, 70, 20, -100, 0],
+ [0, -38, 0, -73, 2],
+ [0, 0, -43, -61, 0],
+ [0, 80, -50, -100, 0],
+ [0, -80, 0, -25, 6],
+ [50, 0, 10, -100, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance -171
+	----
+node 10
+neighbors [8, 9]
+resistance 25
+	----
+node 5
+neighbors [0, 6]
+resistance -80
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 100
+	----
+node 1
+neighbors [0, 7, 9]
+resistance 20
+	----
+node 7
+neighbors [1, 3, 9]
+resistance 11
+	----
+node 3
+neighbors [0, 7]
+resistance 10
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance -113
+	----
+node 4
+neighbors [0, 6]
+resistance -140
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance 20
+	----
+node 6
+neighbors [2, 4, 5]
+resistance -9
+	----
+====
+ROUND 34
+executing query 1 on node 7
+delegate travel for src 7 question 1
+delegation references: [1, 3, 9]
+delegation references: [0, 9, 2, 10]
+delegation references: [2, 4, 5, 10, 6, 8]
+delegation references: [6, 8]
+delegate answers for src 7 question 1
+node 1 answer 0
+node 3 answer -80
+node 9 answer -80
+node 0 answer 40
+node 2 answer 80
+node 10 answer 40
+node 4 answer 60
+node 5 answer 70
+node 6 answer -58
+node 8 answer 80
+delegation answer: 14
+DB after delegation:
+*************
+actual answers
+{1: Some(-20), 0: Some(50), 4: Some(6), 3: Some(0), 2: Some(10)}
+-- obj
+{3: 2, 1: 2, 0: 2, 2: 2, 4: 2}
+-- sat other
+{1: {3: 1.0, 1: 0.5375, 2: 1.0}, 0: {1: 0.7875, 3: 1.0, 2: 1.0}, 9: {2: 1.0, 3: 1.0, 1: 0.037500024}, 2: {2: 1.0, 3: 1.0, 1: 0.9625}, 3: {3: 1.0, 2: 1.0, 1: 0.037500024}, 5: {3: 1.0, 1: 0.975, 2: 1.0}, 8: {2: 1.0, 1: 0.9625, 3: 1.0}, 10: {2: 1.0, 3: 1.0, 1: 0.7875}, 4: {1: 0.9125, 3: 1.0, 2: 1.0}, 6: {1: 0.17500001, 2: 1.0, 3: 1.0}}
+-- delegation records
+average contradiction
+{1: {9: 0.9625, 0: 0.2125, 4: 0.0875, 10: 0.2125, 5: 0.025, 2: 0.0375, 6: 0.825, 3: 0.9625, 8: 0.0375, 1: 0.4625}}
+delegation frequency
+{1: {2: 1, 4: 1, 1: 1, 6: 1, 8: 1, 10: 1, 0: 1, 3: 1, 9: 1, 5: 1}}
+
+-- rfeedback
+{3: [36.0], 2: [53.0]}
+
+******************
+
+
+Q answer: 12
+node 7 will delegate: false
+node 7 answer: 74
+resistance: 62
+Q fuel: 215
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.2920354, 0.36666667, 0.33333334, 0.0],
+ [0.0, 0.8181818, 1.0, 1.0, 1.0],
+ [0.0, 0.0, 0.25, 1.0, 0.0],
+ [0.5, 0.875, 0.8333333, 0.33333334, 0.0],
+ [0.0, 0.9047619, 0.16666667, 1.0, 0.0],
+ [0.0, 0.57575756, 0.0, 0.64, 0.6666667],
+ [0.0, 0.67391306, 0.8833333, 0.48, 0.0],
+ [1.0, 1.0, 1.0, 1.0, 0.0],
+ [0.0, 1.0, 0.0, 0.0, 0.0],
+ [0.0, 0.0, 0.0, 1.0, 0.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[1, 0, 0, 1, 0],
+ [0, 1, 1, 1, 0],
+ [0, 1, 1, 1, 1],
+ [0, 1, 1, 1, 0],
+ [1, 1, 1, 1, 0],
+ [0, 1, 1, 1, 0],
+ [0, 1, 0, 1, 1],
+ [0, 1, 1, 1, 0],
+ [1, 1, 1, 1, 0],
+ [0, 1, 0, 1, 1],
+ [1, 0, 1, 1, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[50, 0, 0, -25, 0],
+ [0, 0, -12, -50, 0],
+ [0, 80, -50, -100, 0],
+ [0, -80, 25, -100, 0],
+ [75, 60, -40, 0, 0],
+ [0, 70, 20, -100, 0],
+ [0, -38, 0, -73, 2],
+ [0, 74, -43, -61, 0],
+ [0, 80, -50, -100, 0],
+ [0, -80, 0, -25, 6],
+ [50, 0, 10, -100, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance -171
+	----
+node 10
+neighbors [8, 9]
+resistance 25
+	----
+node 5
+neighbors [0, 6]
+resistance -80
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 100
+	----
+node 1
+neighbors [0, 7, 9]
+resistance 20
+	----
+node 7
+neighbors [1, 3, 9]
+resistance -51
+	----
+node 3
+neighbors [0, 7]
+resistance 10
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance -113
+	----
+node 4
+neighbors [0, 6]
+resistance -140
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance 20
+	----
+node 6
+neighbors [2, 4, 5]
+resistance -9
+	----
+====
+ROUND 35
+executing query 1 on node 10
+delegate travel for src 10 question 1
+delegation references: [8, 9]
+delegation references: [2, 1, 7]
+delegation references: [0, 6, 7, 3]
+delegation references: [3, 4, 5]
+delegate answers for src 10 question 1
+node 8 answer 80
+node 9 answer -80
+node 2 answer 80
+node 1 answer 0
+node 7 answer 60
+node 0 answer 40
+node 6 answer -52
+node 3 answer -80
+node 4 answer 60
+node 5 answer 70
+delegation answer: 16
+DB after delegation:
+*************
+actual answers
+{2: Some(10), 4: Some(6), 0: Some(50), 3: Some(-25), 1: Some(40)}
+-- obj
+{0: 0, 2: 0, 3: 1, 1: 0, 4: 1}
+-- sat other
+{5: {1: 0.8125, 2: 1.0, 0: 1.0, 3: 1.0}, 3: {2: 1.0, 1: 0.25, 3: 1.0, 0: 1.0}, 8: {0: 1.0, 1: 0.75, 3: 1.0, 2: 1.0}, 7: {2: 1.0, 1: 0.875, 0: 1.0, 3: 1.0}, 9: {0: 1.0, 1: 0.25, 3: 1.0, 2: 1.0}, 6: {2: 1.0, 0: 1.0, 3: 1.0, 1: 0.425}, 2: {3: 1.0, 2: 1.0, 1: 0.75, 0: 1.0}, 4: {2: 1.0, 3: 1.0, 0: 1.0, 1: 0.875}, 0: {3: 1.0, 2: 1.0, 1: 1.0, 0: 1.0}, 1: {3: 1.0, 0: 1.0, 1: 0.75, 2: 1.0}}
+-- delegation records
+average contradiction
+{1: {7: 0.125, 3: 0.75, 5: 0.1875, 0: 0.0, 2: 0.25, 8: 0.25, 6: 0.575, 4: 0.125, 9: 0.75, 1: 0.25}}
+delegation frequency
+{1: {3: 1, 7: 1, 2: 1, 4: 1, 1: 1, 8: 1, 9: 1, 5: 1, 0: 1, 6: 1}}
+
+-- rfeedback
+{3: [75.0], 2: [0.0], 0: [0.0]}
+
+******************
+
+
+Q answer: 18
+node 10 will delegate: false
+node 10 answer: 40
+resistance: 22
+Q fuel: 214
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.2920354, 0.36666667, 0.33333334, 0.0],
+ [0.0, 0.8181818, 1.0, 1.0, 1.0],
+ [0.0, 0.0, 0.25, 1.0, 0.0],
+ [0.5, 0.875, 0.8333333, 0.33333334, 0.0],
+ [0.0, 0.9047619, 0.16666667, 1.0, 0.0],
+ [0.0, 0.57575756, 0.0, 0.64, 0.6666667],
+ [0.0, 0.67391306, 0.8833333, 0.48, 0.0],
+ [1.0, 1.0, 1.0, 1.0, 0.0],
+ [0.0, 1.0, 0.0, 0.0, 0.0],
+ [0.0, 0.2244898, 0.0, 1.0, 0.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[1, 0, 0, 1, 0],
+ [0, 1, 1, 1, 0],
+ [0, 1, 1, 1, 1],
+ [0, 1, 1, 1, 0],
+ [1, 1, 1, 1, 0],
+ [0, 1, 1, 1, 0],
+ [0, 1, 0, 1, 1],
+ [0, 1, 1, 1, 0],
+ [1, 1, 1, 1, 0],
+ [0, 1, 0, 1, 1],
+ [1, 1, 1, 1, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[50, 0, 0, -25, 0],
+ [0, 0, -12, -50, 0],
+ [0, 80, -50, -100, 0],
+ [0, -80, 25, -100, 0],
+ [75, 60, -40, 0, 0],
+ [0, 70, 20, -100, 0],
+ [0, -38, 0, -73, 2],
+ [0, 74, -43, -61, 0],
+ [0, 80, -50, -100, 0],
+ [0, -80, 0, -25, 6],
+ [50, 40, 10, -100, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance -171
+	----
+node 10
+neighbors [8, 9]
+resistance 3
+	----
+node 5
+neighbors [0, 6]
+resistance -80
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 100
+	----
+node 1
+neighbors [0, 7, 9]
+resistance 20
+	----
+node 7
+neighbors [1, 3, 9]
+resistance -51
+	----
+node 3
+neighbors [0, 7]
+resistance 10
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance -113
+	----
+node 4
+neighbors [0, 6]
+resistance -140
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance 20
+	----
+node 6
+neighbors [2, 4, 5]
+resistance -9
+	----
+====
+ROUND 36
+executing query 4 on node 4
+delegate travel for src 4 question 4
+delegation references: [0, 6]
+delegation references: [1, 2, 3, 5]
+delegation references: [7, 9, 8]
+delegation references: [9, 10]
+delegation references: [10]
+delegate answers for src 4 question 4
+node 0 answer 6
+node 6 answer 1
+node 1 answer 5
+node 2 answer 0
+node 3 answer 10
+node 5 answer 3
+node 7 answer 0
+node 9 answer 6
+node 8 answer 0
+node 10 answer 0
+delegation answer: 3
+DB after delegation:
+*************
+actual answers
+{0: Some(75), 4: Some(2), 2: Some(-40), 1: Some(60), 3: Some(0)}
+-- obj
+{0: 0, 3: 0, 1: 0, 2: 0, 4: 0}
+-- sat other
+{2: {1: 1.0, 3: 1.0, 0: 1.0, 2: 1.0, 4: 0.8}, 3: {2: 1.0, 1: 1.0, 4: 0.19999999, 3: 1.0, 0: 1.0}, 6: {0: 1.0, 3: 1.0, 1: 1.0, 4: 0.9, 2: 1.0}, 7: {3: 1.0, 2: 1.0, 4: 0.8, 0: 1.0, 1: 1.0}, 0: {1: 1.0, 0: 1.0, 4: 0.6, 2: 1.0, 3: 1.0}, 5: {4: 0.9, 3: 1.0, 2: 1.0, 1: 1.0, 0: 1.0}, 10: {0: 1.0, 4: 0.8, 1: 1.0, 3: 1.0, 2: 1.0}, 8: {2: 1.0, 0: 1.0, 4: 0.8, 3: 1.0, 1: 1.0}, 9: {3: 1.0, 2: 1.0, 4: 0.6, 0: 1.0, 1: 1.0}, 1: {3: 1.0, 2: 1.0, 0: 1.0, 4: 0.7, 1: 1.0}}
+-- delegation records
+average contradiction
+{4: {7: 0.2, 6: 0.1, 5: 0.1, 10: 0.2, 0: 0.4, 2: 0.2, 8: 0.2, 3: 0.8, 9: 0.4, 1: 0.3}}
+delegation frequency
+{4: {0: 1, 8: 1, 7: 1, 2: 1, 5: 1, 6: 1, 9: 1, 1: 1, 10: 1, 3: 1}}
+
+-- rfeedback
+{3: [25.0], 2: [50.0], 1: [140.0], 0: [25.0]}
+
+******************
+
+
+Q answer: 6
+node 4 will delegate: false
+node 4 answer: 2
+resistance: 4
+Q fuel: 213
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.0, 0.0, 0.0, 0.0],
+ [0.0, 0.2920354, 0.36666667, 0.33333334, 0.0],
+ [0.0, 0.8181818, 1.0, 1.0, 1.0],
+ [0.0, 0.0, 0.25, 1.0, 0.0],
+ [0.5, 0.875, 0.8333333, 0.33333334, 0.6666667],
+ [0.0, 0.9047619, 0.16666667, 1.0, 0.0],
+ [0.0, 0.57575756, 0.0, 0.64, 0.6666667],
+ [0.0, 0.67391306, 0.8833333, 0.48, 0.0],
+ [1.0, 1.0, 1.0, 1.0, 0.0],
+ [0.0, 1.0, 0.0, 0.0, 0.0],
+ [0.0, 0.2244898, 0.0, 1.0, 0.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[1, 0, 0, 1, 0],
+ [0, 1, 1, 1, 0],
+ [0, 1, 1, 1, 1],
+ [0, 1, 1, 1, 0],
+ [1, 1, 1, 1, 1],
+ [0, 1, 1, 1, 0],
+ [0, 1, 0, 1, 1],
+ [0, 1, 1, 1, 0],
+ [1, 1, 1, 1, 0],
+ [0, 1, 0, 1, 1],
+ [1, 1, 1, 1, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[50, 0, 0, -25, 0],
+ [0, 0, -12, -50, 0],
+ [0, 80, -50, -100, 0],
+ [0, -80, 25, -100, 0],
+ [75, 60, -40, 0, 2],
+ [0, 70, 20, -100, 0],
+ [0, -38, 0, -73, 2],
+ [0, 74, -43, -61, 0],
+ [0, 80, -50, -100, 0],
+ [0, -80, 0, -25, 6],
+ [50, 40, 10, -100, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance -171
+	----
+node 10
+neighbors [8, 9]
+resistance 3
+	----
+node 5
+neighbors [0, 6]
+resistance -80
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 100
+	----
+node 1
+neighbors [0, 7, 9]
+resistance 20
+	----
+node 7
+neighbors [1, 3, 9]
+resistance -51
+	----
+node 3
+neighbors [0, 7]
+resistance 10
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance -113
+	----
+node 4
+neighbors [0, 6]
+resistance -144
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance 20
+	----
+node 6
+neighbors [2, 4, 5]
+resistance -9
+	----
+====
+ROUND 37
+executing query 1 on node 0
+delegate travel for src 0 question 1
+delegation references: [1, 2, 3, 4, 5]
+delegation references: [7, 9, 6, 8]
+delegation references: [9, 10]
+delegation references: [10]
+delegate answers for src 0 question 1
+node 1 answer 0
+node 2 answer 80
+node 3 answer -80
+node 4 answer 60
+node 5 answer 70
+node 7 answer 71
+node 9 answer -80
+node 6 answer -53
+node 8 answer 80
+node 10 answer 40
+delegation answer: 17
+DB after delegation:
+*************
+actual answers
+{0: Some(50), 1: Some(40), 3: Some(-25), 2: Some(10), 4: Some(6)}
+-- obj
+{3: 0, 4: 0, 0: 0, 2: 0, 1: 0}
+-- sat other
+{3: {3: 1.0, 1: 0.25, 0: 1.0}, 5: {1: 0.8125, 0: 1.0, 3: 1.0}, 8: {1: 0.75, 0: 1.0, 3: 1.0}, 1: {0: 1.0, 3: 1.0, 1: 0.75}, 7: {1: 0.80625, 0: 1.0, 3: 1.0}, 2: {0: 1.0, 3: 1.0, 1: 0.75}, 6: {0: 1.0, 3: 1.0, 1: 0.41875}, 4: {0: 1.0, 3: 1.0, 1: 0.875}, 10: {0: 1.0, 1: 1.0, 3: 1.0}, 9: {0: 1.0, 3: 1.0, 1: 0.25}}
+-- delegation records
+average contradiction
+{1: {8: 0.25, 3: 0.75, 9: 0.75, 1: 0.25, 4: 0.125, 6: 0.58125, 5: 0.1875, 2: 0.25, 7: 0.19375, 10: 0.0}}
+delegation frequency
+{1: {6: 1, 7: 1, 2: 1, 3: 1, 5: 1, 4: 1, 8: 1, 9: 1, 10: 1, 1: 1}}
+
+-- rfeedback
+{3: [0.0], 0: [0.0]}
+
+******************
+
+
+Q answer: 21
+node 0 will delegate: false
+node 0 answer: 40
+resistance: 19
+Q fuel: 212
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.18811882, 0.0, 0.0, 0.0],
+ [0.0, 0.2920354, 0.36666667, 0.33333334, 0.0],
+ [0.0, 0.8181818, 1.0, 1.0, 1.0],
+ [0.0, 0.0, 0.25, 1.0, 0.0],
+ [0.5, 0.875, 0.8333333, 0.33333334, 0.6666667],
+ [0.0, 0.9047619, 0.16666667, 1.0, 0.0],
+ [0.0, 0.57575756, 0.0, 0.64, 0.6666667],
+ [0.0, 0.67391306, 0.8833333, 0.48, 0.0],
+ [1.0, 1.0, 1.0, 1.0, 0.0],
+ [0.0, 1.0, 0.0, 0.0, 0.0],
+ [0.0, 0.2244898, 0.0, 1.0, 0.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[1, 1, 0, 1, 0],
+ [0, 1, 1, 1, 0],
+ [0, 1, 1, 1, 1],
+ [0, 1, 1, 1, 0],
+ [1, 1, 1, 1, 1],
+ [0, 1, 1, 1, 0],
+ [0, 1, 0, 1, 1],
+ [0, 1, 1, 1, 0],
+ [1, 1, 1, 1, 0],
+ [0, 1, 0, 1, 1],
+ [1, 1, 1, 1, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[50, 40, 0, -25, 0],
+ [0, 0, -12, -50, 0],
+ [0, 80, -50, -100, 0],
+ [0, -80, 25, -100, 0],
+ [75, 60, -40, 0, 2],
+ [0, 70, 20, -100, 0],
+ [0, -38, 0, -73, 2],
+ [0, 74, -43, -61, 0],
+ [0, 80, -50, -100, 0],
+ [0, -80, 0, -25, 6],
+ [50, 40, 10, -100, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance -171
+	----
+node 10
+neighbors [8, 9]
+resistance 3
+	----
+node 5
+neighbors [0, 6]
+resistance -80
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 81
+	----
+node 1
+neighbors [0, 7, 9]
+resistance 20
+	----
+node 7
+neighbors [1, 3, 9]
+resistance -51
+	----
+node 3
+neighbors [0, 7]
+resistance 10
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance -113
+	----
+node 4
+neighbors [0, 6]
+resistance -144
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance 20
+	----
+node 6
+neighbors [2, 4, 5]
+resistance -9
+	----
+====
+ROUND 38
+executing query 2 on node 0
+delegate travel for src 0 question 2
+delegation references: [1, 2, 3, 4, 5]
+delegation references: [7, 9, 6, 8]
+delegation references: [9, 10]
+delegation references: [10]
+delegate answers for src 0 question 2
+node 1 answer -12
+node 2 answer -50
+node 3 answer 25
+node 4 answer -40
+node 5 answer 20
+node 7 answer -22
+node 9 answer -50
+node 6 answer -32
+node 8 answer -50
+node 10 answer 10
+delegation answer: -18
+DB after delegation:
+*************
+actual answers
+{0: Some(50), 1: Some(40), 3: Some(-25), 2: Some(10), 4: Some(6)}
+-- obj
+{3: 0, 4: 0, 0: 0, 2: 0, 1: 0}
+-- sat other
+{3: {3: 1.0, 1: 1.0, 2: 0.8, 0: 1.0}, 5: {1: 1.0, 2: 0.8666667, 0: 1.0, 3: 1.0}, 8: {3: 1.0, 2: 0.19999999, 0: 1.0, 1: 1.0}, 1: {3: 1.0, 0: 1.0, 1: 1.0, 2: 0.7066667}, 7: {1: 1.0, 3: 1.0, 2: 0.5733333, 0: 1.0}, 2: {0: 1.0, 1: 1.0, 2: 0.19999999, 3: 1.0}, 6: {3: 1.0, 1: 1.0, 2: 0.44, 0: 1.0}, 4: {0: 1.0, 3: 1.0, 1: 1.0, 2: 0.3333333}, 10: {3: 1.0, 0: 1.0, 1: 1.0, 2: 1.0}, 9: {0: 1.0, 3: 1.0, 1: 1.0, 2: 0.19999999}}
+-- delegation records
+average contradiction
+{2: {1: 0.29333332, 7: 0.42666668, 8: 0.8, 6: 0.56, 3: 0.2, 2: 0.8, 10: 0.0, 4: 0.6666667, 5: 0.13333334, 9: 0.8}}
+delegation frequency
+{2: {3: 1, 8: 1, 9: 1, 5: 1, 2: 1, 10: 1, 4: 1, 6: 1, 7: 1, 1: 1}}
+
+-- rfeedback
+{1: [19.0], 3: [0.0], 0: [0.0]}
+
+******************
+
+
+Q answer: 10
+node 0 will delegate: false
+node 0 answer: 10
+resistance: 0
+Q fuel: 211
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.18811882, 0.0, 0.0, 0.0],
+ [0.0, 0.2920354, 0.36666667, 0.33333334, 0.0],
+ [0.0, 0.8181818, 1.0, 1.0, 1.0],
+ [0.0, 0.0, 0.25, 1.0, 0.0],
+ [0.5, 0.875, 0.8333333, 0.33333334, 0.6666667],
+ [0.0, 0.9047619, 0.16666667, 1.0, 0.0],
+ [0.0, 0.57575756, 0.0, 0.64, 0.6666667],
+ [0.0, 0.67391306, 0.8833333, 0.48, 0.0],
+ [1.0, 1.0, 1.0, 1.0, 0.0],
+ [0.0, 1.0, 0.0, 0.0, 0.0],
+ [0.0, 0.2244898, 0.0, 1.0, 0.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[1, 1, 1, 1, 0],
+ [0, 1, 1, 1, 0],
+ [0, 1, 1, 1, 1],
+ [0, 1, 1, 1, 0],
+ [1, 1, 1, 1, 1],
+ [0, 1, 1, 1, 0],
+ [0, 1, 0, 1, 1],
+ [0, 1, 1, 1, 0],
+ [1, 1, 1, 1, 0],
+ [0, 1, 0, 1, 1],
+ [1, 1, 1, 1, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[50, 40, 10, -25, 0],
+ [0, 0, -12, -50, 0],
+ [0, 80, -50, -100, 0],
+ [0, -80, 25, -100, 0],
+ [75, 60, -40, 0, 2],
+ [0, 70, 20, -100, 0],
+ [0, -38, 0, -73, 2],
+ [0, 74, -43, -61, 0],
+ [0, 80, -50, -100, 0],
+ [0, -80, 0, -25, 6],
+ [50, 40, 10, -100, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance -171
+	----
+node 10
+neighbors [8, 9]
+resistance 3
+	----
+node 5
+neighbors [0, 6]
+resistance -80
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 81
+	----
+node 1
+neighbors [0, 7, 9]
+resistance 20
+	----
+node 7
+neighbors [1, 3, 9]
+resistance -51
+	----
+node 3
+neighbors [0, 7]
+resistance 10
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance -113
+	----
+node 4
+neighbors [0, 6]
+resistance -144
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance 20
+	----
+node 6
+neighbors [2, 4, 5]
+resistance -9
+	----
+====
+ROUND 39
+executing query 0 on node 5
+delegate travel for src 5 question 0
+delegation references: [0, 6]
+delegation references: [1, 2, 3, 4]
+delegation references: [7, 9, 8]
+delegation references: [9, 10]
+delegation references: [10]
+delegate answers for src 5 question 0
+node 0 answer 50
+node 6 answer 12
+node 1 answer 50
+node 2 answer 100
+node 3 answer 0
+node 4 answer 75
+node 7 answer 8
+node 9 answer 100
+node 8 answer 0
+node 10 answer 50
+delegation answer: 40
+DB after delegation:
+*************
+actual answers
+{4: Some(3), 2: Some(20), 3: Some(-100), 0: Some(25), 1: Some(70)}
+-- obj
+{1: 0, 2: 0, 0: 0, 3: 0, 4: 0}
+-- sat other
+{2: {2: 1.0, 3: 1.0, 1: 1.0, 0: 0.25}, 0: {2: 1.0, 0: 0.75, 3: 1.0, 1: 1.0}, 3: {2: 1.0, 3: 1.0, 1: 1.0, 0: 0.75}, 9: {2: 1.0, 1: 1.0, 0: 0.25, 3: 1.0}, 6: {1: 1.0, 0: 0.87, 3: 1.0, 2: 1.0}, 10: {0: 0.75, 2: 1.0, 1: 1.0, 3: 1.0}, 1: {2: 1.0, 0: 0.75, 1: 1.0, 3: 1.0}, 4: {2: 1.0, 3: 1.0, 0: 0.5, 1: 1.0}, 7: {2: 1.0, 0: 0.83, 3: 1.0, 1: 1.0}, 8: {0: 0.75, 3: 1.0, 2: 1.0, 1: 1.0}}
+-- delegation records
+average contradiction
+{0: {1: 0.25, 2: 0.75, 3: 0.25, 4: 0.5, 9: 0.75, 8: 0.25, 6: 0.13, 7: 0.17, 10: 0.25, 0: 0.25}}
+delegation frequency
+{0: {1: 1, 4: 1, 7: 1, 8: 1, 2: 1, 0: 1, 6: 1, 9: 1, 10: 1, 3: 1}}
+
+-- rfeedback
+{1: [95.0], 2: [10.0], 3: [75.0]}
+
+******************
+
+
+Q answer: 50
+node 5 will delegate: false
+node 5 answer: 25
+resistance: 25
+Q fuel: 210
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.18811882, 0.0, 0.0, 0.0],
+ [0.0, 0.2920354, 0.36666667, 0.33333334, 0.0],
+ [0.0, 0.8181818, 1.0, 1.0, 1.0],
+ [0.0, 0.0, 0.25, 1.0, 0.0],
+ [0.5, 0.875, 0.8333333, 0.33333334, 0.6666667],
+ [0.5, 0.9047619, 0.16666667, 1.0, 0.0],
+ [0.0, 0.57575756, 0.0, 0.64, 0.6666667],
+ [0.0, 0.67391306, 0.8833333, 0.48, 0.0],
+ [1.0, 1.0, 1.0, 1.0, 0.0],
+ [0.0, 1.0, 0.0, 0.0, 0.0],
+ [0.0, 0.2244898, 0.0, 1.0, 0.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[1, 1, 1, 1, 0],
+ [0, 1, 1, 1, 0],
+ [0, 1, 1, 1, 1],
+ [0, 1, 1, 1, 0],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 0],
+ [0, 1, 0, 1, 1],
+ [0, 1, 1, 1, 0],
+ [1, 1, 1, 1, 0],
+ [0, 1, 0, 1, 1],
+ [1, 1, 1, 1, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[50, 40, 10, -25, 0],
+ [0, 0, -12, -50, 0],
+ [0, 80, -50, -100, 0],
+ [0, -80, 25, -100, 0],
+ [75, 60, -40, 0, 2],
+ [25, 70, 20, -100, 0],
+ [0, -38, 0, -73, 2],
+ [0, 74, -43, -61, 0],
+ [0, 80, -50, -100, 0],
+ [0, -80, 0, -25, 6],
+ [50, 40, 10, -100, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance -171
+	----
+node 10
+neighbors [8, 9]
+resistance 3
+	----
+node 5
+neighbors [0, 6]
+resistance -105
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 81
+	----
+node 1
+neighbors [0, 7, 9]
+resistance 20
+	----
+node 7
+neighbors [1, 3, 9]
+resistance -51
+	----
+node 3
+neighbors [0, 7]
+resistance 10
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance -113
+	----
+node 4
+neighbors [0, 6]
+resistance -144
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance 20
+	----
+node 6
+neighbors [2, 4, 5]
+resistance -9
+	----
+====
+ROUND 40
+executing query 0 on node 1
+delegate travel for src 1 question 0
+delegation references: [0, 7, 9]
+delegation references: [2, 3, 4, 5, 9, 10]
+delegation references: [6, 8, 10]
+delegate answers for src 1 question 0
+node 0 answer 50
+node 7 answer 19
+node 9 answer 0
+node 2 answer 100
+node 3 answer 0
+node 4 answer 75
+node 5 answer 25
+node 10 answer 50
+node 6 answer 78
+node 8 answer 0
+delegation answer: 36
+DB after delegation:
+*************
+actual answers
+{4: None, 1: None, 2: None, 0: None, 3: None}
+-- obj
+{1: 0, 3: 0, 4: 0, 0: 0, 2: 0}
+-- sat other
+{3: {3: 1.0, 2: 1.0, 0: 0.5, 1: 1.0}, 9: {2: 1.0, 3: 1.0, 0: 0.5, 1: 1.0}, 0: {1: 1.0, 2: 1.0, 0: 1.0, 3: 1.0}, 10: {1: 1.0, 2: 1.0, 0: 1.0, 3: 1.0}, 4: {3: 1.0, 1: 1.0, 2: 1.0, 0: 0.75}, 5: {3: 1.0, 1: 1.0, 2: 1.0, 0: 0.75}, 6: {1: 1.0, 0: 0.72, 3: 1.0, 2: 1.0}, 7: {1: 1.0, 2: 1.0, 3: 1.0, 0: 0.69}, 2: {3: 1.0, 1: 1.0, 0: 0.5, 2: 1.0}, 8: {0: 0.5, 3: 1.0, 1: 1.0, 2: 1.0}}
+-- delegation records
+average contradiction
+{0: {7: 0.31, 2: 0.5, 0: 0.0, 6: 0.28, 5: 0.25, 3: 0.5, 8: 0.5, 9: 0.5, 10: 0.0, 4: 0.25}}
+delegation frequency
+{0: {7: 1, 0: 1, 3: 1, 8: 1, 6: 1, 10: 1, 9: 1, 5: 1, 2: 1, 4: 1}}
+
+-- rfeedback
+{2: [22.0], 3: [25.0], 1: [33.0]}
+
+******************
+
+
+Q answer: 50
+node 1 will delegate: false
+node 1 answer: 50
+resistance: 0
+Q fuel: 209
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.18811882, 0.0, 0.0, 0.0],
+ [0.0, 0.2920354, 0.36666667, 0.33333334, 0.0],
+ [0.0, 0.8181818, 1.0, 1.0, 1.0],
+ [0.0, 0.0, 0.25, 1.0, 0.0],
+ [0.5, 0.875, 0.8333333, 0.33333334, 0.6666667],
+ [0.5, 0.9047619, 0.16666667, 1.0, 0.0],
+ [0.0, 0.57575756, 0.0, 0.64, 0.6666667],
+ [0.0, 0.67391306, 0.8833333, 0.48, 0.0],
+ [1.0, 1.0, 1.0, 1.0, 0.0],
+ [0.0, 1.0, 0.0, 0.0, 0.0],
+ [0.0, 0.2244898, 0.0, 1.0, 0.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[1, 1, 1, 1, 0],
+ [1, 1, 1, 1, 0],
+ [0, 1, 1, 1, 1],
+ [0, 1, 1, 1, 0],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 0],
+ [0, 1, 0, 1, 1],
+ [0, 1, 1, 1, 0],
+ [1, 1, 1, 1, 0],
+ [0, 1, 0, 1, 1],
+ [1, 1, 1, 1, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[50, 40, 10, -25, 0],
+ [50, 0, -12, -50, 0],
+ [0, 80, -50, -100, 0],
+ [0, -80, 25, -100, 0],
+ [75, 60, -40, 0, 2],
+ [25, 70, 20, -100, 0],
+ [0, -38, 0, -73, 2],
+ [0, 74, -43, -61, 0],
+ [0, 80, -50, -100, 0],
+ [0, -80, 0, -25, 6],
+ [50, 40, 10, -100, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance -171
+	----
+node 10
+neighbors [8, 9]
+resistance 3
+	----
+node 5
+neighbors [0, 6]
+resistance -105
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 81
+	----
+node 1
+neighbors [0, 7, 9]
+resistance 20
+	----
+node 7
+neighbors [1, 3, 9]
+resistance -51
+	----
+node 3
+neighbors [0, 7]
+resistance 10
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance -113
+	----
+node 4
+neighbors [0, 6]
+resistance -144
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance 20
+	----
+node 6
+neighbors [2, 4, 5]
+resistance -9
+	----
+====
+ROUND 41
+executing query 2 on node 6
+delegate travel for src 6 question 2
+delegation references: [2, 4, 5]
+delegation references: [0, 8, 9]
+delegation references: [1, 3, 10, 7]
+delegation references: [7]
+delegate answers for src 6 question 2
+node 2 answer -50
+node 4 answer -40
+node 5 answer 20
+node 0 answer 10
+node 8 answer -50
+node 9 answer -50
+node 1 answer -12
+node 3 answer 25
+node 10 answer 10
+node 7 answer -43
+delegation answer: -16
+DB after delegation:
+*************
+actual answers
+{2: Some(10), 3: Some(-25), 4: Some(6), 1: Some(40), 0: Some(50)}
+-- obj
+{0: 2, 1: 2, 2: 2, 4: 2, 3: 2}
+-- sat other
+{1: {4: 1.0, 3: 1.0, 2: 0.88, 1: 1.0}, 5: {2: 0.45333332, 1: 1.0, 4: 1.0, 3: 1.0}, 2: {4: 1.0, 2: 0.61333334, 3: 1.0, 1: 1.0}, 4: {3: 1.0, 4: 1.0, 1: 1.0, 2: 0.74666667}, 0: {1: 1.0, 3: 1.0, 4: 1.0, 2: 0.5866667}, 9: {3: 1.0, 4: 1.0, 1: 1.0, 2: 0.61333334}, 3: {2: 0.38666666, 1: 1.0, 3: 1.0, 4: 1.0}, 10: {3: 1.0, 2: 0.5866667, 4: 1.0, 1: 1.0}, 7: {2: 0.7066667, 4: 1.0, 3: 1.0, 1: 1.0}, 8: {4: 1.0, 1: 1.0, 3: 1.0, 2: 0.61333334}}
+-- delegation records
+average contradiction
+{2: {0: 0.41333333, 3: 0.61333334, 7: 0.29333332, 1: 0.12, 5: 0.5466667, 2: 0.38666666, 4: 0.25333333, 10: 0.41333333, 9: 0.38666666, 8: 0.38666666}}
+delegation frequency
+{2: {2: 1, 9: 1, 0: 1, 1: 1, 4: 1, 8: 1, 3: 1, 7: 1, 5: 1, 10: 1}}
+
+-- rfeedback
+{3: [48.0], 4: [4.0], 1: [57.0]}
+
+******************
+
+
+Q answer: 10
+node 6 will delegate: false
+node 6 answer: -21
+resistance: 31
+Q fuel: 208
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.18811882, 0.0, 0.0, 0.0],
+ [0.0, 0.2920354, 0.36666667, 0.33333334, 0.0],
+ [0.0, 0.8181818, 1.0, 1.0, 1.0],
+ [0.0, 0.0, 0.25, 1.0, 0.0],
+ [0.5, 0.875, 0.8333333, 0.33333334, 0.6666667],
+ [0.5, 0.9047619, 0.16666667, 1.0, 0.0],
+ [0.0, 0.57575756, 0.51666665, 0.64, 0.6666667],
+ [0.0, 0.67391306, 0.8833333, 0.48, 0.0],
+ [1.0, 1.0, 1.0, 1.0, 0.0],
+ [0.0, 1.0, 0.0, 0.0, 0.0],
+ [0.0, 0.2244898, 0.0, 1.0, 0.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[1, 1, 1, 1, 0],
+ [1, 1, 1, 1, 0],
+ [0, 1, 1, 1, 1],
+ [0, 1, 1, 1, 0],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 0],
+ [0, 1, 1, 1, 1],
+ [0, 1, 1, 1, 0],
+ [1, 1, 1, 1, 0],
+ [0, 1, 0, 1, 1],
+ [1, 1, 1, 1, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[50, 40, 10, -25, 0],
+ [50, 0, -12, -50, 0],
+ [0, 80, -50, -100, 0],
+ [0, -80, 25, -100, 0],
+ [75, 60, -40, 0, 2],
+ [25, 70, 20, -100, 0],
+ [0, -38, -21, -73, 2],
+ [0, 74, -43, -61, 0],
+ [0, 80, -50, -100, 0],
+ [0, -80, 0, -25, 6],
+ [50, 40, 10, -100, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance -171
+	----
+node 10
+neighbors [8, 9]
+resistance 3
+	----
+node 5
+neighbors [0, 6]
+resistance -105
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 81
+	----
+node 1
+neighbors [0, 7, 9]
+resistance 20
+	----
+node 7
+neighbors [1, 3, 9]
+resistance -51
+	----
+node 3
+neighbors [0, 7]
+resistance 10
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance -113
+	----
+node 4
+neighbors [0, 6]
+resistance -144
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance 20
+	----
+node 6
+neighbors [2, 4, 5]
+resistance -40
+	----
+====
+ROUND 42
+executing query 2 on node 9
+delegate travel for src 9 question 2
+delegation references: [1, 2, 7, 10]
+delegation references: [0, 7, 6, 8, 3]
+delegation references: [3, 4, 5]
+delegate answers for src 9 question 2
+node 1 answer -12
+node 2 answer -50
+node 7 answer -35
+node 10 answer 10
+node 0 answer 10
+node 6 answer -41
+node 8 answer -50
+node 3 answer 25
+node 4 answer -40
+node 5 answer 20
+delegation answer: -15
+DB after delegation:
+*************
+actual answers
+{0: Some(50), 2: Some(10), 1: Some(40), 3: Some(-25), 4: Some(6)}
+-- obj
+{3: 0, 0: 1, 2: 1, 4: 0, 1: 1}
+-- sat other
+{7: {4: 1.0, 2: 0.8, 3: 1.0, 1: 1.0}, 6: {4: 1.0, 3: 1.0, 1: 1.0, 2: 0.88}, 2: {1: 1.0, 3: 1.0, 4: 1.0, 2: 1.0}, 10: {4: 1.0, 2: 0.19999999, 3: 1.0, 1: 1.0}, 8: {3: 1.0, 2: 1.0, 1: 1.0, 4: 1.0}, 1: {4: 1.0, 3: 1.0, 1: 1.0, 2: 0.49333334}, 5: {3: 1.0, 2: 0.06666666, 4: 1.0, 1: 1.0}, 0: {2: 0.19999999, 4: 1.0, 3: 1.0, 1: 1.0}, 3: {2: 0.0, 3: 1.0, 1: 1.0, 4: 1.0}, 4: {3: 1.0, 1: 1.0, 4: 1.0, 2: 0.8666667}}
+-- delegation records
+average contradiction
+{2: {1: 0.50666666, 0: 0.8, 8: 0.0, 2: 0.0, 6: 0.12, 10: 0.8, 3: 1.0, 4: 0.13333334, 7: 0.2, 5: 0.93333334}}
+delegation frequency
+{2: {8: 1, 4: 1, 2: 1, 5: 1, 3: 1, 1: 1, 0: 1, 6: 1, 7: 1, 10: 1}}
+
+-- rfeedback
+{3: [0.0], 4: [0.0], 1: [80.0]}
+
+******************
+
+
+Q answer: 10
+node 9 will delegate: false
+node 9 answer: -50
+resistance: 60
+Q fuel: 207
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.18811882, 0.0, 0.0, 0.0],
+ [0.0, 0.2920354, 0.36666667, 0.33333334, 0.0],
+ [0.0, 0.8181818, 1.0, 1.0, 1.0],
+ [0.0, 0.0, 0.25, 1.0, 0.0],
+ [0.5, 0.875, 0.8333333, 0.33333334, 0.6666667],
+ [0.5, 0.9047619, 0.16666667, 1.0, 0.0],
+ [0.0, 0.57575756, 0.51666665, 0.64, 0.6666667],
+ [0.0, 0.67391306, 0.8833333, 0.48, 0.0],
+ [1.0, 1.0, 1.0, 1.0, 0.0],
+ [0.0, 1.0, 1.0, 0.0, 0.0],
+ [0.0, 0.2244898, 0.0, 1.0, 0.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[1, 1, 1, 1, 0],
+ [1, 1, 1, 1, 0],
+ [0, 1, 1, 1, 1],
+ [0, 1, 1, 1, 0],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 0],
+ [0, 1, 1, 1, 1],
+ [0, 1, 1, 1, 0],
+ [1, 1, 1, 1, 0],
+ [0, 1, 1, 1, 1],
+ [1, 1, 1, 1, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[50, 40, 10, -25, 0],
+ [50, 0, -12, -50, 0],
+ [0, 80, -50, -100, 0],
+ [0, -80, 25, -100, 0],
+ [75, 60, -40, 0, 2],
+ [25, 70, 20, -100, 0],
+ [0, -38, -21, -73, 2],
+ [0, 74, -43, -61, 0],
+ [0, 80, -50, -100, 0],
+ [0, -80, -50, -25, 6],
+ [50, 40, 10, -100, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance -171
+	----
+node 10
+neighbors [8, 9]
+resistance 3
+	----
+node 5
+neighbors [0, 6]
+resistance -105
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 81
+	----
+node 1
+neighbors [0, 7, 9]
+resistance 20
+	----
+node 7
+neighbors [1, 3, 9]
+resistance -51
+	----
+node 3
+neighbors [0, 7]
+resistance 10
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance -113
+	----
+node 4
+neighbors [0, 6]
+resistance -144
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance -40
+	----
+node 6
+neighbors [2, 4, 5]
+resistance -40
+	----
+====
+ROUND 43
+executing query 4 on node 5
+delegate travel for src 5 question 4
+delegation references: [0, 6]
+delegation references: [1, 2, 3, 4]
+delegation references: [7, 9, 8]
+delegation references: [9, 10]
+delegation references: [10]
+delegate answers for src 5 question 4
+node 0 answer 6
+node 6 answer 10
+node 1 answer 5
+node 2 answer 0
+node 3 answer 10
+node 4 answer 2
+node 7 answer 1
+node 9 answer 6
+node 8 answer 0
+node 10 answer 0
+delegation answer: 4
+DB after delegation:
+*************
+actual answers
+{4: Some(3), 2: Some(20), 3: Some(-100), 0: Some(25), 1: Some(70)}
+-- obj
+{1: 0, 2: 0, 0: 0, 3: 0, 4: 0}
+-- sat other
+{2: {2: 1.0, 4: 0.7, 3: 1.0, 1: 1.0, 0: 1.0}, 0: {2: 1.0, 4: 0.7, 0: 1.0, 3: 1.0, 1: 1.0}, 3: {4: 0.3, 2: 1.0, 3: 1.0, 1: 1.0, 0: 1.0}, 9: {2: 1.0, 1: 1.0, 4: 0.7, 0: 1.0, 3: 1.0}, 6: {1: 1.0, 4: 0.3, 0: 1.0, 3: 1.0, 2: 1.0}, 10: {0: 1.0, 2: 1.0, 1: 1.0, 4: 0.7, 3: 1.0}, 1: {2: 1.0, 0: 1.0, 1: 1.0, 4: 0.8, 3: 1.0}, 4: {2: 1.0, 3: 1.0, 0: 1.0, 4: 0.9, 1: 1.0}, 7: {2: 1.0, 0: 1.0, 3: 1.0, 1: 1.0, 4: 0.8}, 8: {0: 1.0, 4: 0.7, 3: 1.0, 2: 1.0, 1: 1.0}}
+-- delegation records
+average contradiction
+{4: {0: 0.3, 10: 0.3, 3: 0.7, 8: 0.3, 6: 0.7, 2: 0.3, 9: 0.3, 4: 0.1, 1: 0.2, 7: 0.2}}
+delegation frequency
+{4: {3: 1, 2: 1, 9: 1, 8: 1, 6: 1, 1: 1, 10: 1, 4: 1, 7: 1, 0: 1}}
+
+-- rfeedback
+{1: [95.0], 2: [10.0], 3: [75.0], 0: [25.0]}
+
+******************
+
+
+Q answer: 6
+node 5 will delegate: false
+node 5 answer: 3
+resistance: 3
+Q fuel: 206
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.18811882, 0.0, 0.0, 0.0],
+ [0.0, 0.2920354, 0.36666667, 0.33333334, 0.0],
+ [0.0, 0.8181818, 1.0, 1.0, 1.0],
+ [0.0, 0.0, 0.25, 1.0, 0.0],
+ [0.5, 0.875, 0.8333333, 0.33333334, 0.6666667],
+ [0.5, 0.9047619, 0.16666667, 1.0, 0.5],
+ [0.0, 0.57575756, 0.51666665, 0.64, 0.6666667],
+ [0.0, 0.67391306, 0.8833333, 0.48, 0.0],
+ [1.0, 1.0, 1.0, 1.0, 0.0],
+ [0.0, 1.0, 1.0, 0.0, 0.0],
+ [0.0, 0.2244898, 0.0, 1.0, 0.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[1, 1, 1, 1, 0],
+ [1, 1, 1, 1, 0],
+ [0, 1, 1, 1, 1],
+ [0, 1, 1, 1, 0],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [0, 1, 1, 1, 1],
+ [0, 1, 1, 1, 0],
+ [1, 1, 1, 1, 0],
+ [0, 1, 1, 1, 1],
+ [1, 1, 1, 1, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[50, 40, 10, -25, 0],
+ [50, 0, -12, -50, 0],
+ [0, 80, -50, -100, 0],
+ [0, -80, 25, -100, 0],
+ [75, 60, -40, 0, 2],
+ [25, 70, 20, -100, 3],
+ [0, -38, -21, -73, 2],
+ [0, 74, -43, -61, 0],
+ [0, 80, -50, -100, 0],
+ [0, -80, -50, -25, 6],
+ [50, 40, 10, -100, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance -171
+	----
+node 10
+neighbors [8, 9]
+resistance 3
+	----
+node 5
+neighbors [0, 6]
+resistance -108
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 81
+	----
+node 1
+neighbors [0, 7, 9]
+resistance 20
+	----
+node 7
+neighbors [1, 3, 9]
+resistance -51
+	----
+node 3
+neighbors [0, 7]
+resistance 10
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance -113
+	----
+node 4
+neighbors [0, 6]
+resistance -144
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance -40
+	----
+node 6
+neighbors [2, 4, 5]
+resistance -40
+	----
+====
+ROUND 44
+executing query 4 on node 3
+delegate travel for src 3 question 4
+delegation references: [0, 7]
+delegation references: [1, 2, 4, 5, 9]
+delegation references: [9, 6, 8, 10]
+delegation references: [10]
+delegate answers for src 3 question 4
+node 0 answer 6
+node 7 answer 1
+node 1 answer 5
+node 2 answer 0
+node 4 answer 2
+node 5 answer 3
+node 9 answer 6
+node 6 answer 0
+node 8 answer 0
+node 10 answer 0
+delegation answer: 2
+DB after delegation:
+*************
+actual answers
+{0: Some(75), 2: Some(-40), 1: Some(60), 3: Some(0), 4: Some(2)}
+-- obj
+{0: 1, 2: 1, 3: 1, 4: 1, 1: 1}
+-- sat other
+{10: {3: 1.0, 4: 0.0, 1: 1.0, 2: 1.0}, 2: {1: 1.0, 4: 0.0, 2: 1.0, 3: 1.0}, 5: {2: 1.0, 3: 1.0, 1: 1.0, 4: 0.3}, 7: {4: 0.100000024, 1: 1.0, 2: 1.0, 3: 1.0}, 1: {1: 1.0, 2: 1.0, 3: 1.0, 4: 0.5}, 9: {1: 1.0, 4: 0.6, 3: 1.0, 2: 1.0}, 6: {4: 0.0, 2: 1.0, 3: 1.0, 1: 1.0}, 8: {3: 1.0, 2: 1.0, 1: 1.0, 4: 0.0}, 4: {2: 1.0, 1: 1.0, 4: 0.19999999, 3: 1.0}, 0: {1: 1.0, 4: 0.6, 3: 1.0, 2: 1.0}}
+-- delegation records
+average contradiction
+{4: {9: 0.4, 1: 0.5, 0: 0.4, 4: 0.8, 2: 1.0, 6: 1.0, 8: 1.0, 5: 0.7, 10: 1.0, 7: 0.9}}
+delegation frequency
+{4: {5: 1, 7: 1, 4: 1, 9: 1, 1: 1, 10: 1, 0: 1, 2: 1, 8: 1, 6: 1}}
+
+-- rfeedback
+{2: [15.0], 3: [75.0], 1: [0.0]}
+
+******************
+
+
+Q answer: 6
+node 3 will delegate: false
+node 3 answer: 10
+resistance: 4
+Q fuel: 205
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.18811882, 0.0, 0.0, 0.0],
+ [0.0, 0.2920354, 0.36666667, 0.33333334, 0.0],
+ [0.0, 0.8181818, 1.0, 1.0, 1.0],
+ [0.0, 0.0, 0.25, 1.0, 0.6666667],
+ [0.5, 0.875, 0.8333333, 0.33333334, 0.6666667],
+ [0.5, 0.9047619, 0.16666667, 1.0, 0.5],
+ [0.0, 0.57575756, 0.51666665, 0.64, 0.6666667],
+ [0.0, 0.67391306, 0.8833333, 0.48, 0.0],
+ [1.0, 1.0, 1.0, 1.0, 0.0],
+ [0.0, 1.0, 1.0, 0.0, 0.0],
+ [0.0, 0.2244898, 0.0, 1.0, 0.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[1, 1, 1, 1, 0],
+ [1, 1, 1, 1, 0],
+ [0, 1, 1, 1, 1],
+ [0, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [0, 1, 1, 1, 1],
+ [0, 1, 1, 1, 0],
+ [1, 1, 1, 1, 0],
+ [0, 1, 1, 1, 1],
+ [1, 1, 1, 1, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[50, 40, 10, -25, 0],
+ [50, 0, -12, -50, 0],
+ [0, 80, -50, -100, 0],
+ [0, -80, 25, -100, 10],
+ [75, 60, -40, 0, 2],
+ [25, 70, 20, -100, 3],
+ [0, -38, -21, -73, 2],
+ [0, 74, -43, -61, 0],
+ [0, 80, -50, -100, 0],
+ [0, -80, -50, -25, 6],
+ [50, 40, 10, -100, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance -171
+	----
+node 10
+neighbors [8, 9]
+resistance 3
+	----
+node 5
+neighbors [0, 6]
+resistance -108
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 81
+	----
+node 1
+neighbors [0, 7, 9]
+resistance 20
+	----
+node 7
+neighbors [1, 3, 9]
+resistance -51
+	----
+node 3
+neighbors [0, 7]
+resistance 6
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance -113
+	----
+node 4
+neighbors [0, 6]
+resistance -144
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance -40
+	----
+node 6
+neighbors [2, 4, 5]
+resistance -40
+	----
+====
+ROUND 45
+executing query 4 on node 1
+delegate travel for src 1 question 4
+delegation references: [0, 7, 9]
+delegation references: [2, 3, 4, 5, 9, 10]
+delegation references: [6, 8, 10]
+delegate answers for src 1 question 4
+node 0 answer 6
+node 7 answer 1
+node 9 answer 6
+node 2 answer 0
+node 3 answer 10
+node 4 answer 2
+node 5 answer 3
+node 10 answer 0
+node 6 answer 2
+node 8 answer 0
+delegation answer: 3
+DB after delegation:
+*************
+actual answers
+{4: None, 1: None, 2: None, 0: None, 3: None}
+-- obj
+{1: 0, 3: 0, 4: 0, 0: 0, 2: 0}
+-- sat other
+{3: {4: 0.5, 3: 1.0, 2: 1.0, 0: 1.0, 1: 1.0}, 9: {2: 1.0, 3: 1.0, 0: 1.0, 4: 0.9, 1: 1.0}, 0: {1: 1.0, 4: 0.9, 2: 1.0, 0: 1.0, 3: 1.0}, 10: {1: 1.0, 2: 1.0, 0: 1.0, 3: 1.0, 4: 0.5}, 4: {4: 0.7, 3: 1.0, 1: 1.0, 2: 1.0, 0: 1.0}, 5: {3: 1.0, 4: 0.8, 1: 1.0, 2: 1.0, 0: 1.0}, 6: {1: 1.0, 0: 1.0, 3: 1.0, 4: 0.7, 2: 1.0}, 7: {1: 1.0, 4: 0.6, 2: 1.0, 3: 1.0, 0: 1.0}, 2: {4: 0.5, 3: 1.0, 1: 1.0, 0: 1.0, 2: 1.0}, 8: {4: 0.5, 0: 1.0, 3: 1.0, 1: 1.0, 2: 1.0}}
+-- delegation records
+average contradiction
+{4: {10: 0.5, 2: 0.5, 6: 0.3, 3: 0.5, 5: 0.2, 0: 0.1, 4: 0.3, 8: 0.5, 9: 0.1, 7: 0.4}}
+delegation frequency
+{4: {0: 1, 7: 1, 8: 1, 3: 1, 4: 1, 6: 1, 9: 1, 2: 1, 5: 1, 10: 1}}
+
+-- rfeedback
+{2: [22.0], 0: [0.0], 3: [25.0], 1: [33.0]}
+
+******************
+
+
+Q answer: 6
+node 1 will delegate: false
+node 1 answer: 5
+resistance: 1
+Q fuel: 204
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.18811882, 0.0, 0.0, 0.0],
+ [0.0, 0.2920354, 0.36666667, 0.33333334, 0.16666667],
+ [0.0, 0.8181818, 1.0, 1.0, 1.0],
+ [0.0, 0.0, 0.25, 1.0, 0.6666667],
+ [0.5, 0.875, 0.8333333, 0.33333334, 0.6666667],
+ [0.5, 0.9047619, 0.16666667, 1.0, 0.5],
+ [0.0, 0.57575756, 0.51666665, 0.64, 0.6666667],
+ [0.0, 0.67391306, 0.8833333, 0.48, 0.0],
+ [1.0, 1.0, 1.0, 1.0, 0.0],
+ [0.0, 1.0, 1.0, 0.0, 0.0],
+ [0.0, 0.2244898, 0.0, 1.0, 0.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[1, 1, 1, 1, 0],
+ [1, 1, 1, 1, 1],
+ [0, 1, 1, 1, 1],
+ [0, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [0, 1, 1, 1, 1],
+ [0, 1, 1, 1, 0],
+ [1, 1, 1, 1, 0],
+ [0, 1, 1, 1, 1],
+ [1, 1, 1, 1, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[50, 40, 10, -25, 0],
+ [50, 0, -12, -50, 5],
+ [0, 80, -50, -100, 0],
+ [0, -80, 25, -100, 10],
+ [75, 60, -40, 0, 2],
+ [25, 70, 20, -100, 3],
+ [0, -38, -21, -73, 2],
+ [0, 74, -43, -61, 0],
+ [0, 80, -50, -100, 0],
+ [0, -80, -50, -25, 6],
+ [50, 40, 10, -100, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance -171
+	----
+node 10
+neighbors [8, 9]
+resistance 3
+	----
+node 5
+neighbors [0, 6]
+resistance -108
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 81
+	----
+node 1
+neighbors [0, 7, 9]
+resistance 19
+	----
+node 7
+neighbors [1, 3, 9]
+resistance -51
+	----
+node 3
+neighbors [0, 7]
+resistance 6
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance -113
+	----
+node 4
+neighbors [0, 6]
+resistance -144
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance -40
+	----
+node 6
+neighbors [2, 4, 5]
+resistance -40
+	----
+====
+ROUND 46
+executing query 0 on node 3
+delegate travel for src 3 question 0
+delegation references: [0, 7]
+delegation references: [1, 2, 4, 5, 9]
+delegation references: [9, 6, 8, 10]
+delegation references: [10]
+delegate answers for src 3 question 0
+node 0 answer 50
+node 7 answer 77
+node 1 answer 50
+node 2 answer 100
+node 4 answer 75
+node 5 answer 25
+node 9 answer 0
+node 6 answer 89
+node 8 answer 0
+node 10 answer 50
+delegation answer: 47
+DB after delegation:
+*************
+actual answers
+{0: Some(75), 2: Some(-40), 1: Some(60), 3: Some(0), 4: Some(2)}
+-- obj
+{0: 1, 2: 1, 3: 1, 4: 1, 1: 1}
+-- sat other
+{10: {3: 1.0, 4: 1.0, 1: 1.0, 2: 1.0, 0: 0.5}, 2: {1: 1.0, 4: 1.0, 2: 1.0, 0: 0.0, 3: 1.0}, 5: {2: 1.0, 3: 1.0, 1: 1.0, 0: 0.75, 4: 1.0}, 7: {4: 1.0, 1: 1.0, 0: 0.23000002, 2: 1.0, 3: 1.0}, 1: {0: 0.5, 1: 1.0, 2: 1.0, 3: 1.0, 4: 1.0}, 9: {1: 1.0, 4: 1.0, 3: 1.0, 0: 1.0, 2: 1.0}, 6: {0: 0.110000014, 4: 1.0, 2: 1.0, 3: 1.0, 1: 1.0}, 8: {3: 1.0, 0: 1.0, 2: 1.0, 1: 1.0, 4: 1.0}, 4: {2: 1.0, 1: 1.0, 4: 1.0, 0: 0.25, 3: 1.0}, 0: {1: 1.0, 4: 1.0, 3: 1.0, 0: 0.5, 2: 1.0}}
+-- delegation records
+average contradiction
+{0: {9: 0.0, 6: 0.89, 1: 0.5, 8: 0.0, 4: 0.75, 5: 0.25, 0: 0.5, 7: 0.77, 10: 0.5, 2: 1.0}}
+delegation frequency
+{0: {10: 1, 4: 1, 8: 1, 6: 1, 1: 1, 9: 1, 7: 1, 5: 1, 2: 1, 0: 1}}
+
+-- rfeedback
+{2: [15.0], 3: [75.0], 1: [0.0], 4: [4.0]}
+
+******************
+
+
+Q answer: 50
+node 3 will delegate: false
+node 3 answer: 0
+resistance: 50
+Q fuel: 203
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.18811882, 0.0, 0.0, 0.0],
+ [0.0, 0.2920354, 0.36666667, 0.33333334, 0.16666667],
+ [0.0, 0.8181818, 1.0, 1.0, 1.0],
+ [1.0, 0.0, 0.25, 1.0, 0.6666667],
+ [0.5, 0.875, 0.8333333, 0.33333334, 0.6666667],
+ [0.5, 0.9047619, 0.16666667, 1.0, 0.5],
+ [0.0, 0.57575756, 0.51666665, 0.64, 0.6666667],
+ [0.0, 0.67391306, 0.8833333, 0.48, 0.0],
+ [1.0, 1.0, 1.0, 1.0, 0.0],
+ [0.0, 1.0, 1.0, 0.0, 0.0],
+ [0.0, 0.2244898, 0.0, 1.0, 0.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[1, 1, 1, 1, 0],
+ [1, 1, 1, 1, 1],
+ [0, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [0, 1, 1, 1, 1],
+ [0, 1, 1, 1, 0],
+ [1, 1, 1, 1, 0],
+ [0, 1, 1, 1, 1],
+ [1, 1, 1, 1, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[50, 40, 10, -25, 0],
+ [50, 0, -12, -50, 5],
+ [0, 80, -50, -100, 0],
+ [0, -80, 25, -100, 10],
+ [75, 60, -40, 0, 2],
+ [25, 70, 20, -100, 3],
+ [0, -38, -21, -73, 2],
+ [0, 74, -43, -61, 0],
+ [0, 80, -50, -100, 0],
+ [0, -80, -50, -25, 6],
+ [50, 40, 10, -100, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance -171
+	----
+node 10
+neighbors [8, 9]
+resistance 3
+	----
+node 5
+neighbors [0, 6]
+resistance -108
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 81
+	----
+node 1
+neighbors [0, 7, 9]
+resistance 19
+	----
+node 7
+neighbors [1, 3, 9]
+resistance -51
+	----
+node 3
+neighbors [0, 7]
+resistance -44
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance -113
+	----
+node 4
+neighbors [0, 6]
+resistance -144
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance -40
+	----
+node 6
+neighbors [2, 4, 5]
+resistance -40
+	----
+====
+ROUND 47
+executing query 0 on node 9
+delegate travel for src 9 question 0
+delegation references: [1, 2, 7, 10]
+delegation references: [0, 7, 6, 8, 3]
+delegation references: [3, 4, 5]
+delegate answers for src 9 question 0
+node 1 answer 50
+node 2 answer 0
+node 7 answer 82
+node 10 answer 50
+node 0 answer 50
+node 6 answer 79
+node 8 answer 0
+node 3 answer 0
+node 4 answer 75
+node 5 answer 25
+delegation answer: 37
+DB after delegation:
+*************
+actual answers
+{0: Some(50), 2: Some(10), 1: Some(40), 3: Some(-25), 4: Some(6)}
+-- obj
+{3: 0, 0: 1, 2: 1, 4: 0, 1: 1}
+-- sat other
+{7: {4: 1.0, 2: 1.0, 0: 0.18, 3: 1.0, 1: 1.0}, 6: {4: 1.0, 3: 1.0, 1: 1.0, 0: 0.20999998, 2: 1.0}, 2: {1: 1.0, 0: 1.0, 3: 1.0, 4: 1.0, 2: 1.0}, 10: {4: 1.0, 2: 1.0, 3: 1.0, 0: 0.5, 1: 1.0}, 8: {3: 1.0, 2: 1.0, 1: 1.0, 0: 1.0, 4: 1.0}, 1: {4: 1.0, 3: 1.0, 1: 1.0, 2: 1.0, 0: 0.5}, 5: {0: 0.75, 3: 1.0, 2: 1.0, 4: 1.0, 1: 1.0}, 0: {2: 1.0, 0: 0.5, 4: 1.0, 3: 1.0, 1: 1.0}, 3: {2: 1.0, 3: 1.0, 1: 1.0, 0: 1.0, 4: 1.0}, 4: {0: 0.25, 3: 1.0, 1: 1.0, 4: 1.0, 2: 1.0}}
+-- delegation records
+average contradiction
+{0: {5: 0.25, 2: 0.0, 0: 0.5, 10: 0.5, 3: 0.0, 1: 0.5, 7: 0.82, 8: 0.0, 4: 0.75, 6: 0.79}}
+delegation frequency
+{0: {6: 1, 1: 1, 7: 1, 10: 1, 5: 1, 4: 1, 3: 1, 0: 1, 8: 1, 2: 1}}
+
+-- rfeedback
+{3: [0.0], 4: [0.0], 2: [60.0], 1: [80.0]}
+
+******************
+
+
+Q answer: 50
+node 9 will delegate: false
+node 9 answer: 0
+resistance: 50
+Q fuel: 202
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.18811882, 0.0, 0.0, 0.0],
+ [0.0, 0.2920354, 0.36666667, 0.33333334, 0.16666667],
+ [0.0, 0.8181818, 1.0, 1.0, 1.0],
+ [1.0, 0.0, 0.25, 1.0, 0.6666667],
+ [0.5, 0.875, 0.8333333, 0.33333334, 0.6666667],
+ [0.5, 0.9047619, 0.16666667, 1.0, 0.5],
+ [0.0, 0.57575756, 0.51666665, 0.64, 0.6666667],
+ [0.0, 0.67391306, 0.8833333, 0.48, 0.0],
+ [1.0, 1.0, 1.0, 1.0, 0.0],
+ [1.0, 1.0, 1.0, 0.0, 0.0],
+ [0.0, 0.2244898, 0.0, 1.0, 0.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[1, 1, 1, 1, 0],
+ [1, 1, 1, 1, 1],
+ [0, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [0, 1, 1, 1, 1],
+ [0, 1, 1, 1, 0],
+ [1, 1, 1, 1, 0],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[50, 40, 10, -25, 0],
+ [50, 0, -12, -50, 5],
+ [0, 80, -50, -100, 0],
+ [0, -80, 25, -100, 10],
+ [75, 60, -40, 0, 2],
+ [25, 70, 20, -100, 3],
+ [0, -38, -21, -73, 2],
+ [0, 74, -43, -61, 0],
+ [0, 80, -50, -100, 0],
+ [0, -80, -50, -25, 6],
+ [50, 40, 10, -100, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance -171
+	----
+node 10
+neighbors [8, 9]
+resistance 3
+	----
+node 5
+neighbors [0, 6]
+resistance -108
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 81
+	----
+node 1
+neighbors [0, 7, 9]
+resistance 19
+	----
+node 7
+neighbors [1, 3, 9]
+resistance -51
+	----
+node 3
+neighbors [0, 7]
+resistance -44
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance -113
+	----
+node 4
+neighbors [0, 6]
+resistance -144
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance -90
+	----
+node 6
+neighbors [2, 4, 5]
+resistance -40
+	----
+====
+ROUND 48
+executing query 4 on node 7
+delegate travel for src 7 question 4
+delegation references: [1, 3, 9]
+delegation references: [0, 9, 2, 10]
+delegation references: [2, 4, 5, 10, 6, 8]
+delegation references: [6, 8]
+delegate answers for src 7 question 4
+node 1 answer 5
+node 3 answer 10
+node 9 answer 6
+node 0 answer 6
+node 2 answer 0
+node 10 answer 0
+node 4 answer 2
+node 5 answer 3
+node 6 answer 2
+node 8 answer 0
+delegation answer: 3
+DB after delegation:
+*************
+actual answers
+{1: Some(-20), 0: Some(50), 4: Some(6), 3: Some(0), 2: Some(10)}
+-- obj
+{3: 2, 1: 2, 0: 2, 2: 2, 4: 2}
+-- sat other
+{1: {4: 0.6, 1: 1.0, 3: 1.0, 2: 1.0}, 0: {4: 0.5, 3: 1.0, 2: 1.0, 1: 1.0}, 9: {3: 1.0, 1: 1.0, 4: 0.5, 2: 1.0}, 2: {2: 1.0, 3: 1.0, 4: 0.9, 1: 1.0}, 3: {3: 1.0, 2: 1.0, 1: 1.0, 4: 0.100000024}, 5: {1: 1.0, 2: 1.0, 3: 1.0, 4: 0.8}, 8: {4: 0.9, 2: 1.0, 1: 1.0, 3: 1.0}, 10: {3: 1.0, 2: 1.0, 1: 1.0, 4: 0.9}, 4: {1: 1.0, 4: 0.9, 3: 1.0, 2: 1.0}, 6: {1: 1.0, 2: 1.0, 3: 1.0, 4: 0.9}}
+-- delegation records
+average contradiction
+{4: {10: 0.1, 0: 0.5, 8: 0.1, 2: 0.1, 3: 0.9, 1: 0.4, 4: 0.1, 5: 0.2, 6: 0.1, 9: 0.5}}
+delegation frequency
+{4: {8: 1, 5: 1, 1: 1, 2: 1, 6: 1, 0: 1, 4: 1, 10: 1, 3: 1, 9: 1}}
+
+-- rfeedback
+{1: [62.0], 3: [36.0], 2: [53.0]}
+
+******************
+
+
+Q answer: 6
+node 7 will delegate: false
+node 7 answer: 1
+resistance: 5
+Q fuel: 201
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.18811882, 0.0, 0.0, 0.0],
+ [0.0, 0.2920354, 0.36666667, 0.33333334, 0.16666667],
+ [0.0, 0.8181818, 1.0, 1.0, 1.0],
+ [1.0, 0.0, 0.25, 1.0, 0.6666667],
+ [0.5, 0.875, 0.8333333, 0.33333334, 0.6666667],
+ [0.5, 0.9047619, 0.16666667, 1.0, 0.5],
+ [0.0, 0.57575756, 0.51666665, 0.64, 0.6666667],
+ [0.0, 0.67391306, 0.8833333, 0.48, 0.8333333],
+ [1.0, 1.0, 1.0, 1.0, 0.0],
+ [1.0, 1.0, 1.0, 0.0, 0.0],
+ [0.0, 0.2244898, 0.0, 1.0, 0.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[1, 1, 1, 1, 0],
+ [1, 1, 1, 1, 1],
+ [0, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [0, 1, 1, 1, 1],
+ [0, 1, 1, 1, 1],
+ [1, 1, 1, 1, 0],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[50, 40, 10, -25, 0],
+ [50, 0, -12, -50, 5],
+ [0, 80, -50, -100, 0],
+ [0, -80, 25, -100, 10],
+ [75, 60, -40, 0, 2],
+ [25, 70, 20, -100, 3],
+ [0, -38, -21, -73, 2],
+ [0, 74, -43, -61, 1],
+ [0, 80, -50, -100, 0],
+ [0, -80, -50, -25, 6],
+ [50, 40, 10, -100, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance -171
+	----
+node 10
+neighbors [8, 9]
+resistance 3
+	----
+node 5
+neighbors [0, 6]
+resistance -108
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 81
+	----
+node 1
+neighbors [0, 7, 9]
+resistance 19
+	----
+node 7
+neighbors [1, 3, 9]
+resistance -56
+	----
+node 3
+neighbors [0, 7]
+resistance -44
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance -113
+	----
+node 4
+neighbors [0, 6]
+resistance -144
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance -90
+	----
+node 6
+neighbors [2, 4, 5]
+resistance -40
+	----
+====
+ROUND 49
+executing query 4 on node 0
+delegate travel for src 0 question 4
+delegation references: [1, 2, 3, 4, 5]
+delegation references: [7, 9, 6, 8]
+delegation references: [9, 10]
+delegation references: [10]
+delegate answers for src 0 question 4
+node 1 answer 5
+node 2 answer 0
+node 3 answer 10
+node 4 answer 2
+node 5 answer 3
+node 7 answer 2
+node 9 answer 6
+node 6 answer 1
+node 8 answer 0
+node 10 answer 0
+delegation answer: 3
+DB after delegation:
+*************
+actual answers
+{0: Some(50), 1: Some(40), 3: Some(-25), 2: Some(10), 4: Some(6)}
+-- obj
+{3: 0, 4: 0, 0: 0, 2: 0, 1: 0}
+-- sat other
+{3: {4: 0.6, 3: 1.0, 1: 1.0, 2: 1.0, 0: 1.0}, 5: {1: 1.0, 2: 1.0, 0: 1.0, 4: 0.7, 3: 1.0}, 8: {3: 1.0, 2: 1.0, 0: 1.0, 4: 0.39999998, 1: 1.0}, 1: {3: 1.0, 0: 1.0, 1: 1.0, 2: 1.0, 4: 0.9}, 7: {1: 1.0, 3: 1.0, 2: 1.0, 4: 0.6, 0: 1.0}, 2: {0: 1.0, 1: 1.0, 2: 1.0, 3: 1.0, 4: 0.39999998}, 6: {3: 1.0, 1: 1.0, 4: 0.5, 2: 1.0, 0: 1.0}, 4: {0: 1.0, 3: 1.0, 1: 1.0, 4: 0.6, 2: 1.0}, 10: {4: 0.39999998, 3: 1.0, 0: 1.0, 1: 1.0, 2: 1.0}, 9: {4: 1.0, 0: 1.0, 3: 1.0, 1: 1.0, 2: 1.0}}
+-- delegation records
+average contradiction
+{4: {7: 0.4, 3: 0.4, 10: 0.6, 5: 0.3, 1: 0.1, 2: 0.6, 4: 0.4, 9: 0.0, 6: 0.5, 8: 0.6}}
+delegation frequency
+{4: {4: 1, 2: 1, 10: 1, 3: 1, 5: 1, 7: 1, 8: 1, 1: 1, 9: 1, 6: 1}}
+
+-- rfeedback
+{0: [0.0], 1: [19.0], 3: [0.0], 2: [0.0]}
+
+******************
+
+
+Q answer: 6
+node 0 will delegate: false
+node 0 answer: 6
+resistance: 0
+Q fuel: 200
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.18811882, 0.0, 0.0, 0.0],
+ [0.0, 0.2920354, 0.36666667, 0.33333334, 0.16666667],
+ [0.0, 0.8181818, 1.0, 1.0, 1.0],
+ [1.0, 0.0, 0.25, 1.0, 0.6666667],
+ [0.5, 0.875, 0.8333333, 0.33333334, 0.6666667],
+ [0.5, 0.9047619, 0.16666667, 1.0, 0.5],
+ [0.0, 0.57575756, 0.51666665, 0.64, 0.6666667],
+ [0.0, 0.67391306, 0.8833333, 0.48, 0.8333333],
+ [1.0, 1.0, 1.0, 1.0, 0.0],
+ [1.0, 1.0, 1.0, 0.0, 0.0],
+ [0.0, 0.2244898, 0.0, 1.0, 0.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [0, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [0, 1, 1, 1, 1],
+ [0, 1, 1, 1, 1],
+ [1, 1, 1, 1, 0],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[50, 40, 10, -25, 6],
+ [50, 0, -12, -50, 5],
+ [0, 80, -50, -100, 0],
+ [0, -80, 25, -100, 10],
+ [75, 60, -40, 0, 2],
+ [25, 70, 20, -100, 3],
+ [0, -38, -21, -73, 2],
+ [0, 74, -43, -61, 1],
+ [0, 80, -50, -100, 0],
+ [0, -80, -50, -25, 6],
+ [50, 40, 10, -100, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance -171
+	----
+node 10
+neighbors [8, 9]
+resistance 3
+	----
+node 5
+neighbors [0, 6]
+resistance -108
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 81
+	----
+node 1
+neighbors [0, 7, 9]
+resistance 19
+	----
+node 7
+neighbors [1, 3, 9]
+resistance -56
+	----
+node 3
+neighbors [0, 7]
+resistance -44
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance -113
+	----
+node 4
+neighbors [0, 6]
+resistance -144
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance -90
+	----
+node 6
+neighbors [2, 4, 5]
+resistance -40
+	----
+====
+ROUND 50
+executing query 4 on node 10
+delegate travel for src 10 question 4
+delegation references: [8, 9]
+delegation references: [2, 1, 7]
+delegation references: [0, 6, 7, 3]
+delegation references: [3, 4, 5]
+delegate answers for src 10 question 4
+node 8 answer 0
+node 9 answer 6
+node 2 answer 0
+node 1 answer 5
+node 7 answer 2
+node 0 answer 6
+node 6 answer 0
+node 3 answer 10
+node 4 answer 2
+node 5 answer 3
+delegation answer: 3
+DB after delegation:
+*************
+actual answers
+{2: Some(10), 4: Some(6), 0: Some(50), 3: Some(-25), 1: Some(40)}
+-- obj
+{0: 0, 2: 0, 3: 1, 1: 0, 4: 1}
+-- sat other
+{5: {1: 1.0, 2: 1.0, 4: 0.7, 0: 1.0, 3: 1.0}, 3: {4: 0.0, 2: 1.0, 1: 1.0, 3: 1.0, 0: 1.0}, 8: {4: 1.0, 0: 1.0, 1: 1.0, 3: 1.0, 2: 1.0}, 7: {4: 0.8, 2: 1.0, 1: 1.0, 0: 1.0, 3: 1.0}, 9: {0: 1.0, 1: 1.0, 3: 1.0, 4: 0.39999998, 2: 1.0}, 6: {2: 1.0, 0: 1.0, 4: 1.0, 3: 1.0, 1: 1.0}, 2: {3: 1.0, 2: 1.0, 1: 1.0, 4: 1.0, 0: 1.0}, 4: {2: 1.0, 3: 1.0, 0: 1.0, 1: 1.0, 4: 0.8}, 0: {3: 1.0, 2: 1.0, 1: 1.0, 0: 1.0, 4: 0.39999998}, 1: {3: 1.0, 0: 1.0, 1: 1.0, 2: 1.0, 4: 0.5}}
+-- delegation records
+average contradiction
+{4: {5: 0.3, 9: 0.6, 7: 0.2, 2: 0.0, 4: 0.2, 3: 1.0, 0: 0.6, 1: 0.5, 8: 0.0, 6: 0.0}}
+delegation frequency
+{4: {0: 1, 7: 1, 5: 1, 9: 1, 4: 1, 1: 1, 2: 1, 8: 1, 6: 1, 3: 1}}
+
+-- rfeedback
+{1: [22.0], 0: [0.0], 3: [75.0], 2: [0.0]}
+
+******************
+
+
+Q answer: 6
+node 10 will delegate: false
+node 10 answer: 0
+resistance: 6
+Q fuel: 199
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.18811882, 0.0, 0.0, 0.0],
+ [0.0, 0.2920354, 0.36666667, 0.33333334, 0.16666667],
+ [0.0, 0.8181818, 1.0, 1.0, 1.0],
+ [1.0, 0.0, 0.25, 1.0, 0.6666667],
+ [0.5, 0.875, 0.8333333, 0.33333334, 0.6666667],
+ [0.5, 0.9047619, 0.16666667, 1.0, 0.5],
+ [0.0, 0.57575756, 0.51666665, 0.64, 0.6666667],
+ [0.0, 0.67391306, 0.8833333, 0.48, 0.8333333],
+ [1.0, 1.0, 1.0, 1.0, 0.0],
+ [1.0, 1.0, 1.0, 0.0, 0.0],
+ [0.0, 0.2244898, 0.0, 1.0, 1.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [0, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [0, 1, 1, 1, 1],
+ [0, 1, 1, 1, 1],
+ [1, 1, 1, 1, 0],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[50, 40, 10, -25, 6],
+ [50, 0, -12, -50, 5],
+ [0, 80, -50, -100, 0],
+ [0, -80, 25, -100, 10],
+ [75, 60, -40, 0, 2],
+ [25, 70, 20, -100, 3],
+ [0, -38, -21, -73, 2],
+ [0, 74, -43, -61, 1],
+ [0, 80, -50, -100, 0],
+ [0, -80, -50, -25, 6],
+ [50, 40, 10, -100, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance -171
+	----
+node 10
+neighbors [8, 9]
+resistance -3
+	----
+node 5
+neighbors [0, 6]
+resistance -108
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 81
+	----
+node 1
+neighbors [0, 7, 9]
+resistance 19
+	----
+node 7
+neighbors [1, 3, 9]
+resistance -56
+	----
+node 3
+neighbors [0, 7]
+resistance -44
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance -113
+	----
+node 4
+neighbors [0, 6]
+resistance -144
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance -90
+	----
+node 6
+neighbors [2, 4, 5]
+resistance -40
+	----
+====
+ROUND 51
+executing query 0 on node 6
+delegate travel for src 6 question 0
+delegation references: [2, 4, 5]
+delegation references: [0, 8, 9]
+delegation references: [1, 3, 10, 7]
+delegation references: [7]
+delegate answers for src 6 question 0
+node 2 answer 0
+node 4 answer 75
+node 5 answer 25
+node 0 answer 50
+node 8 answer 0
+node 9 answer 100
+node 1 answer 50
+node 3 answer 0
+node 10 answer 50
+node 7 answer 10
+delegation answer: 33
+DB after delegation:
+*************
+actual answers
+{2: Some(10), 3: Some(-25), 4: Some(6), 1: Some(40), 0: Some(50)}
+-- obj
+{0: 2, 1: 2, 2: 2, 4: 2, 3: 2}
+-- sat other
+{1: {4: 1.0, 3: 1.0, 2: 1.0, 0: 0.52, 1: 1.0}, 5: {2: 1.0, 1: 1.0, 0: 0.77, 4: 1.0, 3: 1.0}, 2: {4: 1.0, 2: 1.0, 3: 1.0, 0: 0.98, 1: 1.0}, 4: {0: 0.26999998, 3: 1.0, 4: 1.0, 1: 1.0, 2: 1.0}, 0: {1: 1.0, 3: 1.0, 4: 1.0, 2: 1.0, 0: 0.52}, 9: {3: 1.0, 4: 1.0, 1: 1.0, 2: 1.0, 0: 0.01999998}, 3: {2: 1.0, 1: 1.0, 0: 0.98, 3: 1.0, 4: 1.0}, 10: {3: 1.0, 0: 0.52, 2: 1.0, 4: 1.0, 1: 1.0}, 7: {2: 1.0, 4: 1.0, 3: 1.0, 0: 0.92, 1: 1.0}, 8: {4: 1.0, 1: 1.0, 0: 0.98, 3: 1.0, 2: 1.0}}
+-- delegation records
+average contradiction
+{0: {1: 0.48, 0: 0.48, 9: 0.98, 8: 0.02, 10: 0.48, 2: 0.02, 7: 0.08, 4: 0.73, 5: 0.23, 3: 0.02}}
+delegation frequency
+{0: {4: 1, 2: 1, 3: 1, 7: 1, 5: 1, 10: 1, 9: 1, 0: 1, 8: 1, 1: 1}}
+
+-- rfeedback
+{4: [4.0], 1: [57.0], 3: [48.0], 2: [31.0]}
+
+******************
+
+
+Q answer: 50
+node 6 will delegate: false
+node 6 answer: 2
+resistance: 48
+Q fuel: 198
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.18811882, 0.0, 0.0, 0.0],
+ [0.0, 0.2920354, 0.36666667, 0.33333334, 0.16666667],
+ [0.0, 0.8181818, 1.0, 1.0, 1.0],
+ [1.0, 0.0, 0.25, 1.0, 0.6666667],
+ [0.5, 0.875, 0.8333333, 0.33333334, 0.6666667],
+ [0.5, 0.9047619, 0.16666667, 1.0, 0.5],
+ [0.96, 0.57575756, 0.51666665, 0.64, 0.6666667],
+ [0.0, 0.67391306, 0.8833333, 0.48, 0.8333333],
+ [1.0, 1.0, 1.0, 1.0, 0.0],
+ [1.0, 1.0, 1.0, 0.0, 0.0],
+ [0.0, 0.2244898, 0.0, 1.0, 1.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [0, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [0, 1, 1, 1, 1],
+ [1, 1, 1, 1, 0],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[50, 40, 10, -25, 6],
+ [50, 0, -12, -50, 5],
+ [0, 80, -50, -100, 0],
+ [0, -80, 25, -100, 10],
+ [75, 60, -40, 0, 2],
+ [25, 70, 20, -100, 3],
+ [2, -38, -21, -73, 2],
+ [0, 74, -43, -61, 1],
+ [0, 80, -50, -100, 0],
+ [0, -80, -50, -25, 6],
+ [50, 40, 10, -100, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance -171
+	----
+node 10
+neighbors [8, 9]
+resistance -3
+	----
+node 5
+neighbors [0, 6]
+resistance -108
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 81
+	----
+node 1
+neighbors [0, 7, 9]
+resistance 19
+	----
+node 7
+neighbors [1, 3, 9]
+resistance -56
+	----
+node 3
+neighbors [0, 7]
+resistance -44
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance -113
+	----
+node 4
+neighbors [0, 6]
+resistance -144
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance -90
+	----
+node 6
+neighbors [2, 4, 5]
+resistance -88
+	----
+====
+ROUND 52
+executing query 4 on node 8
+delegate travel for src 8 question 4
+delegation references: [2, 10]
+delegation references: [0, 6, 9]
+delegation references: [1, 3, 4, 5, 7]
+delegation references: [7]
+delegate answers for src 8 question 4
+node 2 answer 0
+node 10 answer 0
+node 0 answer 6
+node 6 answer 1
+node 9 answer 6
+node 1 answer 5
+node 3 answer 10
+node 4 answer 2
+node 5 answer 3
+node 7 answer 10
+delegation answer: 4
+DB after delegation:
+*************
+actual answers
+{4: Some(6), 1: Some(-25), 0: Some(95), 2: Some(10), 3: Some(0)}
+-- obj
+{4: 1, 2: 1, 3: 1, 0: 1, 1: 1}
+-- sat other
+{10: {4: 1.0, 0: 1.0, 1: 1.0, 2: 1.0, 3: 1.0}, 1: {2: 1.0, 1: 1.0, 4: 0.5, 0: 1.0, 3: 1.0}, 7: {0: 1.0, 2: 1.0, 3: 1.0, 1: 1.0, 4: 0.0}, 2: {2: 1.0, 3: 1.0, 1: 1.0, 0: 1.0, 4: 1.0}, 6: {3: 1.0, 0: 1.0, 1: 1.0, 2: 1.0, 4: 0.9}, 9: {0: 1.0, 1: 1.0, 3: 1.0, 2: 1.0, 4: 0.39999998}, 0: {2: 1.0, 3: 1.0, 0: 1.0, 1: 1.0, 4: 0.39999998}, 3: {1: 1.0, 4: 0.0, 2: 1.0, 3: 1.0, 0: 1.0}, 4: {1: 1.0, 3: 1.0, 2: 1.0, 0: 1.0, 4: 0.8}, 5: {2: 1.0, 3: 1.0, 1: 1.0, 0: 1.0, 4: 0.7}}
+-- delegation records
+average contradiction
+{4: {1: 0.5, 10: 0.0, 9: 0.6, 0: 0.6, 5: 0.3, 2: 0.0, 3: 1.0, 7: 1.0, 4: 0.2, 6: 0.1}}
+delegation frequency
+{4: {10: 1, 9: 1, 7: 1, 1: 1, 2: 1, 4: 1, 5: 1, 0: 1, 6: 1, 3: 1}}
+
+-- rfeedback
+{2: [60.0], 1: [86.0], 0: [50.0], 3: [75.0]}
+
+******************
+
+
+Q answer: 6
+node 8 will delegate: false
+node 8 answer: 0
+resistance: 6
+Q fuel: 197
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.18811882, 0.0, 0.0, 0.0],
+ [0.0, 0.2920354, 0.36666667, 0.33333334, 0.16666667],
+ [0.0, 0.8181818, 1.0, 1.0, 1.0],
+ [1.0, 0.0, 0.25, 1.0, 0.6666667],
+ [0.5, 0.875, 0.8333333, 0.33333334, 0.6666667],
+ [0.5, 0.9047619, 0.16666667, 1.0, 0.5],
+ [0.96, 0.57575756, 0.51666665, 0.64, 0.6666667],
+ [0.0, 0.67391306, 0.8833333, 0.48, 0.8333333],
+ [1.0, 1.0, 1.0, 1.0, 1.0],
+ [1.0, 1.0, 1.0, 0.0, 0.0],
+ [0.0, 0.2244898, 0.0, 1.0, 1.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [0, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [0, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[50, 40, 10, -25, 6],
+ [50, 0, -12, -50, 5],
+ [0, 80, -50, -100, 0],
+ [0, -80, 25, -100, 10],
+ [75, 60, -40, 0, 2],
+ [25, 70, 20, -100, 3],
+ [2, -38, -21, -73, 2],
+ [0, 74, -43, -61, 1],
+ [0, 80, -50, -100, 0],
+ [0, -80, -50, -25, 6],
+ [50, 40, 10, -100, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance -177
+	----
+node 10
+neighbors [8, 9]
+resistance -3
+	----
+node 5
+neighbors [0, 6]
+resistance -108
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 81
+	----
+node 1
+neighbors [0, 7, 9]
+resistance 19
+	----
+node 7
+neighbors [1, 3, 9]
+resistance -56
+	----
+node 3
+neighbors [0, 7]
+resistance -44
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance -113
+	----
+node 4
+neighbors [0, 6]
+resistance -144
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance -90
+	----
+node 6
+neighbors [2, 4, 5]
+resistance -88
+	----
+====
+ROUND 53
+executing query 0 on node 7
+delegate travel for src 7 question 0
+delegation references: [1, 3, 9]
+delegation references: [0, 9, 2, 10]
+delegation references: [2, 4, 5, 10, 6, 8]
+delegation references: [6, 8]
+delegate answers for src 7 question 0
+node 1 answer 50
+node 3 answer 0
+node 9 answer 0
+node 0 answer 50
+node 2 answer 0
+node 10 answer 50
+node 4 answer 75
+node 5 answer 25
+node 6 answer 2
+node 8 answer 0
+delegation answer: 23
+DB after delegation:
+*************
+actual answers
+{1: Some(-20), 0: Some(50), 4: Some(6), 3: Some(0), 2: Some(10)}
+-- obj
+{3: 2, 1: 2, 0: 2, 2: 2, 4: 2}
+-- sat other
+{1: {4: 1.0, 1: 1.0, 3: 1.0, 0: 0.66999996, 2: 1.0}, 0: {0: 0.66999996, 4: 1.0, 3: 1.0, 2: 1.0, 1: 1.0}, 9: {3: 1.0, 1: 1.0, 4: 1.0, 2: 1.0, 0: 0.83}, 2: {2: 1.0, 3: 1.0, 4: 1.0, 0: 0.83, 1: 1.0}, 3: {3: 1.0, 2: 1.0, 1: 1.0, 0: 0.83, 4: 1.0}, 5: {1: 1.0, 2: 1.0, 3: 1.0, 4: 1.0, 0: 0.92}, 8: {4: 1.0, 2: 1.0, 1: 1.0, 3: 1.0, 0: 0.83}, 10: {3: 1.0, 0: 0.66999996, 2: 1.0, 1: 1.0, 4: 1.0}, 4: {0: 0.42000002, 1: 1.0, 4: 1.0, 3: 1.0, 2: 1.0}, 6: {1: 1.0, 2: 1.0, 3: 1.0, 4: 1.0, 0: 0.85}}
+-- delegation records
+average contradiction
+{0: {0: 0.33, 6: 0.15, 10: 0.33, 2: 0.17, 5: 0.08, 4: 0.58, 8: 0.17, 9: 0.17, 3: 0.17, 1: 0.33}}
+delegation frequency
+{0: {1: 1, 6: 1, 8: 1, 5: 1, 9: 1, 4: 1, 10: 1, 2: 1, 0: 1, 3: 1}}
+
+-- rfeedback
+{1: [62.0], 4: [5.0], 3: [36.0], 2: [53.0]}
+
+******************
+
+
+Q answer: 50
+node 7 will delegate: false
+node 7 answer: 17
+resistance: 33
+Q fuel: 196
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.18811882, 0.0, 0.0, 0.0],
+ [0.0, 0.2920354, 0.36666667, 0.33333334, 0.16666667],
+ [0.0, 0.8181818, 1.0, 1.0, 1.0],
+ [1.0, 0.0, 0.25, 1.0, 0.6666667],
+ [0.5, 0.875, 0.8333333, 0.33333334, 0.6666667],
+ [0.5, 0.9047619, 0.16666667, 1.0, 0.5],
+ [0.96, 0.57575756, 0.51666665, 0.64, 0.6666667],
+ [0.66, 0.67391306, 0.8833333, 0.48, 0.8333333],
+ [1.0, 1.0, 1.0, 1.0, 1.0],
+ [1.0, 1.0, 1.0, 0.0, 0.0],
+ [0.0, 0.2244898, 0.0, 1.0, 1.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [0, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[50, 40, 10, -25, 6],
+ [50, 0, -12, -50, 5],
+ [0, 80, -50, -100, 0],
+ [0, -80, 25, -100, 10],
+ [75, 60, -40, 0, 2],
+ [25, 70, 20, -100, 3],
+ [2, -38, -21, -73, 2],
+ [17, 74, -43, -61, 1],
+ [0, 80, -50, -100, 0],
+ [0, -80, -50, -25, 6],
+ [50, 40, 10, -100, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance -177
+	----
+node 10
+neighbors [8, 9]
+resistance -3
+	----
+node 5
+neighbors [0, 6]
+resistance -108
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 81
+	----
+node 1
+neighbors [0, 7, 9]
+resistance 19
+	----
+node 7
+neighbors [1, 3, 9]
+resistance -89
+	----
+node 3
+neighbors [0, 7]
+resistance -44
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance -113
+	----
+node 4
+neighbors [0, 6]
+resistance -144
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance -90
+	----
+node 6
+neighbors [2, 4, 5]
+resistance -88
+	----
+====
+ROUND 54
+executing query 0 on node 2
+delegate travel for src 2 question 0
+delegation references: [0, 6, 8, 9]
+delegation references: [1, 3, 4, 5, 10, 7]
+delegation references: [7]
+delegate answers for src 2 question 0
+node 0 answer 50
+node 6 answer 75
+node 8 answer 0
+node 9 answer 0
+node 1 answer 50
+node 3 answer 0
+node 4 answer 75
+node 5 answer 25
+node 10 answer 50
+node 7 answer 25
+delegation answer: 32
+DB after delegation:
+*************
+actual answers
+{1: Some(-40), 2: Some(10), 0: Some(50), 3: Some(-25), 4: Some(6)}
+-- obj
+{1: 1, 2: 1, 3: 1, 4: 1, 0: 1}
+-- sat other
+{4: {3: 1.0, 0: 0.25, 2: 1.0, 1: 1.0, 4: 1.0}, 8: {2: 1.0, 1: 1.0, 4: 1.0, 0: 1.0, 3: 1.0}, 0: {2: 1.0, 4: 1.0, 0: 0.5, 1: 1.0, 3: 1.0}, 6: {4: 1.0, 2: 1.0, 3: 1.0, 0: 0.25, 1: 1.0}, 9: {1: 1.0, 4: 1.0, 2: 1.0, 3: 1.0, 0: 1.0}, 1: {3: 1.0, 4: 1.0, 1: 1.0, 0: 0.5, 2: 1.0}, 3: {1: 1.0, 4: 1.0, 3: 1.0, 0: 1.0, 2: 1.0}, 10: {0: 0.5, 2: 1.0, 3: 1.0, 4: 1.0, 1: 1.0}, 5: {4: 1.0, 0: 0.75, 3: 1.0, 2: 1.0, 1: 1.0}, 7: {0: 0.75, 4: 1.0, 1: 1.0, 2: 1.0, 3: 1.0}}
+-- delegation records
+average contradiction
+{0: {4: 0.75, 6: 0.75, 5: 0.25, 0: 0.5, 9: 0.0, 1: 0.5, 8: 0.0, 3: 0.0, 7: 0.25, 10: 0.5}}
+delegation frequency
+{0: {1: 1, 0: 1, 5: 1, 9: 1, 8: 1, 3: 1, 7: 1, 10: 1, 4: 1, 6: 1}}
+
+-- rfeedback
+{4: [6.0], 2: [60.0], 1: [72.0], 3: [75.0]}
+
+******************
+
+
+Q answer: 50
+node 2 will delegate: false
+node 2 answer: 0
+resistance: 50
+Q fuel: 195
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.18811882, 0.0, 0.0, 0.0],
+ [0.0, 0.2920354, 0.36666667, 0.33333334, 0.16666667],
+ [1.0, 0.8181818, 1.0, 1.0, 1.0],
+ [1.0, 0.0, 0.25, 1.0, 0.6666667],
+ [0.5, 0.875, 0.8333333, 0.33333334, 0.6666667],
+ [0.5, 0.9047619, 0.16666667, 1.0, 0.5],
+ [0.96, 0.57575756, 0.51666665, 0.64, 0.6666667],
+ [0.66, 0.67391306, 0.8833333, 0.48, 0.8333333],
+ [1.0, 1.0, 1.0, 1.0, 1.0],
+ [1.0, 1.0, 1.0, 0.0, 0.0],
+ [0.0, 0.2244898, 0.0, 1.0, 1.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[50, 40, 10, -25, 6],
+ [50, 0, -12, -50, 5],
+ [0, 80, -50, -100, 0],
+ [0, -80, 25, -100, 10],
+ [75, 60, -40, 0, 2],
+ [25, 70, 20, -100, 3],
+ [2, -38, -21, -73, 2],
+ [17, 74, -43, -61, 1],
+ [0, 80, -50, -100, 0],
+ [0, -80, -50, -25, 6],
+ [50, 40, 10, -100, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance -177
+	----
+node 10
+neighbors [8, 9]
+resistance -3
+	----
+node 5
+neighbors [0, 6]
+resistance -108
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 81
+	----
+node 1
+neighbors [0, 7, 9]
+resistance 19
+	----
+node 7
+neighbors [1, 3, 9]
+resistance -89
+	----
+node 3
+neighbors [0, 7]
+resistance -44
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance -163
+	----
+node 4
+neighbors [0, 6]
+resistance -144
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance -90
+	----
+node 6
+neighbors [2, 4, 5]
+resistance -88
+	----
+====
+ROUND 55
+executing query 2 on node 1
+delegate travel for src 1 question 2
+delegation references: [0, 7, 9]
+delegation references: [2, 3, 4, 5, 9, 10]
+delegation references: [6, 8, 10]
+delegate answers for src 1 question 2
+node 0 answer 10
+node 7 answer -36
+node 9 answer -50
+node 2 answer -50
+node 3 answer 25
+node 4 answer -40
+node 5 answer 20
+node 10 answer 10
+node 6 answer -22
+node 8 answer -50
+delegation answer: -17
+DB after delegation:
+*************
+actual answers
+{4: None, 1: None, 2: None, 0: None, 3: None}
+-- obj
+{1: 0, 3: 0, 4: 0, 0: 0, 2: 0}
+-- sat other
+{3: {4: 1.0, 3: 1.0, 2: 0.50666666, 0: 1.0, 1: 1.0}, 9: {2: 0.49333334, 3: 1.0, 0: 1.0, 4: 1.0, 1: 1.0}, 0: {1: 1.0, 4: 1.0, 2: 0.7066667, 0: 1.0, 3: 1.0}, 10: {1: 1.0, 2: 0.7066667, 0: 1.0, 3: 1.0, 4: 1.0}, 4: {4: 1.0, 3: 1.0, 1: 1.0, 2: 0.62666667, 0: 1.0}, 5: {3: 1.0, 4: 1.0, 1: 1.0, 2: 0.5733333, 0: 1.0}, 6: {1: 1.0, 0: 1.0, 3: 1.0, 4: 1.0, 2: 0.8666667}, 7: {1: 1.0, 4: 1.0, 2: 0.68, 3: 1.0, 0: 1.0}, 2: {4: 1.0, 3: 1.0, 1: 1.0, 0: 1.0, 2: 0.49333334}, 8: {4: 1.0, 0: 1.0, 3: 1.0, 1: 1.0, 2: 0.49333334}}
+-- delegation records
+average contradiction
+{2: {0: 0.29333332, 7: 0.32, 10: 0.29333332, 9: 0.50666666, 2: 0.50666666, 5: 0.42666668, 3: 0.49333334, 6: 0.13333334, 4: 0.37333333, 8: 0.50666666}}
+delegation frequency
+{2: {7: 1, 4: 1, 2: 1, 5: 1, 0: 1, 8: 1, 10: 1, 3: 1, 6: 1, 9: 1}}
+
+-- rfeedback
+{4: [1.0], 2: [22.0], 0: [0.0], 3: [25.0], 1: [33.0]}
+
+******************
+
+
+Q answer: 10
+node 1 will delegate: false
+node 1 answer: -12
+resistance: 22
+Q fuel: 194
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.18811882, 0.0, 0.0, 0.0],
+ [0.0, 0.2920354, 0.36666667, 0.33333334, 0.16666667],
+ [1.0, 0.8181818, 1.0, 1.0, 1.0],
+ [1.0, 0.0, 0.25, 1.0, 0.6666667],
+ [0.5, 0.875, 0.8333333, 0.33333334, 0.6666667],
+ [0.5, 0.9047619, 0.16666667, 1.0, 0.5],
+ [0.96, 0.57575756, 0.51666665, 0.64, 0.6666667],
+ [0.66, 0.67391306, 0.8833333, 0.48, 0.8333333],
+ [1.0, 1.0, 1.0, 1.0, 1.0],
+ [1.0, 1.0, 1.0, 0.0, 0.0],
+ [0.0, 0.2244898, 0.0, 1.0, 1.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[1, 1, 1, 1, 1],
+ [1, 1, 2, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[50, 40, 10, -25, 6],
+ [50, 0, -12, -50, 5],
+ [0, 80, -50, -100, 0],
+ [0, -80, 25, -100, 10],
+ [75, 60, -40, 0, 2],
+ [25, 70, 20, -100, 3],
+ [2, -38, -21, -73, 2],
+ [17, 74, -43, -61, 1],
+ [0, 80, -50, -100, 0],
+ [0, -80, -50, -25, 6],
+ [50, 40, 10, -100, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance -177
+	----
+node 10
+neighbors [8, 9]
+resistance -3
+	----
+node 5
+neighbors [0, 6]
+resistance -108
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 81
+	----
+node 1
+neighbors [0, 7, 9]
+resistance -3
+	----
+node 7
+neighbors [1, 3, 9]
+resistance -89
+	----
+node 3
+neighbors [0, 7]
+resistance -44
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance -163
+	----
+node 4
+neighbors [0, 6]
+resistance -144
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance -90
+	----
+node 6
+neighbors [2, 4, 5]
+resistance -88
+	----
+====
+ROUND 56
+executing query 1 on node 0
+delegate travel for src 0 question 1
+delegation references: [1, 2, 3, 4, 5]
+delegation references: [7, 9, 6, 8]
+delegation references: [9, 10]
+delegation references: [10]
+delegate answers for src 0 question 1
+node 1 answer 0
+node 2 answer 80
+node 3 answer -80
+node 4 answer 60
+node 5 answer 70
+node 7 answer 52
+node 9 answer -80
+node 6 answer -57
+node 8 answer 80
+node 10 answer 40
+delegation answer: 15
+DB after delegation:
+*************
+actual answers
+{0: Some(50), 1: Some(40), 3: Some(-25), 2: Some(10), 4: Some(6)}
+-- obj
+{3: 0, 4: 0, 0: 0, 2: 0, 1: 0}
+-- sat other
+{3: {4: 1.0, 3: 1.0, 1: 0.25, 2: 1.0, 0: 1.0}, 5: {1: 0.8125, 2: 1.0, 0: 1.0, 4: 1.0, 3: 1.0}, 8: {3: 1.0, 2: 1.0, 0: 1.0, 4: 1.0, 1: 0.75}, 1: {3: 1.0, 0: 1.0, 1: 0.75, 2: 1.0, 4: 1.0}, 7: {1: 0.925, 3: 1.0, 2: 1.0, 4: 1.0, 0: 1.0}, 2: {0: 1.0, 1: 0.75, 2: 1.0, 3: 1.0, 4: 1.0}, 6: {3: 1.0, 1: 0.39375, 4: 1.0, 2: 1.0, 0: 1.0}, 4: {0: 1.0, 3: 1.0, 1: 0.875, 4: 1.0, 2: 1.0}, 10: {4: 1.0, 3: 1.0, 0: 1.0, 1: 1.0, 2: 1.0}, 9: {4: 1.0, 0: 1.0, 3: 1.0, 1: 0.25, 2: 1.0}}
+-- delegation records
+average contradiction
+{1: {7: 0.075, 1: 0.25, 6: 0.60625, 2: 0.25, 8: 0.25, 10: 0.0, 4: 0.125, 5: 0.1875, 9: 0.75, 3: 0.75}}
+delegation frequency
+{1: {6: 1, 3: 1, 4: 1, 2: 1, 7: 1, 9: 1, 5: 1, 1: 1, 8: 1, 10: 1}}
+
+-- rfeedback
+{4: [0.0], 0: [0.0], 1: [19.0], 3: [0.0], 2: [0.0]}
+
+******************
+
+
+Q answer: 22
+node 0 will delegate: true
+node 0 answer: 15
+resistance: 7
+Q fuel: 193
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 11, 0, 0, 0],
+ [0, 11, 0, 0, 0],
+ [0, 11, 0, 0, 0],
+ [0, 11, 0, 0, 0],
+ [0, 11, 0, 0, 0],
+ [0, 11, 0, 0, 0],
+ [0, 11, 0, 0, 0],
+ [0, 11, 0, 0, 0],
+ [0, 11, 0, 0, 0],
+ [0, 11, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.09717884, 0.0, 0.0, 0.0],
+ [0.0, 0.14913712, 0.36666667, 0.33333334, 0.16666667],
+ [1.0, 0.41221035, 1.0, 1.0, 1.0],
+ [1.0, 0.0031194298, 0.25, 1.0, 0.6666667],
+ [0.5, 0.44061944, 0.8333333, 0.33333334, 0.6666667],
+ [0.5, 0.4555004, 0.16666667, 1.0, 0.5],
+ [0.96, 0.29099822, 0.51666665, 0.64, 0.6666667],
+ [0.66, 0.34007597, 0.8833333, 0.48, 0.8333333],
+ [1.0, 0.5031194, 1.0, 1.0, 1.0],
+ [1.0, 0.5031194, 1.0, 0.0, 0.0],
+ [0.0, 0.11536433, 0.0, 1.0, 1.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[1, 2, 1, 1, 1],
+ [1, 1, 2, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[50, 27, 10, -25, 6],
+ [50, 0, -12, -50, 5],
+ [0, 80, -50, -100, 0],
+ [0, -80, 25, -100, 10],
+ [75, 60, -40, 0, 2],
+ [25, 70, 20, -100, 3],
+ [2, -38, -21, -73, 2],
+ [17, 74, -43, -61, 1],
+ [0, 80, -50, -100, 0],
+ [0, -80, -50, -25, 6],
+ [50, 40, 10, -100, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance -177
+	----
+node 10
+neighbors [8, 9]
+resistance -3
+	----
+node 5
+neighbors [0, 6]
+resistance -108
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 74
+	----
+node 1
+neighbors [0, 7, 9]
+resistance -3
+	----
+node 7
+neighbors [1, 3, 9]
+resistance -89
+	----
+node 3
+neighbors [0, 7]
+resistance -44
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance -163
+	----
+node 4
+neighbors [0, 6]
+resistance -144
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance -90
+	----
+node 6
+neighbors [2, 4, 5]
+resistance -88
+	----
+====
+ROUND 57
+executing query 1 on node 0
+	node 10 is fixed by F2
+	Q fuel is: -5
+delegate travel for src 0 question 1
+delegation references: [1, 2, 4, 5]
+delegation references: [7, 8]
+delegation references: [10]
+delegate answers for src 0 question 1
+node 1 answer 0
+node 2 answer 80
+node 3 answer -80
+node 4 answer 60
+node 5 answer 70
+node 7 answer 59
+node 9 answer -80
+node 6 answer -58
+node 8 answer 80
+delegation answer: 13
+DB after delegation:
+*************
+actual answers
+{0: Some(50), 1: Some(40), 3: Some(-25), 2: Some(10), 4: Some(6)}
+-- obj
+{3: 0, 4: 0, 0: 0, 2: 0, 1: 0}
+-- sat other
+{3: {4: 1.0, 3: 1.0, 1: -0.5, 2: 1.0, 0: 1.0}, 5: {1: 0.625, 2: 1.0, 0: 1.0, 4: 1.0, 3: 1.0}, 8: {3: 1.0, 2: 1.0, 0: 1.0, 4: 1.0, 1: 0.5}, 1: {3: 1.0, 0: 1.0, 1: 0.5, 2: 1.0, 4: 1.0}, 7: {1: 0.80625, 3: 1.0, 2: 1.0, 4: 1.0, 0: 1.0}, 2: {0: 1.0, 1: 0.5, 2: 1.0, 3: 1.0, 4: 1.0}, 6: {3: 1.0, 1: -0.21875, 4: 1.0, 2: 1.0, 0: 1.0}, 4: {0: 1.0, 3: 1.0, 1: 0.75, 4: 1.0, 2: 1.0}, 10: {4: 1.0, 3: 1.0, 0: 1.0, 1: 1.0, 2: 1.0}, 9: {4: 1.0, 0: 1.0, 3: 1.0, 1: -0.5, 2: 1.0}}
+-- delegation records
+average contradiction
+{1: {7: 0.096875, 1: 0.25, 6: 0.609375, 2: 0.25, 8: 0.25, 10: 0.0, 4: 0.125, 5: 0.1875, 9: 0.75, 3: 0.75}}
+delegation frequency
+{1: {6: 2, 3: 2, 4: 2, 2: 2, 7: 2, 9: 2, 5: 2, 1: 2, 8: 2, 10: 1}}
+
+-- rfeedback
+{4: [0.0], 0: [0.0], 1: [19.0], 3: [0.0], 2: [0.0]}
+
+******************
+
+
+Q answer: 22
+node 0 will delegate: true
+node 0 answer: 13
+resistance: 9
+Q fuel: -6
+Qdb
+-- W
+[[0, 0, 0, 0, 0],
+ [0, 21, 0, 0, 0],
+ [0, 21, 0, 0, 0],
+ [0, 21, 0, 0, 0],
+ [0, 21, 0, 0, 0],
+ [0, 21, 0, 0, 0],
+ [0, 21, 0, 0, 0],
+ [0, 21, 0, 0, 0],
+ [0, 21, 0, 0, 0],
+ [0, 21, 0, 0, 0],
+ [0, 11, 0, 0, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- X
+[[0.0, 0.06772707, 0.0, 0.0, 0.0],
+ [0.0, 0.07898033, 0.36666667, 0.33333334, 0.16666667],
+ [1.0, 0.21051694, 1.0, 1.0, 1.0],
+ [1.0, 0.0059714797, 0.25, 1.0, 0.6666667],
+ [0.5, 0.22472149, 0.8333333, 0.33333334, 0.6666667],
+ [0.5, 0.23216197, 0.16666667, 1.0, 0.5],
+ [0.96, 0.14991088, 0.51666665, 0.64, 0.6666667],
+ [0.66, 0.17444976, 0.8833333, 0.48, 0.8333333],
+ [1.0, 0.25597146, 1.0, 1.0, 1.0],
+ [1.0, 0.25597146, 1.0, 0.0, 0.0],
+ [0.0, 0.11536433, 0.0, 1.0, 1.0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Y
+[[1, 3, 1, 1, 1],
+ [1, 1, 2, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+-- Z
+[[50, 22, 10, -25, 6],
+ [50, 0, -12, -50, 5],
+ [0, 80, -50, -100, 0],
+ [0, -80, 25, -100, 10],
+ [75, 60, -40, 0, 2],
+ [25, 70, 20, -100, 3],
+ [2, -38, -21, -73, 2],
+ [17, 74, -43, -61, 1],
+ [0, 80, -50, -100, 0],
+ [0, -80, -50, -25, 6],
+ [50, 40, 10, -100, 0]], shape=[11, 5], strides=[5, 1], layout=Cc (0x5), const ndim=2
+
+----
+node 8
+neighbors [2, 10]
+resistance -177
+	----
+node 10
+neighbors [8, 9]
+resistance -3
+	----
+node 5
+neighbors [0, 6]
+resistance -108
+	----
+node 0
+neighbors [1, 2, 3, 4, 5]
+resistance 65
+	----
+node 1
+neighbors [0, 7, 9]
+resistance -3
+	----
+node 7
+neighbors [1, 3, 9]
+resistance -89
+	----
+node 3
+neighbors [0, 7]
+resistance -44
+	----
+node 2
+neighbors [0, 6, 8, 9]
+resistance -163
+	----
+node 4
+neighbors [0, 6]
+resistance -144
+	----
+node 9
+neighbors [1, 2, 7, 10]
+resistance -90
+	----
+node 6
+neighbors [2, 4, 5]
+resistance -88
+	----
+====

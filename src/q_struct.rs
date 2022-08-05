@@ -3,8 +3,10 @@ use crate::seq_encoder;
 use crate::ans; 
 use crate::std_rng;
 use crate::qsbf;
-use ndarray::{arr1,arr2,Array,Array1,Array2,s};
+use ndarray::{arr1,arr2,Array,Array1,Array2,s,ScalarOperand};
 use std::collections::HashSet;
+use std::ops::Add;
+use num_traits::identities::Zero;
 
 /// convert arr1 index to arr2 index
 pub fn arr1_index_to_arr2_index(i:usize,d:(usize,usize)) -> (usize,usize) {
@@ -18,6 +20,17 @@ pub fn arr1_index_to_arr2_index(i:usize,d:(usize,usize)) -> (usize,usize) {
     }
 
     (r,i_)
+}
+
+pub fn dead_node_filter<T>(a: Array2<T>,dead_nodes:HashSet<usize>,fv:T) -> Array2<T>
+where T:Clone + Default + Add<Output=T> + Zero + ScalarOperand {
+    let mut a2 = a.clone();
+    let x:Array1<T> = Array1::zeros(a.dim().1) + fv;
+    for d in dead_nodes.into_iter() {
+        let mut b = a2.slice_mut(s![d,..]); 
+        b.assign(&(x.clone()));
+    }
+    a2
 }
 
 /// question struct
@@ -37,13 +50,17 @@ pub struct QStruct {
     pub f2_nodes: HashSet<usize>,
 
     // fuel level
-    pub c: i32
+    pub c: i32,
+
+    // register dead nodes
+    pub dead_nodes:HashSet<usize>,
+
 }
 
 pub fn build_QStruct(qs:Vec<Q>,r:usize,c:i32) -> QStruct {
     let rd = rdata::build_QData(r,qs.len());
     ////QStruct{qs:qs,rd:rd,f1_nodes:Vec::new(),f2_nodes:Vec::new(),c:c}
-    QStruct{qs:qs,rd:rd,f2_nodes:HashSet::new(),c:c}
+    QStruct{qs:qs,rd:rd,f2_nodes:HashSet::new(),c:c,dead_nodes:HashSet::new()}
 }
 
 impl QStruct {
@@ -71,7 +88,8 @@ impl QStruct {
     }
 
     /// 
-    pub fn one_move(&mut self) -> ((usize,usize),Option<(usize,i32)>) {
+    // pub fn one_move(&mut self) -> ((usize,usize),Option<(usize,i32)>) {
+    pub fn one_move(&mut self) -> (Option<(usize,usize)>,Option<(usize,i32)>) {
         let mut nq = self.priority_nq_pair();
         let av = self.ans_vec();
 
@@ -103,29 +121,36 @@ impl QStruct {
     ///
     /// function outputs: 
     ///     (node idn,question idn)
-    pub fn priority_nq_pair(&mut self) -> (usize,usize) { 
+    pub fn priority_nq_pair(&mut self) -> Option<(usize,usize)> { 
         // case 
         let x = self.random_unanswered_nq_pair(); 
         if !x.is_none() {
-            return x.unwrap();
+            return x;
         }
         self.max_contra_nq_pair() 
     } 
 
     /// max contradicting (node,question) pair is index (r,c)
     /// of (QData.x * QData.y)|(QData.x * QData.w)  
-    pub fn max_contra_nq_pair(&mut self) -> (usize,usize) {
+    pub fn max_contra_nq_pair(&mut self) -> Option<(usize,usize)> {
         let (r,c) = self.rd.x.dim();
+
+        // case: all nodes are dead
+        if self.dead_nodes.len() == r {
+            return None;
+        }
 
         // calculate x * y
             // convert y to f32
-        let y2:Vec<f32> = self.rd.y.clone().into_iter().map(|x| x as f32).collect();
+        let y = dead_node_filter(self.rd.y.clone(),self.dead_nodes.clone(),0); 
+        let y2:Vec<f32> = y.clone().into_iter().map(|x| x as f32).collect();
         let y_:Array2<f32> = Array::from_shape_vec((r,c),y2).unwrap();
         let xy = self.rd.x.clone() * y_;
 
         // calculate x * w
             // convert w to f32
-        let w2:Vec<f32> = self.rd.w.clone().into_iter().map(|x| x as f32).collect();
+        let w = dead_node_filter(self.rd.w.clone(),self.dead_nodes.clone(),0); 
+        let w2:Vec<f32> = w.clone().into_iter().map(|x| x as f32).collect();
         let w_:Array2<f32> = Array::from_shape_vec((r,c),w2).unwrap();
         let xw = self.rd.x.clone() * w_; 
 
@@ -139,9 +164,9 @@ impl QStruct {
 
         // output index of max
         if m1 > m2 {
-            return arr1_index_to_arr2_index(i,(r,c));
+            return Some(arr1_index_to_arr2_index(i,(r,c)));
         }
-        arr1_index_to_arr2_index(i2,(r,c))
+        Some(arr1_index_to_arr2_index(i2,(r,c)))
     }
     
 
@@ -182,5 +207,5 @@ pub fn sample_QStruct1() -> QStruct {
     let q3 = Q{qa:Some(-25),ans_range:(-100,0)};
     let q4 = Q{qa:Some(6),ans_range:(0,10)};
 
-    build_QStruct(vec![q0,q1,q2,q3,q4],11,1000)
+    build_QStruct(vec![q0,q1,q2,q3,q4],11,250)
 }
