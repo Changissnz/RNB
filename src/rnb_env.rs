@@ -166,7 +166,11 @@ impl RNBENV {
 
         // update node resistance
         let rd = (qa - na).abs() as f32;
-        self.rn.nodes[eni].resistance = self.rn.nodes[eni].resistance - rd; 
+
+        // CAUTION: bug fix here 
+        if !node_del {
+            self.rn.nodes[eni].resistance = self.rn.nodes[eni].resistance - rd; 
+        }
 
         if verbose {
             println!("node {} answer: {}",ni,na); 
@@ -187,6 +191,7 @@ impl RNBENV {
             self.q.dead_nodes.insert(ni);
         }
 
+        // update feedback map for node ni 
         if self.rn.nodes[eni].db.rfeedback.contains_key(&qi) {
             self.rn.nodes[eni].db.rfeedback.get_mut(&qi).unwrap().push(rd);
         } else {

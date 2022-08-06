@@ -3,8 +3,8 @@ use ndarray::{arr1,arr2,Array,Array1,Array2,s};
 QStruct bot functions
 */ 
 
-/// function that determines one node to fix by FIX1
-/// *FIX1* place restriction on node so it can no longer be a delegate
+/// function that determines one node to fix by fix F2
+/// *F2* place restriction on node so it can no longer be a delegate
 ///        to any other node. 
 /// uses the following chain:
 /// (1) calculate subset s of nodes that were delegates to any other node

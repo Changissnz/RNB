@@ -53,8 +53,7 @@ pub struct QStruct {
     pub c: i32,
 
     // register dead nodes
-    pub dead_nodes:HashSet<usize>,
-
+    pub dead_nodes:HashSet<usize>
 }
 
 pub fn build_QStruct(qs:Vec<Q>,r:usize,c:i32) -> QStruct {
@@ -87,8 +86,10 @@ impl QStruct {
         (0..l).into_iter().map(|x| self.ans_to_q(x)).collect()
     }
 
-    /// 
-    // pub fn one_move(&mut self) -> ((usize,usize),Option<(usize,i32)>) {
+    /// calculates how QStruct will move:
+    /// return :
+    /// [0] target node and question pair
+    /// [1] target node for F1 and QStruct fuel change
     pub fn one_move(&mut self) -> (Option<(usize,usize)>,Option<(usize,i32)>) {
         let mut nq = self.priority_nq_pair();
         let av = self.ans_vec();
