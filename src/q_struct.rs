@@ -209,5 +209,5 @@ pub fn sample_QStruct1() -> QStruct {
     let q3 = Q{qa:Some(-25),ans_range:(-100,0)};
     let q4 = Q{qa:Some(6),ans_range:(0,10)};
 
-    build_QStruct(vec![q0,q1,q2,q3,q4],11,20000)
+    build_QStruct(vec![q0,q1,q2,q3,q4],11,2000)
 }
