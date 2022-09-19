@@ -14,7 +14,7 @@ pub fn arr1_index_to_arr2_index(i:usize,d:(usize,usize)) -> (usize,usize) {
     let mut r:usize = 0;
     let mut c:usize = 0;
 
-    while i_ > d.1 {
+    while i_ >= d.1 {
         i_ -= d.1;
         r += 1;
     }
@@ -136,7 +136,6 @@ impl QStruct {
     /// of (QData.x * QData.y)|(QData.x * QData.w)  
     pub fn max_contra_nq_pair(&mut self) -> Option<(usize,usize)> {
         let (r,c) = self.rd.x.dim();
-
         // case: all nodes are dead
         if self.dead_nodes.len() == r {
             return None;

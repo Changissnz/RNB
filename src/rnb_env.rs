@@ -124,7 +124,6 @@ impl RNBENV {
         //// calculate dscore (resistance) for delegation
 
         // fetch node ans
-        
         let qr = self.q.qs[qi].ans_range.clone();
         let mut na = self.rn.nodes[eni].ans_to_q(&mut self.rn.ans_box,qi,qr.clone());
 

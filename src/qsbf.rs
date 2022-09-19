@@ -19,8 +19,6 @@ use std::collections::HashSet;
 /// (node identifier,score) 
 pub fn qbot_function_1(z:Array2<i32>,w:Array2<usize>,wanted_answers:Array1<i32>,fixed_nodes:HashSet<usize>) -> Option<(usize,i32)> {    
     let mut q:Vec<usize> = delegate_nodes(w.clone());
-    println!("DELEGATE NODES");
-    println!("{:?}",q);
     q = q.into_iter().filter(|x| !fixed_nodes.contains(&x)).collect();
     if q.len() == 0 {return None;}
 
