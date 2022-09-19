@@ -160,8 +160,6 @@ impl RNBNode {
         (*db).sat_other[&ni][&qi]
     }
 
-    ///////////////////////////// WORK 
-
     /// # description
     /// determines whether to delegate question `qi`. 
     /// # return 
@@ -183,9 +181,14 @@ impl RNBNode {
 
     /// # description 
     /// processes node delegation; outputs the mean answer of the delegate nodes
-    pub fn process_delegation(&mut self,qi:usize,ans_range:(i32,i32),node_ans:i32) -> i32 {
+    pub fn process_delegation(&mut self,qi:usize,ans_range:(i32,i32),node_ans:i32) -> Option<i32> {
         assert!(!self.db.delegation_path.is_none());
         let na = self.db.delegation_path.as_ref().unwrap().na.clone();
+
+        if na.len() == 0 {
+            return None; 
+        }
+
         let mut a: i32 = 0;
         let ard = ans_range.1 - ans_range.0;
         for (k,v) in na.into_iter() {
@@ -196,7 +199,7 @@ impl RNBNode {
 
         let a_: f32 = (a as f32) / ((1 + 
             self.db.delegation_path.as_ref().unwrap().na.len()) as f32);
-        a_.round() as i32
+        Some(a_.round() as i32)
     }
 
     pub fn mod_delegation_record(&mut self,qi:usize,ni:usize,s:f32) {
@@ -224,7 +227,7 @@ impl RNBNode {
 
     /// # description
     /// updates db sat_other map 
-    pub fn update_sat_map(&mut self,qi:usize,ans_range:(i32,i32),node_ans:i32,c:f32) -> i32 {
+    pub fn update_sat_map(&mut self,qi:usize,ans_range:(i32,i32),node_ans:i32,c:f32) -> Option<i32> {
         let del = self.process_delegation(qi,ans_range,node_ans);
         let na = self.db.delegation_path.as_ref().unwrap().na.clone();
         for (k,v) in na.into_iter() {

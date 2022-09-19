@@ -131,7 +131,7 @@ impl RNBENV {
         // fetch delegation ans 
         let da = self.rn.nodes[eni].update_sat_map(qi,qr,na,self.rn.c);
         if verbose {
-            println!("delegation answer: {}",da);
+            println!("delegation answer: {:?}",da);
             println!("DB after delegation:\n*************\n{}\n******************\n\n",self.rn.nodes[eni].db);
         }
 
@@ -141,15 +141,24 @@ impl RNBENV {
             println!("Q answer: {}",qa);
         }
 
-        let rd = (qa - da).abs() as f32;        
         let mut dp = self.rn.nodes[eni].db.delegation_path.clone().unwrap();
-        dp.dscore = Some(rd);
+        if da.is_none() {
+            dp.dscore = Some(f32::MAX); 
+        } else {
+            let rd = (qa - da.unwrap()).abs() as f32;        
+            dp.dscore = Some(rd);
+        }
+
         self.rn.nodes[eni].db.delegation_path = Some(dp);
 
         // let node decide
         let node_del = self.rn.nodes[eni].choose_to_delegate(qi);
         if verbose {
             println!("node {} will delegate: {}",ni,node_del);
+
+            if node_del {
+                println!("{}",self.rn.nodes[eni].db.delegation_path.clone().unwrap());
+            }
         }
 
         // let Q respond
@@ -158,7 +167,7 @@ impl RNBENV {
         if node_del {
             nidns = HashSet::from_iter(
                 self.rn.nodes[eni].db.delegation_path.as_ref().unwrap().na.clone().into_keys());
-            na = da;
+            na = da.unwrap();
         } else {
             // case: no delegation, restore node db
             self.rn.nodes[eni].db = db2;
