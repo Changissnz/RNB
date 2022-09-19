@@ -118,7 +118,7 @@ impl RNBENV {
         self.node_delegation(ni,qi,verbose);
         let eni = self.rn.node_idn_to_index(ni);
 
-        // clone node db
+        // clone node  db
         let db2 = self.rn.nodes[eni].db.clone();
 
         //// calculate dscore (resistance) for delegation
