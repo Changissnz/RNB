@@ -2,6 +2,8 @@
 
 Respondent Network Bot.
 
+(work in progress)
+
 *comments and explanations* 
 
 See paper in folder `info` for a description of bot logistics. 

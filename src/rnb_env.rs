@@ -15,6 +15,7 @@ pub fn build_RNBENV(q:q_struct::QStruct,rn: rnetwork::RNetwork) -> RNBENV {
 
 impl RNBENV {
 
+    /// # description
     /// performs summarization on nodes that can no longer
     /// resist and on Q
     /// return: if network is still active
@@ -22,9 +23,9 @@ impl RNBENV {
         let mut stat = true; 
         if verbose {
             println!("Q fuel: {}",self.q.c);
-            println!("Qdb");
-            println!("{}",self.q.rd);
-            println!("----");
+            //println!("Qdb");
+            //println!("{}",self.q.rd);
+            //println!("----");
         }
         if self.q.c <= 0 {
             stat = false; 
@@ -47,6 +48,7 @@ impl RNBENV {
         stat && stat2
     }
 
+    /// # description
     /// executes one move by Q
     pub fn execute_Q_move(&mut self,verbose:bool) {
         let (i,i2) = self.q.one_move();
@@ -69,6 +71,7 @@ impl RNBENV {
         self.q.c -= 1; 
     }
 
+    /// # description
     /// performs an F2 fix on node, node f.0 can no be
     /// be a delegate
     pub fn fix_F2(&mut self,f:Option<(usize,i32)>,verbose:bool) {
@@ -93,8 +96,8 @@ impl RNBENV {
         }
     }
 
-    /// iterates through nodes and apply F1 fix
-    /// on them.
+    /// # description
+    /// iterates through nodes and apply F1 fix on them.
     pub fn fix_F1(&mut self) {
         let l = self.rn.nodes.len();
 
@@ -188,7 +191,7 @@ impl RNBENV {
 
         // update dead nodes in Q
         if self.rn.nodes[eni].resistance <= 0. {
-            self.q.dead_nodes.insert(ni);
+            self.update_dead_node(ni);
         }
 
         // update feedback map for node ni 
@@ -212,6 +215,9 @@ impl RNBENV {
         self.prompt_node_delegate_answers(ni,qi,verbose);
     }
 
+    /// # description
+    /// performs delegation by node ni for query qi. Set `verbose` to `true`
+    /// for print-to-screen. 
     pub fn node_delegation_on_query(&mut self,ni:usize,qi:usize,verbose:bool) {
         if verbose {
             println!("delegate travel for src {} question {}",ni,qi);
@@ -247,6 +253,8 @@ impl RNBENV {
         self.rn.nodes[eni].db = x;
     }
     
+    /// # description
+    /// 
     pub fn prompt_node_delegate_answers(&mut self,si:usize,qi:usize,verbose:bool) {
         let mut c: HashSet<usize> = HashSet::new();
         
@@ -316,6 +324,24 @@ impl RNBENV {
 
     pub fn fetch_QStruct(&mut self) -> &mut q_struct::QStruct {
         &mut self.q
+    }
+
+    /// # description
+    /// clears dead nodes from each active node's neighbors
+    pub fn update_dead_node(&mut self,ni:usize) {
+        self.q.dead_nodes.insert(ni);
+
+        for x in self.rn.nodes.iter_mut() {
+            (*x).delete_neighbor(ni);
+        }
+
+
+    }
+
+    /// # description
+    /// 
+    pub fn is_dead_node(&mut self) {
+
     }
 
 }

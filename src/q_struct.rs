@@ -45,8 +45,7 @@ pub struct QStruct {
     pub qs: Vec<Q>,
     pub rd: rdata::QData,
 
-    // fix type 1 and type 2 filters
-    //// pub f1_nodes: Vec<usize>,
+    /// fix type 1 and type 2 filters
     pub f2_nodes: HashSet<usize>,
 
     // fuel level
@@ -58,7 +57,6 @@ pub struct QStruct {
 
 pub fn build_QStruct(qs:Vec<Q>,r:usize,c:i32) -> QStruct {
     let rd = rdata::build_QData(r,qs.len());
-    ////QStruct{qs:qs,rd:rd,f1_nodes:Vec::new(),f2_nodes:Vec::new(),c:c}
     QStruct{qs:qs,rd:rd,f2_nodes:HashSet::new(),c:c,dead_nodes:HashSet::new()}
 }
 
@@ -86,8 +84,9 @@ impl QStruct {
         (0..l).into_iter().map(|x| self.ans_to_q(x)).collect()
     }
 
+    /// # description
     /// calculates how QStruct will move:
-    /// return :
+    /// # return
     /// [0] target node and question pair
     /// [1] target node for F1 and QStruct fuel change
     pub fn one_move(&mut self) -> (Option<(usize,usize)>,Option<(usize,i32)>) {
@@ -96,7 +95,8 @@ impl QStruct {
 
         // fetch filtered delegate matrix
         let w = self.filtered_delegate_matrix();
-        let n = qsbf::qbot_function_1(self.rd.z.clone(),self.rd.w.clone(),self.ans_vec());
+        let n = qsbf::qbot_function_1(self.rd.z.clone(),self.rd.w.clone(),
+            self.ans_vec(),self.f2_nodes.clone());
         (nq,n) 
     }
 
@@ -115,6 +115,7 @@ impl QStruct {
         dm
     }
 
+    /// # description
     /// chooses the highest priority (node,question) pair
     /// by the following procedure:
     /// 1. if there exists an unanswered (node,question) pair, output it.
@@ -208,5 +209,5 @@ pub fn sample_QStruct1() -> QStruct {
     let q3 = Q{qa:Some(-25),ans_range:(-100,0)};
     let q4 = Q{qa:Some(6),ans_range:(0,10)};
 
-    build_QStruct(vec![q0,q1,q2,q3,q4],11,250)
+    build_QStruct(vec![q0,q1,q2,q3,q4],11,20000)
 }

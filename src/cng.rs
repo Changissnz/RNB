@@ -307,9 +307,8 @@ pub fn sample_IRFDNG() -> IRFDNG {
 
 /*
 RFunc with 2 <= x<= 10 operands, 
-each operand is in range [-100,100]
 */ 
-pub fn std_random_RFunc() -> RFunc {
+pub fn std_random_RFunc(r:(i32,i32)) -> RFunc {
 
     // random number of operands 
     let sl = std_rng::random_i32_in_range((2,10)) as usize;
@@ -318,7 +317,7 @@ pub fn std_random_RFunc() -> RFunc {
 
     // get random oper(ands|ators)    
     for _ in 0..sl {
-        let v_ = std_rng::random_f32_in_range((-100.,100.));
+        let v_ = std_rng::random_f32_in_range((r.0 as f32,r.1 as f32));
         v.push(v_);
 
         let o_ = std_rng::random_i32_in_range((0,1)) as usize;
@@ -351,11 +350,11 @@ pub fn std_random_IRFDNG(r:(i32,i32)) -> IRFDNG {
     let mut v2:Vec<RFunc> = Vec::new();
 
     for _ in 0..s1 {
-        v1.push(std_random_RFunc());
+        v1.push(std_random_RFunc(r.clone()));
     }
 
     for _ in 0..s2 {
-        v2.push(std_random_RFunc());
+        v2.push(std_random_RFunc(r.clone()));
     }
 
     let v = std_rng::random_i32_in_range(r.clone());

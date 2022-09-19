@@ -1,8 +1,8 @@
+//! QStruct bot functions
 use ndarray::{arr1,arr2,Array,Array1,Array2,s};
-/*
-QStruct bot functions
-*/ 
+use std::collections::HashSet;
 
+/// # description
 /// function that determines one node to fix by fix F2
 /// *F2* place restriction on node so it can no longer be a delegate
 ///        to any other node. 
@@ -10,14 +10,18 @@ QStruct bot functions
 /// (1) calculate subset s of nodes that were delegates to any other node
 /// (2) get MIN (n in s) [delegation_count(n) * |ans(Q) - mean_ans(n)|]
 ///  
-/// NOTE: chain-function is "static", outputting
-///       values based on the procedure described above
-///       and will not calculate the best decision QStruct
-///       can make in specific cases of RNBNetwork. 
-/// return: (node identifier,score) 
-pub fn qbot_function_1(z:Array2<i32>,w:Array2<usize>,wanted_answers:Array1<i32>) -> Option<(usize,i32)> {
-    
-    let q:Vec<usize> = delegate_nodes(w.clone());
+/// # note
+/// chain-function is "static", outputting
+/// values based on the procedure described above
+/// and will not calculate the best decision QStruct
+/// can make in specific cases of RNBNetwork. 
+/// # return
+/// (node identifier,score) 
+pub fn qbot_function_1(z:Array2<i32>,w:Array2<usize>,wanted_answers:Array1<i32>,fixed_nodes:HashSet<usize>) -> Option<(usize,i32)> {    
+    let mut q:Vec<usize> = delegate_nodes(w.clone());
+    println!("DELEGATE NODES");
+    println!("{:?}",q);
+    q = q.into_iter().filter(|x| !fixed_nodes.contains(&x)).collect();
     if q.len() == 0 {return None;}
 
     let mut scores:Vec<i32> = Vec::new();
@@ -32,6 +36,7 @@ pub fn qbot_function_1(z:Array2<i32>,w:Array2<usize>,wanted_answers:Array1<i32>)
     Some((q[n.0],n.1))
 }
 
+/// # description
 /// calculates the delta of QStruct.c (struct's fuel) if F2 is applied to node
 /// n with mean answers z to questions, delegation count w, and QStruct's wanted
 /// values `wanted_answers`. 
@@ -39,6 +44,7 @@ pub fn qbot_base_function(z:Array1<i32>,w:Array1<i32>,wanted_answers:Array1<i32>
     (w * (z - wanted_answers.clone())).into_iter().map(|x| x.abs()).sum()
 }
 
+/// # description
 /// calculates subset of nodes that were delegates to any other node
 pub fn delegate_nodes(w: Array2<usize>) -> Vec<usize> {
     let (r,_) = w.dim();
@@ -99,12 +105,12 @@ mod tests {
     fn test__qbot_function_1() {
         // case 1
         let (z,w,wa) = qbot_function_1__test_case1();
-        let x = qbot_function_1(z,w,wa);
+        let x = qbot_function_1(z,w,wa,HashSet::new());
         assert_eq!(x.unwrap().0,1);
 
         // case 2
         let (z,w,wa) = qbot_function_1__test_case2();
-        let x = qbot_function_1(z,w,wa);
+        let x = qbot_function_1(z,w,wa,HashSet::new());
         assert_eq!(x.unwrap().0,2);
     }
 }

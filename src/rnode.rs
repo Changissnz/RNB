@@ -1,3 +1,4 @@
+//! contains Respondent Network Bot node. 
 use crate::df; 
 use crate::rndb;
 use crate::ans;
@@ -7,9 +8,8 @@ use ndarray::{Array2,Dim};
 use std::collections::HashMap;
 use std::fmt;
 
-/*
-calculates the default F1 answer pattern
-*/ 
+/// # description
+/// calculates the default F1 answer pattern
 pub fn default_F1_anspattern(r: &mut RNBNode,a: &mut ans::Ansbox,qrvec:Vec<(i32,i32)>) -> f1pattern::F1P {
 
     // gather 6 answers to each question 
@@ -26,6 +26,7 @@ pub fn default_F1_anspattern(r: &mut RNBNode,a: &mut ans::Ansbox,qrvec:Vec<(i32,
     f1pattern::build_std_random_F1P(x)
 }
 
+/// the node class used for Respondent Network Bot. 
 #[derive(Clone)]
 pub struct RNBNode {
     // identifier
@@ -39,8 +40,6 @@ pub struct RNBNode {
     // when resistance falls below 0,
     // struct instance will contradict its objective
     pub resistance:f32,
-
-    // 
     pub f1: Option<f1pattern::F1P>
 }
 
@@ -60,7 +59,8 @@ impl fmt::Display for RNBNode {
 
 impl RNBNode {
 
-    ///answers to q by one of the following:
+    /// # description
+    /// answers to q by one of the following:
     /// 1. independent node answer.
     /// 2. fix-F1 answer.
     pub fn ans_to_q(&mut self,a: &mut ans::Ansbox,qi:usize,qr:(i32,i32)) -> i32 {
@@ -73,12 +73,13 @@ impl RNBNode {
         y
     }
 
+    /// # description
     /// independent answer to q
     pub fn indep_ans_to_q(&mut self,a: &mut ans::Ansbox,qi:usize,qr:(i32,i32)) -> i32 {
         (*a).obj_ans(qr,self.db.ans[&qi].clone(),self.db.obj[&qi].clone())
     }
 
-    
+    /// # description
     /// instantiates a df::DPath used for node delegation for a question
     pub fn delegate(&mut self,qi:usize) {
         let mut dp = df::DPath{sm:HashMap::new(),na:HashMap::new(),
@@ -90,7 +91,9 @@ impl RNBNode {
         self.db = db2;
     }
 
-    /// fetch all neighbors that satisfy objective
+    /// # description
+    /// fetch all neighbors that satisfy objective based on satisfaction
+    /// rate map `sat_other`. 
     pub fn delegate_one(&mut self,db: &mut rndb::RNDB,qi:usize) {
         let mut dep = (*db).delegation_path.clone().unwrap();
         dep.sm.insert(self.idn,Vec::new());
@@ -132,6 +135,11 @@ impl RNBNode {
         (*db).delegation_path = Some(dep);
     }
 
+    /// # description
+    /// fetches the query satisfication rate of other node `ni` for question `qi`.
+    /// 
+    /// # NOTE
+    /// misnomer for function: not just neighbors but any other node. 
     pub fn fetch_neighbor_qsat_rate(&mut self,db: &mut rndb::RNDB,ni:usize,qi:usize) -> f32 {        
         let mut qsat:f32 = 0.;
 
@@ -154,10 +162,10 @@ impl RNBNode {
 
     ///////////////////////////// WORK 
 
-    //// call this after making delegation
-    /*
-    True -> delegate
-    */ 
+    /// # description
+    /// determines whether to delegate question `qi`. 
+    /// # return 
+    /// True -> delegate
     pub fn choose_to_delegate(&mut self,qi:usize) -> bool {
         // get rfeedback score
         let mut r:f32 = 0.;
@@ -173,9 +181,8 @@ impl RNBNode {
         !(r < self.db.delegation_path.as_ref().unwrap().dscore.unwrap())
     }
 
-    /*
-    processes node delegation; outputs the mean answer of the delegate nodes
-    */ 
+    /// # description 
+    /// processes node delegation; outputs the mean answer of the delegate nodes
     pub fn process_delegation(&mut self,qi:usize,ans_range:(i32,i32),node_ans:i32) -> i32 {
         assert!(!self.db.delegation_path.is_none());
         let na = self.db.delegation_path.as_ref().unwrap().na.clone();
@@ -215,23 +222,24 @@ impl RNBNode {
         self.db.delegation_records.d2.get_mut(&qi).unwrap().insert(ni,x2 + 1);
     }
 
-    /*
-    updates db sat_other map 
-    */ 
+    /// # description
+    /// updates db sat_other map 
     pub fn update_sat_map(&mut self,qi:usize,ans_range:(i32,i32),node_ans:i32,c:f32) -> i32 {
-        /*
-        println!("satisfaction map");
-        println!("{:?}",self.db.sat_other);
-        println!("-------");
-        */
         let del = self.process_delegation(qi,ans_range,node_ans);
         let na = self.db.delegation_path.as_ref().unwrap().na.clone();
         for (k,v) in na.into_iter() {
-            //println!("K: {}|{}",k,qi);
             let s = 1. - self.db.delegation_records.d1[&qi][&k] * c * 
                     self.db.delegation_records.d2[&qi][&k] as f32;
             self.db.sat_other.get_mut(&k).unwrap().insert(qi,s);
         }
         del
+    }
+
+    /// # description
+    /// deletes `qi` from `neighbors` attribute; used in the
+    /// case when `qi` is a dead node.  
+    pub fn delete_neighbor(&mut self, qi:usize) {
+        let n:Vec<usize> = self.neighbors.clone().into_iter().filter(|x| *x != qi).collect();
+        self.neighbors = n;
     }
 }

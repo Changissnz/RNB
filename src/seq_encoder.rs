@@ -3,9 +3,8 @@ use ndarray::arr1;
 use ndarray::Dim;
 use std::fmt;
 
-/*
-element of IndexFractionNotation
-*/
+
+/// element of IndexFractionNotation
 #[derive(Clone)]
 pub struct FloorDiv {
     pub t: Option<i32>,
@@ -15,10 +14,9 @@ pub struct FloorDiv {
 
 impl FloorDiv {
 
-    /*
-    if t is not none, t/b * m
-    else, i/b * m
-    */
+    
+    /// if t is not none, t/b * m
+    /// else, i/b * m
     pub fn value(&mut self, i: i32) ->i32 {
         if self.t.is_none() {
             let x: f64 = (i as f64) / (self.b as f64);
@@ -45,10 +43,9 @@ impl fmt::Display for FloorDiv {
     }
 }
 
-/*
-A sequence encoder that encodes all values of an Array1<i32>
-by a Vec<FloorDiv> of equal length.
-*/
+
+/// A sequence encoder that encodes all values of an Array1<i32>
+/// by a Vec<FloorDiv> of equal length.
 pub struct IndexFractionNotation {
     pub v: Array1<i32>,
     pub divs: Vec<FloorDiv>
